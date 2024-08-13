@@ -1,4 +1,4 @@
-@include('includes.header_new')
+@include('includes.header')
 <!--<header class="header-area home-banner">
     <img src="{{ asset('images/banner/blog.jpg') }}" alt="banner" />
 </header>-->
@@ -347,4 +347,4 @@
     </div>
 </div> -->
 </div>
-@include('includes.footer_new')
+@include('includes.footer')

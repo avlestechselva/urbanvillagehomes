@@ -92,7 +92,7 @@
                 <span><i class="fa fa-location-arrow move-left"></i> &nbsp;<a>121 Denmark Hill, SE5 8EN, London</a></span>
                 <span class="right-corner"><i class="fa fa-phone move-left"></i> &nbsp;<a>+44 020 3519 9121</a></span>
             </div>
-            <div class="phone-number d-flex align-items-center">
+            <div class="phone-number d-flex">
                 <div class="social">
                     <ul class="d-flex flex-row align-items-center justify-content-start">
                         <li class="facebook-icon"><a target="_blank" href="https://www.facebook.com/urbanvillagehomes"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -115,7 +115,7 @@
     <div class="main-header-area" id="stickyHeader">
         <div class="classy-nav-container breakpoint-off">
             <!-- Classy Menu -->
-            <nav class="classy-navbar justify-content-between mt-3" id="southNav">
+            <nav class="classy-navbar justify-content-between" id="southNav">
 
                 <!-- Logo -->
                 <a class="nav-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo.jpg') }}" alt="Logo"></a>
@@ -135,35 +135,32 @@
                     <!-- Nav Start -->
                     <div class="classynav">
                         <ul>
-                            <!-- <li><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li> -->
-                          
-                            <li><a href="#" class="text-black">SALES <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 320 512" style="width: 35px; height:20px"><path  d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg></a>
-                                <ul class="dropdown dropdown-3">
-                                    <li><a href="{{ url('property/buyers') }}">Buyers</a></li>
-                                    <li><a href="{{ url('sellers') }}">Sellers</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" class="text-black">LETTINGS  <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 320 512" style="width: 35px; height:20px"><path   d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg></a>
-                                <ul class="dropdown dropdown-3">
-                                    <li><a href="{{ url('property/tenants') }}">Tenants</a></li>
-                                    <li><a href="{{ url('landlords') }}">Landlords</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" class="text-black">ABOUT US</a>
+                            <li><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li>
+                            <li><a href="#">ABOUT US</a>
                                 <ul class="dropdown">
                                     <li><a href="{{ url('who-we-are') }}">Who We are</a></li>
                                     <li><a href="{{ url('meet-the-team') }}">Meet the Team</a></li>
                                     <li><a href="{{ url('free-home-staging-consultation') }}">Free Home Staging Consultation</a></li>
-                                    <li><a href="http://127.0.0.1:8000/blog">Blog</a></li>
+                                    <li><a href="{{ url('blog') }}">Blog</a></li>
                                     <li><a href="{{ url('community-partnership') }}">Community Partnership</a></li>
                                     <li><a href="{{ url('life-magazines') }}">Life Magazines</a></li>
                                     <li><a href="{{ url('new-aboutus') }}">New About Us</a></li>
                                 </ul>
                             </li>
-                            <li><a href="{{ url('testimonials') }}" class="text-black">BLOG</a></li>
-                            <li><a href="{{ url('contact') }}" class="text-black">CONTACT</a></li>
-                            <li>
-                            <a href="#" class="BOOK-VALUATION text-white ml-4">BOOK A VALUATION</a></li>
+                            <li><a href="#">SALES</a>
+                                <ul class="dropdown dropdown-3">
+                                    <li><a href="{{ url('property/buyers') }}">Buyers</a></li>
+                                    <li><a href="{{ url('sellers') }}">Sellers</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">LETTINGS</a>
+                                <ul class="dropdown dropdown-3">
+                                    <li><a href="{{ url('property/tenants') }}">Tenants</a></li>
+                                    <li><a href="{{ url('landlords') }}">Landlords</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{{ url('testimonials') }}">REVIEWS</a></li>
+                            <li><a href="{{ url('contact') }}">CONTACT</a></li>
                         </ul>
 
                         <!-- Search Form -->
