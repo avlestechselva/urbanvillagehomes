@@ -27,7 +27,7 @@ class PageController extends Controller
         //latest featured properties
         $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability')
             ->where('status', 1)
-            ->where('featuredProperty', 1)
+            // ->where('featuredProperty', 1)
             ->whereNotIn('availability', $withdrawn)
             ->orderBy('price', 'DESC')
             ->get();
@@ -52,6 +52,8 @@ class PageController extends Controller
                 ->where('type', 'image')
                 ->orderBy('sort_order')
                 ->first();
+
+            $properyimages = $properties[$k]['images'];
 
             $properties[$k]['image'] = $resource['path'];
 
