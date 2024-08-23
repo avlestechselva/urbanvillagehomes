@@ -1,5 +1,7 @@
 @include('includes.header')
 
+<link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
+
 <div class="home hide-mobile" style="z-index: 0">
 		<div class="home_slider_container">
 			 <div class="owl-carousel owl-theme home_slider">
@@ -57,19 +59,22 @@
             </div>
         </div>
     </div>
+    
 
     <div class="featured" style="padding-top: 0px !important;">
         <div class="container">
             <div class="row featured_row move_up">
+               
                 @foreach($properties AS $k => $property)
                     <div class="col-lg-4">
                         <div class="listing">
                             <div class="listing_image">
                                 <div class="listing_image_container">
-                                    <a href="{{ url('property/'.$property->propertyID.'/'.$property->slug) }}">
-                                        <img src="{{ Voyager::image($property->image) }}" alt="Urban Village Home - {{ $property->displayAddress }}">
-                                    </a>
-                                </div>
+                                    
+                                    <img src="{{ $property->image }}" alt="Urban Village Home - {{ $property->displayAddress }}">
+
+                                    
+                            </div>
                                 <div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
                                     <div class="tag tag_house"><a href="{{ url('property/'.$property->propertyID.'/'.$property->slug) }}">{{ $property->availability }}</a></div>
                                     <!--<div class="tag tag_sale"><a href="listings.html">for sale</a></div>-->
@@ -96,254 +101,133 @@
         </div>
     </div>
     
-    <div class="container">
-        <div class="section_title_container text-center">
-                    <h3>Camberwell Tours</h3>
-                    </div>
-            <iframe title="Urban Village Reviews" width="100% !important" height="355" class="set-phone-height" src="https://www.youtube.com/embed/paW1T11FAZc" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-	    </div>
-
-	<div class="container" style="padding-top: 80px !important;">
-            <div class="row move_up_top move-up-phone">
-                <div class="col">
-                    <div class="section_title_container text-center">
-                    <h1 class="head-title">Independent Estate Agents in SE5</h1>
-                    </div>
-                </div>
-            </div>
-	    </div>
-
-        <!-- Map Section -->
-        <div class="map_section container_reset">
+    <!-- <div class="container-fluid mt-5"> -->
+        <section class="our-story position-relative mt-5">
+            <img src="{{ asset('images/about-us/logo.png') }}" alt="">
             <div class="container">
-                <div class="row row-xl-eq-height">
-
-                    <!-- video -->
-                    <div class="col-xl-7 order-xl-1 order-2">
-                        <img class="img-responsive" src="{{ asset('images/uvh-team.jpg') }}" alt="Urban Village Homes Team"/>
-                    </div>
-
-                    <!-- Content -->
-                    <div class="col-xl-5 order-xl-2 order-1">
-                        <div class="map_section_content" style="padding-top: 52px !important;">
-                            <div class="locations_list d-flex flex-column align-items-start justify-content-start">
-                                <label class="location_contaner">
-                                    <input type="radio" name="location_radio">
-                                    <span></span>
-                                    We advertise your property on all major property websites
-                                </label>
-                                <label class="location_contaner">
-                                    <input type="radio" name="location_radio">
-                                    <span></span>
-                                    Free photo shoot to promote your property
-                                </label>
-                                <label class="location_contaner">
-                                    <input type="radio" name="location_radio">
-                                    <span></span>
-                                    Walk through video viewing
-                                </label>
-                                <label class="location_contaner">
-                                    <input type="radio" name="location_radio">
-                                    <span></span>
-                                    Expert sale negotiation
-                                </label>
-                                <label class="location_contaner">
-                                    <input type="radio" name="location_radio">
-                                    <span></span>
-                                    Experienced, reassuring sales progression through to completion
-                                </label>
-                                <label class="location_contaner">
-                                    <input type="radio" name="location_radio">
-                                    <span></span>
-                                    Exceptional and friendly service
-                                </label>
-                                <label class="location_contaner">
-                                    <input type="radio" name="location_radio">
-                                    <span></span>
-                                    Committed to achieving the best price
-                                </label>
-                                <div class="load-more-btn"><a href="#"><i class="fa fa-phone"></i> 020 3519 9121</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-<div class="hot">
-    <div class="container">
-        <div class="row move_up_top">
-            <div class="offset-md-2 col-lg-3" style="margin-bottom:6px !important;">
-                <img class="img-responsive" alt="Urban Village Homes" src="{{ asset('images/uvh-display.jpg') }}"/>
-            </div>
-            <div class="col-lg-5">
-                <div class="prop_text">
-                    <p class="color-black text-justify">Urban Village are genuinely customer focused, determined and calm, providing clients with a high level of professional expertise. Furthermore, we really enjoy what we do and we love working with our client throughout their property journey.
-                        <br/><br/>We pride ourselves on fair and open fees, resulting in excellent value for money, therefore creating a good reputation. Our customers are happy to recommend us to their friends, growing our client base with a personal touch.
+                <h2 class="pt-0">We are Urban Village</h2>
+                <div class="body-component">
+                    <p>
+                        <b>Your local Independent Estate Agents for South London properties.                   </p>
+                        </br>
+                    </br>
+                    <p>
+                        We know how challenging the London property market can be, which is why we pride ourselves on our dedication to customer service, fair and open fees, and local market knowledge and expertise to help you find exactly what you’re looking for. 
+                    </br>
+                    </br>Whether you want to sell, let, buy or rent – we’re here to support you at every step.
                     </p>
                 </div>
             </div>
+        </section>
+
+	
+
+        <!-- Reviews Section -->
+    <div class="reviews-section container-fluid">
+        <h2>See what our customers say</h2>
+        <div class="reviews-container pt-2 pt-lg-4">
+            <div class="review-card main-review">
+                <div class="review-content d-flex flex-column gap-3">
+                    <div class="">
+                        <h3>Excellent</h3>
+                        <!-- stars -->
+                        <div data-v-5158ce97="" data-v-90132dd2="" class="starCollection Excellent-stars d-flex justify-content-center gap-2 pt-1">
+                            <div class="ReviewStar ruk-icon-percentage-star--100"></div>&nbsp;<div class="ReviewStar ruk-icon-percentage-star--100"></div>&nbsp;<div class="ReviewStar ruk-icon-percentage-star--100"></div>&nbsp;<div class="ReviewStar ruk-icon-percentage-star--100"></div>&nbsp;<div class="ReviewStar ruk-icon-percentage-star--75"></div>&nbsp;
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column gap-1 mt-0 average-reviews">
+                        <span>4.9 average</span>
+                        <span>207 reviews</span>
+                    </div>
+                </div>
+                <div class="reviews-io d-flex justify-content-center mt-4">
+                <div class="review-star position-relative"><img src="{{ asset('images/about-us/review-star.png') }}" alt=""></div>
+                <div class="ReviewStar ruk-icon-percentage-star--77 position-relative"></div>&nbsp;
+                    <!-- <img src="path_to_reviews_io_logo.png" alt="Reviews.io"> -->
+                </div>
+            </div>
+            <div class="review-card" style="background-color: #C6BEC426; border: 1px solid #992785;">
+                <div class="d-flex pb-2">
+                    <h4>Ruth Mackie</h4>
+                    <div class="stars ml-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                </div>
+                <p>The lovely team at Urban Village were always available and any minor problems were immediately resolved - I didn’t have any major ones! I was very happy with my part-furnished flat while I was searching for a permanent home of my own. I can recommend Urban Village whole-heartedly to any prospective tenant.</p>
+            </div>
+            <div class="review-card">
+                <div class="d-flex pb-2">
+                    <h4>Ruth Mackie</h4>
+                    <div class="stars ml-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                </div>
+                <p>The lovely team at Urban Village were always available and any minor problems were immediately resolved - I didn’t have any major ones! I was very happy with my part-furnished flat while I was searching for a permanent home of my own. I can recommend Urban Village whole-heartedly to any prospective tenant.</p>
+            </div>
+            <div class="review-card">
+                <div class="d-flex pb-2">
+                    <h4>Ruth Mackie</h4>
+                    <div class="stars ml-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                </div>
+                <p>The lovely team at Urban Village were always available and any minor problems were immediately resolved - I didn’t have any major ones! I was very happy with my part-furnished flat while I was searching for a permanent home of my own. I can recommend Urban Village whole-heartedly to any prospective tenant.</p>
+            </div>
+            <div data-v-90132dd2="" class="ruk-icon-arrow-right-thin-1-01"></div>
         </div>
     </div>
-</div
-<div class="featured">
-    <div class="container">
-        <link rel="stylesheet" href="https://widget.reviews.co.uk/combined/style.css?RUKcarousel">
-<script src="https://widget.reviews.co.uk/combined/dist.js?RUKcarousel"></script>
-<div id="ReviewsWidget"></div>
-<script>
 
-    new ReviewsWidget('#ReviewsWidget', {
 
-                store: 'urban-village-',
-                widget: 'prestige-card-carousel',
-                maxReviews: 21,
 
-                contentMode: 'third-party;product;company;',
-                sku: 'all-product-reviews',
-
-                structuredData: {
-                  product: "",
-                  company: ""
-                },
-
-                richSnippets: {
-                    product: true,
-                    company: true,
-                },
-
-                carouselOptions: {
-                    transitionSpeed: 320,
-                    draggableOnDesktop: true,
-                    showSliderArrows: true,
-                    autoScroll: false,
-                    autoScrollTime: 15,
-                    showTitle: true,
-                    titleText: `Our Customers Love Us`,
-                    showSubTitle: true,
-                    starsInSubTitle: true,
-                    starsAfterName: false,
-                    hideDates: false,
-                    hideThirdParty: true
-                },
-
-                styles: {
-                    starColor:'#FFFFFF',
-                    primaryColor:'#971c5a',
-                    textColor: '#FFFFFF',
-                    neutralColor: '#a4bd16',
-                    borderRadius: "0px",
-                    boxShadow: "0 10px 10px rgba(2,2,2,0.04), 0 6px 6px rgba(2,2,2,0.07) ",
-                    logoColor: "#000",
-                    subTitleStar: "#4F4F4F"
-                },
-    });
-</script>
-
-    </div>
-</div>
 <br/>
 <hr/>
-<div class="hot">
-    <div class="container">
-        <div class="row" style="margin-top: -55px; margin-bottom: 55px;">
-            <div class="col-lg-4" style="min-height:690px; background-color:#f2f2f2;">
-                <div class="intro_content" style="padding:10px;">
-                    <div class="container-2" style="border: 2px solid black; margin:10px; border-radius:0px !important;">
-                        <h4>Mortgage Calculator</h4>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Purchase price: </label><br/>
-                                    <div class="form-group-2 box-form">
-                                       <span>£</span> <input placeholder="eg: 200000" type="text" name="ma" id="ma">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Deposit: </label><br/>
-                                    <div class="form-group-2 box-form">
-                                        <span>£</span> <input placeholder="eg: 50000" type="text" name="dp" id="dp">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Mortgage term: </label><br/>
-                                    <div class="form-group-2 box-form">
-                                        <span>years</span> <input  placeholder="eg: 20" type="text" name="mt" id="mt">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Interest rate:</label><br/>
-                                    <div class="form-group-2 box-form">
-                                        <span>%</span> <input  placeholder="eg: 2.5" type="text" name="ir" id="ir">
-                                    </div>
-                                </div>
-                                <div class="col-md-12" id="mortgage_div" style="text-align: center;">
-                                    <hr/>
-                                    <p>Amount Borrowed: £ <span id="m_amount">00.00</span></p>
-                                    <p>Term: <span id="m_years">00</span> Years</p>
-                                    <p>Interest rate: <span id="m_interest">0.0</span> %</p>
-                                    <h4>Total Monthly Payment: £ <span id="m_payment">00.00</span></h4>
-                                    <p>Total amount repayable: £ <span id="m_total">00.00</span></p>
-                                    <hr/>
-                                </div>
-                            </div>
-                            <input style="margin-bottom: 24px;" type="submit" id="mortgage_submit" value="Calculate"><br><br>
-                    </div>
+
+<div class="property-market-section container">
+    <h2>What's happening in the property market?</h2>
+    <div class="property-market-container pt-4">
+        <div class="property-card">
+            <!-- <img src="path_to_image1.png" alt="7 ways to maximise your outdoor space"> -->
+            <img src="{{ asset('images/about-us/urban-villlage-one.png') }}" alt="Suzanne Vincent" class="profile-image">
+            <div class="property-card-content">
+                <span class="category">HOME IMPROVEMENTS <span class="read-time">| 5 MINS READ</span></span>
+                <h3>7 ways to maximise your outdoor space</h3>
+                <br>
+                <div class="author">
+                    <img src="{{ asset('images/about-us/MaskGroup15.png') }}" alt="Suzanne Vincent">
+                    <span>Suzanne Vincent</span>
+                    <a href="#" class="read-more">Read more...</a>
                 </div>
             </div>
-            <div class="col-lg-4" style="min-height:690px; background-color:#f2f2f2;">
-                <div class="intro_content" style="padding:10px;">
-                    <div class="container-2" style="border: 2px solid black; margin:10px; border-radius:0px !important;">
-                        <form>
-                        <h4>Stamp Duty Calculator</h4>
-                        <div class="alert alert-danger" id="error-message" style="display:none;margin-top: 10px;">
-                            <ul>
-                                <li>The given data was invalid, Please check all your inputs.</li>
-                            </ul>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12" style="text-align: center;">
-                                <label>Purchase price: </label><br/>
-                                <div class="form-group-2 box-form">
-                                    <span>£</span> <input placeholder="200000" type="text" name="value"/>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <br/>
-                                <input checked="checked" type="radio" name="country" value="england"/> SDLT (England or N. Ire)<br/>
-                                <input type="radio" name="country" value="scotland"/> LBTT (Scotland)<br/>
-                                <input type="radio" name="country" value="wales"/> LTT (Wales)<br/>
-                            </div>
-                            <div class="col-md-12">
-                                <br/>
-                                <input type="radio" name="additional" value="investment"/> Investment property<br/>
-                                <input checked="checked" type="radio" name="additional" value="primary"/> Primary residence<br/>
-                                <input type="radio" name="additional" value="first"/> First-time buyer<br/>
-                            </div>
-                            <div class="col-md-12" id="mortgage_div" style="text-align: center;">
-                                <hr/>
-                                <p>Higher Rates: <span id="higher_rates">-</span></p>
-                                <p>Effective rate: <span id="effective_rate">0.0</span> %</p>
-                                <h4>Transaction tax payable: £ <span id="tax_payable">00.00</span></h4>
-                                <hr/>
-                            </div>
-                        </div>
-                        <input style="margin-bottom: 24px;" type="submit" id="stamp_submit" value="Calculate"><br><br>
-                        </form>
-                    </div>
+        </div>
+        <div class="property-card">
+            <!-- <img src="path_to_image2.png" alt="The women etched in history: A tour of South London"> -->
+            <img src="{{ asset('images/about-us/urban-village_two.png') }}" alt="Suzanne Vincent" class="profile-image">
+            <div class="property-card-content">
+                <span class="category">LOCAL AREA <span class="read-time">| 5 MINS READ</span></span>
+                <h3>The women etched in history: A tour of South London</h3>
+                <div class="author">
+                    <img src="{{ asset('images/about-us/MaskGroup15.png') }}" alt="Suzanne Vincent">
+                    <span>Suzanne Vincent</span>
+                    <a href="#" class="read-more">Read more...</a>
                 </div>
             </div>
-            <div class="col-lg-4" id="selling_banner">
-                <a href="https://urbanvillagehomes.com/contact"><img class="img-responsive" alt="Sell Your Homes With UVH Support" src="{{ asset('images/uvh-banner-selling-portrait.jpg') }}"/></a>
+        </div>
+        <div class="property-card">
+            <!-- <img src="path_to_image3.png" alt="5 spring cleaning dos and don'ts"> -->
+            <img src="{{ asset('images/about-us/urban-village_three.png') }}" alt="Suzanne Vincent" class="profile-image">
+            <div class="property-card-content">
+                <span class="category">HOME IMPROVEMENTS <span class="read-time">| 5 MINS READ</span></span>
+                <h3>5 spring cleaning dos and don'ts</h3>
+                <br>
+                <div class="author">
+                    <img src="{{ asset('images/about-us/MaskGroup15.png') }}" alt="Suzanne Vincent">
+                    <span>Suzanne Vincent</span>
+                    <a href="#" class="read-more">Read more...</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- carousel -->
 <div class="hot logo-spinner" style="margin-bottom:-32px;">
     <div class="container">
         <div class="carousel-wrap">
-            <div class="owl-carousel" id="owl-carousel-new">
+            <div class="owl-carousel" id="about-us-carousel">
                 <div class="item"><a href="https://safeagents.co.uk/" target="_blank"><img src="{{ asset('images/logo/safeagent_Logo_RGB.jpg') }}" class="img-responsive"></a></div>
                 <div class="item"><a href="https://www.guildproperty.co.uk" target="_blank"><img src="{{ asset('images/logo/guildproperty.jpg') }}" class="img-responsive"></a></div>
                 <div class="item"><a href="https://www.hometrack.com/uk" target="_blank"><img src="{{ asset('images/logo/hometrack.jpg') }}" class="img-responsive"></a></div>
@@ -355,6 +239,10 @@
                 <div class="item"><a href="" target="_blank"><img src="{{ asset('images/logo/tenant.jpg') }}" class="img-responsive" /></a></div>
                 <div class="item"><a href="" target="_blank"><img src="{{ asset('images/logo/national_approved.jpg') }}" class="img-responsive" /></a></div>
             </div>
+        </div>
+        <div class="custom-nav">
+            <span class="custom-prev d-none d-md-block"><div data-v-90132dd2="" class="ruk-icon-arrow-left-thin-1-01"></div></span>
+            <span class="custom-next d-none d-md-block"><div data-v-90132dd2="" class="ruk-icon-arrow-right-thin-1-01"></div></span>
         </div>
     </div>
 </div>

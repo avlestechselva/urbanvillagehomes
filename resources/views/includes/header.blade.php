@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="{{ asset('css/extra/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery.cookiebar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/customs.css?t=5') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap" rel="stylesheet">
     @if(isset($css_files))
         @foreach($css_files AS $k => $css_file)
             <link rel="stylesheet" type="text/css" href="{{ asset('css/'.$css_file.'.css') }}">

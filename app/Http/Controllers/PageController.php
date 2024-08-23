@@ -25,11 +25,12 @@ class PageController extends Controller
         $withdrawn = array(6, 7);
 
         //latest featured properties
-        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability')
+        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability','images')
             ->where('status', 1)
             // ->where('featuredProperty', 1)
             ->whereNotIn('availability', $withdrawn)
             ->orderBy('price', 'DESC')
+            ->take(6)
             ->get();
 
         //add the one image to the property array
@@ -53,9 +54,15 @@ class PageController extends Controller
                 ->orderBy('sort_order')
                 ->first();
 
-            $properyimages = $properties[$k]['images'];
+            $jsonString = $properties[$k]['images'];
+            $imagesArray = json_decode($jsonString, true);
 
-            $properties[$k]['image'] = $resource['path'];
+            //dd($imagesArray[0]['image']);
+
+            $properties[$k]['image'] = $imagesArray[0]['image'];
+            
+
+            //$properties[$k]['image'] = $resource['path'];
 
             //get property type
             $resource_type = PropertyType::select('type')
@@ -83,6 +90,8 @@ class PageController extends Controller
                 $properties[$k]['rentFrequency'] = $rent_type['frequency_type'];
             }
         }
+
+        //dd($properties);
 
         return view('pages.index',
             [
@@ -142,8 +151,18 @@ class PageController extends Controller
                 $brochures[] = base64_encode($resource['path']);
             }
         }
+        $propertyimages = [];
+        $propertyimagesraw = json_decode( $property['images'],true);
+        
+        foreach ($propertyimagesraw as &$item) {
+            
+            if (isset($item['image'])) {
+                $propertyimages[] = $item['image'];
+            }
+        }
+       
 
-        $property['images'] = $images;
+        $property['images'] = $propertyimages;
         $property['floorplans'] = $floorplans;
         $property['epcGraphs'] = $epcGraphs;
         $property['brochures'] = $brochures;
@@ -173,7 +192,7 @@ class PageController extends Controller
                 ->first();
             $property['rentFrequency'] = $rent_type['frequency_type'];
         }
-
+        //dd($property['images']);
         return view('pages.property_single',
             [
                 'page_title'    => $property['displayAddress'],
@@ -237,6 +256,7 @@ class PageController extends Controller
         }
 
         $property['images'] = $images;
+        
         $property['floorplans'] = $floorplans;
         $property['epcGraphs'] = $epcGraphs;
         $property['brochures'] = $brochures;
