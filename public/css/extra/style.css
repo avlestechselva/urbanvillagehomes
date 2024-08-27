@@ -516,7 +516,8 @@ img {
   .main-header-area .classynav ul li a {
     color: #1e1332;
     text-transform: uppercase;
-    font-weight: 600; }
+    /* font-weight: 600;  */
+  }
 
     .main-header-area .classynav ul li a.active {
         color: #a5bf16;
@@ -537,7 +538,7 @@ img {
     line-height: 1; }
 
     .main-header-area .nav-brand img{
-    width: 220px !important;}
+    width: 150px !important;}
 
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .main-header-area .nav-brand {
@@ -655,10 +656,10 @@ img {
 }
 
 .is-sticky .main-header-area .classynav ul li a {
-    color: #1e1332; !important; }
+    color: #1e1332 !important; }
 
 .is-sticky .dark .classynav ul li .dropdown li a {
-    color: white; !important;;
+    color: white !important;;
 }
 .is-sticky .dark .classynav ul li .dropdown li a:hover {
     color: #a5bb1a; }

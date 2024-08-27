@@ -57,12 +57,9 @@ class PageController extends Controller
             $jsonString = $properties[$k]['images'];
             $imagesArray = json_decode($jsonString, true);
 
-            //dd($imagesArray[0]['image']);
-
             $properties[$k]['image'] = $imagesArray[0]['image'];
             
 
-            //$properties[$k]['image'] = $resource['path'];
 
             //get property type
             $resource_type = PropertyType::select('type')
@@ -479,7 +476,14 @@ class PageController extends Controller
                  ->orderBy('sort_order')
                  ->first();
 
-             $properties_final[$k]['image'] = $resource['path'];
+             //$properties_final[$k]['image'] = $resource['path'];
+
+             $jsonString = $properties_final[$k]['images'];
+            $imagesArray = json_decode($jsonString, true);
+
+            $properties_final[$k]['image'] = $imagesArray[0]['image'];
+
+             //dd($properties_final[$k]['image']);
 
              //get property type
              $resource_type = PropertyType::select('type')

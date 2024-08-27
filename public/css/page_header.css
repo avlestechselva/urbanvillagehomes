@@ -1,0 +1,22 @@
+.page-title-div{
+
+/* UI Properties */
+text-align: center;
+font: normal normal normal 32px/111px DM Serif Display;
+letter-spacing: 1.54px;
+color: #992785;
+opacity: 1;
+padding: 5px;
+height: 40px;
+}
+
+.page-subtitle-div{
+
+    text-align: center;
+font: normal normal 300 17px/111px Outfit;
+letter-spacing: 0.89px;
+color: #000000;
+opacity: 1;
+padding: 5px;
+height: 70px;
+    }

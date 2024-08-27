@@ -12,6 +12,8 @@
 @include('includes.section_search')
 <div class="featured">
     <div class="container">
+
+        
         
         @if(count($properties))
         <div class="row featured_row move_up_top-2">
@@ -21,7 +23,7 @@
                         <div class="listing_image">
                             <div class="listing_image_container">
                                 <a href="{{ url('property/'.$property->propertyID.'/'.$property->slug) }}">
-                                    <img src="{{ Voyager::image($property->image) }}" alt="Urban Village Home - {{ $property->displayAddress }}">
+                                    <img src="{{ $property->image }}" alt="Urban Village Home - {{ $property->displayAddress }}">
                                 </a>
                             </div>
                             <div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">

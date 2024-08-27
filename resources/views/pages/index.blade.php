@@ -1,48 +1,9 @@
 @include('includes.header')
 
 <link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
+<link rel="stylesheet" href="{{ asset('css/page_header.css') }}">
 
-<div class="home hide-mobile" style="z-index: 0">
-		<div class="home_slider_container">
-			 <div class="owl-carousel owl-theme home_slider">
-                 <div class="slide">
-                     <div class="home_container">
-                         <div class="container">
-                             <div class="row">
-                                 <div class="col">
-                                     <!--<div class="center-position-top">
-                                         <div class="row">
-                                             <div class="col-md-12">
-                                                 <div class="line-bot"></div>
-                                             </div>
-                                         </div>
-                                     </div>-->
-                                     <div class="center-position center-position-phone">
-                                         <div class="row move_up-btn move_up-btn-cus">
-                                             <div class="col-md-4">
-                                                 <div class="tag tag_house slider-btn-2"><a href="{{ url('property/buyers') }}">Sales</a></div>
-                                             </div>
-                                             <div class="col-md-4">
-                                                 <div class="tag tag_house slider-btn-2"><a href="{{ url('property/tenants') }}">Lettings</a></div>
-                                             </div>
-                                             <div class="col-md-4">
-                                                 <div class="tag tag_house slider-rbtn-2" ><a onclick="getFunction()" href="#">Reviews</a></div>
-                                             </div>
-                                             <div class="col-md-12">
-                                                 <div class="center-button">
-                                                     <div class="slider-btn-3"><a target="_blank" href="https://urban-village-homes.engage.epropservices.com/">Book a free valuation</a></div>
-                                                 </div>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-			 </div>
-		</div>
-	</div>
+
 
     <div id="video_model" class="modal">
         <!-- Modal content -->
@@ -60,7 +21,8 @@
         </div>
     </div>
     
-
+    <div class="page-title-div"> Buy, sell, let or rent – we’re here at every step </div>
+    <div class= "page-subtitle-div"> Your dedicated Independent Estate Agents in SE5 </div>
     <div class="featured" style="padding-top: 0px !important;">
         <div class="container">
             <div class="row featured_row move_up">
@@ -71,7 +33,9 @@
                             <div class="listing_image">
                                 <div class="listing_image_container">
                                     
-                                    <img src="{{ $property->image }}" alt="Urban Village Home - {{ $property->displayAddress }}">
+                                    <a href="{{ url('property/'.$property->propertyID.'/'.$property->slug) }}">
+                                        <img src="{{ $property->image }}" alt="Urban Village Home - {{ $property->displayAddress }}">
+                                    </a>
 
                                     
                             </div>

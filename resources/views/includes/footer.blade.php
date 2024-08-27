@@ -354,9 +354,10 @@
     }
 </script>
 
-<!--Review floating -->
+<!--Review floating 
 <script type="text/javascript" src="https://dash.reviews.co.uk/widget/float.js" data-store="urban-village-" data-color="#a4bd17" data-position="bottom"></script>
-<link href="https://dash.reviews.co.uk/widget/float.css" rel="stylesheet" />
+<link href="https://dash.reviews.co.uk/widget/float.css" rel="stylesheet" /> 
+-->
 
 </body>
 

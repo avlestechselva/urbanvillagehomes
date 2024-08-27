@@ -1,7 +1,10 @@
 @include('includes.header')
+<link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
+<link rel="stylesheet" href="{{ asset('css/page_header.css') }}">
 <!--<header class="header-area home-banner">
     <img src="{{ asset('images/banner/buyers.jpg') }}" alt="banner" />
 </header>-->
+<link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
 <div aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a></li>
@@ -10,10 +13,13 @@
 </div>
 
 <!-- Intro -->
+<div class="page-title-div"> Selling your property with Urban Village </div>
+    <div class= "page-subtitle-div"> Discover why others choose to partner with us </div>
 
 <div class="intro" style="padding-bottom: 42px !important;">
     <div class="container">
         <div class="row row-eq-height move_up_top">
+            
             <!-- Intro Content -->
             <div class="col-lg-12 move_up_top-2">
                 <div class="intro_content">
