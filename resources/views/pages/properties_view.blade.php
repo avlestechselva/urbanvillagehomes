@@ -1,4 +1,8 @@
 @include('includes.header')
+
+<link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
+<link rel="stylesheet" href="{{ asset('css/page_header.css') }}">
+
 <!--<header class="header-area home-banner">
     <img src="{{ asset('images/banner/buyers.jpg') }}" alt="banner" />
 </header>-->
@@ -9,7 +13,9 @@
     </ol>
 </div>
 
-@include('includes.section_search')
+<div class="page-title-div"> Selling your property with Urban Village </div>
+<div class= "page-subtitle-div"> Discover why others choose to partner with us </div>
+
 <div class="featured">
     <div class="container">
 
