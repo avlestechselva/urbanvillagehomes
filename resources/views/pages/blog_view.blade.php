@@ -19,7 +19,7 @@
                     <!-- Blog Post -->
                     <div class="blog_post">
                         <div class="blog_post_image">
-                            <img src="{{ Voyager::image($post->image) }}" alt="UVH Blog - {{ $post->title }}">
+                            <img src="{{ Storage::url($post->image) }}" alt="UVH Blog - {{ $post->title }}">
                             <div class="section_title_container" style="margin-bottom:-35px;">
                                 <br/>
                                 <h1>{{ $post->title }}</h1>

@@ -89,8 +89,14 @@
 }
 
 .support-section {
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Aligns children vertically */
+    align-items: center; /* Centers child elements horizontally */
+    justify-content: center; /* Centers child elements vertically */
     text-align: center; /* Center align the text */
-    margin: 20px 0; /* Margin for spacing above and below */
+    margin: 0 auto; /* Center the support section container horizontally */
+    min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+    padding: 20px; /* Padding around the content */
 }
 
 .support-section h2 {
@@ -168,6 +174,66 @@
     color: white; /* Icon color */
 }
 
+.letting-experience-section {
+    display: flex; /* Use Flexbox to create a side-by-side layout */
+    justify-content: space-between; /* Space between the image and text */
+    align-items: center; /* Align items in the center vertically */
+    background-color: #1A1033; /* Dark background color */
+    padding: 40px; /* Padding around the section */
+    border-radius: 20px; /* Rounded corners for the section */
+    max-width: 1200px; /* Maximum width for the section */
+    margin: 0 auto; /* Center the section horizontally */
+}
+
+.image-container {
+    flex: 1; /* Flex-grow: occupies equal space as the text container */
+    margin-right: 20px; /* Margin between the image and text */
+}
+
+.experience-image {
+    width: 100%; /* Full width for the image */
+    border-radius: 10px; /* Rounded corners for the image */
+}
+
+.text-container {
+    flex: 1; /* Flex-grow: occupies equal space as the image container */
+    color: white; /* Text color for content */
+}
+
+.experience-heading {
+    color: #d4df12; /* Heading color */
+    font-size: 28px; /* Font size for the heading */
+    margin-bottom: 20px; /* Margin below heading */
+}
+
+.text-container p {
+    font-size: 16px; /* Font size for paragraphs */
+    line-height: 1.6; /* Line height for readability */
+    margin-bottom: 20px; /* Margin below paragraphs */
+}
+
+.benefits-list {
+    list-style-type: none; /* Remove default list style */
+    padding-left: 0; /* Remove left padding */
+}
+
+.benefits-list li {
+    font-size: 16px; /* Font size for list items */
+    line-height: 1.6; /* Line height for list items */
+    color: #d4df12; /* List item text color */
+    margin-bottom: 10px; /* Margin between list items */
+    padding-left: 20px; /* Padding to align text */
+    position: relative; /* Positioning for icon */
+}
+
+.benefits-list li::before {
+    content: "🌿"; /* Add icon before list items */
+    position: absolute; /* Absolute position for icon */
+    left: 0; /* Align icon to the left */
+    top: 0; /* Align icon vertically */
+}
+
+
 
     </style>
 <div aria-label="breadcrumb">
@@ -209,6 +275,26 @@
                     <img src="{{ asset('images/garden.jpg') }}" alt="Property Image">
                 </div>
             </div>
+            <div class="letting-experience-section">
+                <div class="image-container">
+                    <video id="myVideo" poster="{{ asset('images/about-us/logo_poster.jpg') }}" width="100%" height="546">
+                </div>
+                <div class="text-container">
+                    <h2 class="experience-heading">A stress-free letting experience</h2>
+                    <p>
+                        Choosing to let with Urban Village gives you access to a whole host of benefits:
+                    </p>
+                    <ul class="benefits-list">
+                        <li>Our 24/7 client care portal, giving you peace of mind and control throughout the tenancy</li>
+                        <li>Highly trusted contractor partners</li>
+                        <li>Pre-qualification and detailed referencing to find the best tenants</li>
+                        <li>A highly experienced, in-house property manager to ensure your property is well looked after</li>
+                        <li>Completely transparent, fair fees with no inflated prices on repairs or maintenance</li>
+                        <li>Our team visit in person every six months rather than delegating to a third party</li>
+                    </ul>
+                </div>
+            </div>
+            
 
             <div class="support-section">
                 <h2>Get the right support for your needs</h2>

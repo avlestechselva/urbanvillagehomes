@@ -172,7 +172,7 @@ opacity: 1;
                 </ul>
             </div>
             <div class="work-with-us-image">
-                <img src="your-image-path.jpg" alt="Team Image">
+                <img src="{{ asset('images/about-us/MaskGroup44.png') }}" alt="Team Image">
             </div>
         </div>
         
