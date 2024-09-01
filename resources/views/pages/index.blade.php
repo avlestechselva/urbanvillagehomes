@@ -2,8 +2,79 @@
 
 <link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
 <link rel="stylesheet" href="{{ asset('css/page_header.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+<style>
+    .work-with-us-section {
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between text and image */
+    align-items: center; /* Center align items vertically */
+    background-color: white; /* Background color for the section */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for slight elevation */
+    margin: 20px 0; /* Margin for spacing above and below */
+}
+
+.work-with-us-content {
+    max-width: 50%; /* Maximum width for text content */
+}
+
+.work-with-us-content h2 {
+    color: #A22D6C; /* Heading color */
+    font-size: 24px; /* Font size for the heading */
+    margin-bottom: 15px; /* Margin below the heading */
+}
+
+.work-with-us-content p {
+    font-size: 16px; /* Font size for paragraphs */
+    line-height: 1.5; /* Line height for readability */
+    color: #333; /* Text color */
+    margin-bottom: 15px; /* Margin below paragraphs */
+}
+
+.work-with-us-content ul {
+    list-style-type: none; /* Remove default list style */
+    padding-left: 0; /* Remove left padding */
+    margin-bottom: 0; /* Remove bottom margin */
+}
+
+.work-with-us-content ul li {
+    font-size: 16px; /* Font size for list items */
+    line-height: 1.5; /* Line height for list items */
+    color: #6f6f6f; /* Text color */
+    margin-bottom: 10px; /* Margin between list items */
+    padding-left: 25px; /* Padding to align text */
+    position: relative; /* Positioning for icon */
+}
+
+.work-with-us-content ul li::before {
+    content: "🌿"; /* Add icon before list items */
+    position: absolute; /* Absolute position for icon */
+    left: 0; /* Align icon to the left */
+    top: 0; /* Align icon vertically */
+}
+
+.work-with-us-image {
+    max-width: 45%; /* Maximum width for image */
+    margin-left: 20px; /* Margin between image and text */
+}
+
+.work-with-us-image img {
+    width: 100%; /* Full width image */
+    border-radius: 10px; /* Rounded corners   */
+}
+
+.quote-text {
+    text-align: center;
+    font: normal normal normal 35px/47px DM Serif Display;
+letter-spacing: 0.84px;
+color: #992785;
+opacity: 1;
+}
 
 
+    </style>
 
     <div id="video_model" class="modal">
         <!-- Modal content -->
@@ -89,7 +160,22 @@
             </div>
         </section>
 
-	
+        <div class="work-with-us-section">
+            <div class="work-with-us-content">
+                <h2>Why work with us?</h2>
+                <p>We don’t just work for you, we work with you. Partner with our team of experts to benefit from:</p>
+                <ul>
+                    <li>Unrivalled market knowledge and local expertise</li>
+                    <li>Free professional photoshoot to showcase your property</li>
+                    <li>Exceptional, dedicated customer service</li>
+                    <li>Coverage on all major property websites</li>
+                </ul>
+            </div>
+            <div class="work-with-us-image">
+                <img src="your-image-path.jpg" alt="Team Image">
+            </div>
+        </div>
+        
 
         <!-- Reviews Section -->
     <div class="reviews-section container-fluid">
@@ -143,7 +229,24 @@
 
 
 <br/>
-<hr/>
+
+
+<div class="quote-text">
+    “The level of service is brilliant.”
+</div>
+
+<section class="our-story position-relative mt-5">
+    <img src="{{ asset('images/about-us/logo.png') }}" alt="">
+    <div class="container">
+        <h2 class="pt-0">Book a free valuation</h2>
+        <div class="body-component">
+            
+            <p>
+                Do you know what your property is really worth? Whether you’re looking to sell or let, or you’re just curious, book a free valuation with one of our teams today.
+            </p>
+        </div>
+    </div>
+</section>
 
 <div class="property-market-section container">
     <h2>What's happening in the property market?</h2>

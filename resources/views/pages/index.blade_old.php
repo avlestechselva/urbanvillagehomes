@@ -186,7 +186,7 @@
             </div>
         </div>
     </div>
-</div
+            </div>
 <div class="featured">
     <div class="container">
         <link rel="stylesheet" href="https://widget.reviews.co.uk/combined/style.css?RUKcarousel">

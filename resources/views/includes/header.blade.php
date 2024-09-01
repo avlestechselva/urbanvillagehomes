@@ -137,7 +137,7 @@
                             <li><a href="{{ url('new-aboutus') }}"> About Us</a>
                                  
                             </li>
-                            <li><a href="{{ url('testimonials') }}" class="text-black">BLOG</a></li>
+                            <li><a href="{{ url('blog') }}" class="text-black">BLOG</a></li>
                             <li><a href="{{ url('contact') }}" class="text-black">CONTACT</a></li>
                             <li>
                             <a href="https://urban-village-homes.engage.epropservices.com/" class="BOOK-VALUATION text-white ml-4">BOOK A VALUATION</a></li>
