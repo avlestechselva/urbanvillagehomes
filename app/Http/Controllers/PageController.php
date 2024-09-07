@@ -18,7 +18,7 @@ class PageController extends Controller
     {
         $posts = Post::where('status', 'PUBLISHED')
             ->orderBy('created_at', 'desc')
-            ->take(4)
+            ->take(3)
             ->get();
 
         //set withdrawn id
@@ -1001,8 +1001,9 @@ class PageController extends Controller
             ]);
     }
 
-    public function show_camberwell_denmark_hill()
+    public function show_camberwell()
     {
+        
         $css_files  = array('about');
         $js_files   = array('about');
         //Returning blogs
@@ -1011,10 +1012,30 @@ class PageController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('pages.camberwell_denmark_hill',
+        return view('pages.camberwell',
             [
                 'posts' => $posts,
-                'page_title'    => 'Camberwell Denmark Hill',
+                'page_title'    => 'Camberwell',
+                'css_files'     => $css_files,
+                'js_files'      => $js_files
+            ]);
+    }
+
+    public function show_denmark_hill()
+    {
+        
+        $css_files  = array('about');
+        $js_files   = array('about');
+        //Returning blogs
+        $posts = Post::where('status', 'PUBLISHED')
+            ->where('category_id', 11)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('pages.denmark_hill',
+            [
+                'posts' => $posts,
+                'page_title'    => 'Denmark Hill',
                 'css_files'     => $css_files,
                 'js_files'      => $js_files
             ]);
@@ -1305,6 +1326,12 @@ class PageController extends Controller
 
     public function show_sellers()
     {
+        $posts = Post::where('status', 'PUBLISHED')
+            ->where('category_id', '4')
+            ->orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
+
         $css_files  = array('about');
         $js_files   = array('about');
 
@@ -1312,7 +1339,8 @@ class PageController extends Controller
             [
                 'page_title'    => 'Sellers',
                 'css_files'     => $css_files,
-                'js_files'      => $js_files
+                'js_files'      => $js_files,
+                'posts'      => $posts
             ]);
     }
 
@@ -1331,6 +1359,12 @@ class PageController extends Controller
 
     public function show_landlords()
     {
+        $posts = Post::where('status', 'PUBLISHED')
+            ->where('category_id', '8')
+            ->orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
+
         $css_files  = array('about');
         $js_files   = array('about');
 
@@ -1338,7 +1372,8 @@ class PageController extends Controller
             [
                 'page_title'    => 'Landlords',
                 'css_files'     => $css_files,
-                'js_files'      => $js_files
+                'js_files'      => $js_files,
+                'posts'         => $posts
             ]);
     }
 

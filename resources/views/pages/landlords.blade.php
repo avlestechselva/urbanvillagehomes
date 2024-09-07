@@ -684,50 +684,28 @@
                 </div>
             </div>
 
-            <div class="property-market-section landlord-property-market container pt-0">
+            <div class="property-market-section container">
                 <h2>What's happening in the property market?</h2>
                 <div class="property-market-container pt-4">
-                    <div class="property-card">
-                        <!-- <img src="path_to_image1.png" alt="7 ways to maximise your outdoor space"> -->
-                        <img src="{{ asset('images/about-us/urban-villlage-one.png') }}" alt="Suzanne Vincent" class="profile-image">
-                        <div class="property-card-content">
-                            <span class="category">HOME IMPROVEMENTS <span class="read-time">| 5 MINS READ</span></span>
-                            <h3>7 ways to maximise your outdoor space</h3>
-                            <br>
-                            <div class="author">
-                                <img src="{{ asset('images/about-us/MaskGroup15.png') }}" alt="Suzanne Vincent">
-                                <span>Suzanne Vincent</span>
-                                <a href="#" class="read-more">Read more...</a>
+                    @foreach($posts AS $k => $post)
+            
+                    
+                        <div class="property-card">
+                            <!-- <img src="path_to_image1.png" alt="7 ways to maximise your outdoor space"> -->
+                            <img src="{{ Storage::url($post->image) }}" alt="Suzanne Vincent" class="profile-image">
+                            <div class="property-card-content">
+                                <span class="category">{{ $post->category->name }} <span class="read-time">| 5 MINS READ</span></span>
+                                <h3>{{$post->title }}</h3>
+                                <br>
+                                <div class="author">
+                                    {{-- <img src="{{ asset('images/about-us/MaskGroup15.png') }}" alt="Suzanne Vincent">
+                                    <span>Suzanne Vincent</span> --}}
+                                    <a href="{{ url('blog/view/'.$post->slug) }}" class="read-more">Read more...</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="property-card">
-                        <!-- <img src="path_to_image2.png" alt="The women etched in history: A tour of South London"> -->
-                        <img src="{{ asset('images/about-us/urban-village_two.png') }}" alt="Suzanne Vincent" class="profile-image">
-                        <div class="property-card-content">
-                            <span class="category">LOCAL AREA <span class="read-time">| 5 MINS READ</span></span>
-                            <h3>The women etched in history: A tour of South London</h3>
-                            <div class="author">
-                                <img src="{{ asset('images/about-us/MaskGroup15.png') }}" alt="Suzanne Vincent">
-                                <span>Suzanne Vincent</span>
-                                <a href="#" class="read-more">Read more...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="property-card">
-                        <!-- <img src="path_to_image3.png" alt="5 spring cleaning dos and don'ts"> -->
-                        <img src="{{ asset('images/about-us/urban-village_three.png') }}" alt="Suzanne Vincent" class="profile-image">
-                        <div class="property-card-content">
-                            <span class="category">HOME IMPROVEMENTS <span class="read-time">| 5 MINS READ</span></span>
-                            <h3>5 spring cleaning dos and don'ts</h3>
-                            <br>
-                            <div class="author">
-                                <img src="{{ asset('images/about-us/MaskGroup15.png') }}" alt="Suzanne Vincent">
-                                <span>Suzanne Vincent</span>
-                                <a href="#" class="read-more">Read more...</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                   
                 </div>
             </div>
             <!-- carousel -->

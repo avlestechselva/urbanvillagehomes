@@ -4,29 +4,32 @@
     <img src="{{ asset('images/banner/about.jpg') }}" alt="banner" />
 </header>-->
 
-@include('partials.breadcrumb', ['currentPage' => 'Dulwich'])
+@include('partials.breadcrumb', ['currentPage' => 'Camberwell'])
 
 @include('partials.content-image-section', [
     'subheading' => 'Estate & Letting Agents in',
-    'mainHeading' => 'Dulwich',
+    'mainHeading' => 'Camberwell ',
     'descriptions' => [
-    'If you’re looking for village charm but don’t want to move out of London, Dulwich holds the answer. Just a 17-minute train to London Bridge, it offers a leafy idyll without the commute.',
-    'Whether you’re on the lookout for a family home, buy-to-let investment or shared rental accommodation, we can help you find your dream property in Dulwich that meets all your criteria.'           
-],
+        'Camberwell is our home. Based on Denmark Hill, we know the area inside and out, arming our team with the local knowledge and market expertise to help you find your dream Camberwell property.',
+        'Whether you’re on the lookout for a family home, buy-to-let investment or shared rental accommodation, Camberwell has a whole host of beautiful and conveniently located properties that are sure to meet your criteria.'
+    ],
     'saleLink' => '#',
     'rentLink' => '#',
     'videoLink' => 'https://www.youtube.com/embed/paW1T11FAZc'
 ])
 
+
+
 @include('partials.love-denmark-hill-section', [
     'imagePath' => 'camberwell-denmark-hill.png',
     'imageAlt' => 'Denmark Hill Image',
-    'heading' => 'Why we love Dulwich',
+    'heading' => 'Why we love Camberwell',
     'paragraphs' => [
-'It isn’t difficult to see why Dulwich is such a highly sought-after address. Known for its wonderful park, fantastic art gallery and close proximity to outstanding schools, the area caters to every need.',
-'Properties in Dulwich rarely stay on the market for long. Something of a gastronomic heaven, it offers both family friendly favourites like Pizza Express to fine dining restaurants and artisan bakeries, and all within a short commute of central London.',
-'If you’re looking for the perfect blend of quaint rural life and city excitement, Dulwich is the perfect place for you.'
-],
+        'Thanks to the new Cross-Rail trainline near Denmark Hill, Camberwell is now firmly on the map for prospective buyers looking for an inner-London property and a fast journey into the city centre – and it’s easy to see why.',
+        'Whilst Camberwell property prices have risen in recent years, they are still more affordable than some of the neighbouring areas and offer great value for money. From period properties with large gardens to an abundance of luscious green parks and excellent schools – Camberwell caters to everyone.',
+        'Home to one of the world’s leading art institutions, a creative vibe permeates the area, and its café culture and lively restaurant scene make Camberwell a great choice for buy-to-let investors.',
+        'Think Camberwell could be the place for you? Get in touch with our team to start your search.'
+    ],
     'buttonLink' => '#',
     'buttonText' => 'Book a valuation'
 ])

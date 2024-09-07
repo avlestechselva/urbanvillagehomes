@@ -155,9 +155,9 @@
                             <div class="col-md-6"> -->
                                 <h4 class="footer_title foot_title_new">AREAS WE COVER</h4>
                                 <ul>
-                                    <li><a class="footer_link" href="{{ url('camberwell-denmark-hill') }}">Camberwell</a></li>
+                                    <li><a class="footer_link" href="{{ url('camberwell') }}">Camberwell</a></li>
                                     <li><a class="footer_link" href="{{ url('herne-hill') }}">Herne Hill</a></li>
-                                    <li><a class="footer_link" href="{{ url('camberwell-denmark-hill') }}">Denmark Hill</a></li>
+                                    <li><a class="footer_link" href="{{ url('denmark-hill') }}">Denmark Hill</a></li>
                                     <li><a class="footer_link" href="{{ url('dulwich') }}">Dulwich</a></li>
                                     <li><a class="footer_link" href="{{ url('brixton') }}">Brixton</a></li>
                                     <li><a class="footer_link" href="{{ url('peckham') }}">Peckham</a></li>

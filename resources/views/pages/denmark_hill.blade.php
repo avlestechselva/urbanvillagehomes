@@ -4,15 +4,15 @@
     <img src="{{ asset('images/banner/about.jpg') }}" alt="banner" />
 </header>-->
 
-@include('partials.breadcrumb', ['currentPage' => 'Dulwich'])
+@include('partials.breadcrumb', ['currentPage' => 'Denmark Hill'])
 
 @include('partials.content-image-section', [
     'subheading' => 'Estate & Letting Agents in',
     'mainHeading' => 'Dulwich',
     'descriptions' => [
-    'If you’re looking for village charm but don’t want to move out of London, Dulwich holds the answer. Just a 17-minute train to London Bridge, it offers a leafy idyll without the commute.',
-    'Whether you’re on the lookout for a family home, buy-to-let investment or shared rental accommodation, we can help you find your dream property in Dulwich that meets all your criteria.'           
-],
+       'Denmark Hill – the place we call home. Our office has sat at the heart of Camberwell for some time now, meaning we know the area inside and out. We can advise you on all the best cafes, restaurants, local schools, and even the best properties.',
+       'Whether you’re on the hunt for a family home, a buy-to-let investment or a shared rental accommodation, we can help you find the perfect property around Denmark Hill to meet your criteria.'
+    ],
     'saleLink' => '#',
     'rentLink' => '#',
     'videoLink' => 'https://www.youtube.com/embed/paW1T11FAZc'
@@ -21,11 +21,14 @@
 @include('partials.love-denmark-hill-section', [
     'imagePath' => 'camberwell-denmark-hill.png',
     'imageAlt' => 'Denmark Hill Image',
-    'heading' => 'Why we love Dulwich',
+    'heading' => 'Why we love Denmark Hill',
     'paragraphs' => [
-'It isn’t difficult to see why Dulwich is such a highly sought-after address. Known for its wonderful park, fantastic art gallery and close proximity to outstanding schools, the area caters to every need.',
-'Properties in Dulwich rarely stay on the market for long. Something of a gastronomic heaven, it offers both family friendly favourites like Pizza Express to fine dining restaurants and artisan bakeries, and all within a short commute of central London.',
-'If you’re looking for the perfect blend of quaint rural life and city excitement, Dulwich is the perfect place for you.'
+        'Denmark Hill is perfectly positioned for those seeking an inner-London postcode with easy access to the city centre, without sacrificing the open green spaces and community vibe.',
+    'From period properties with large gardens to an abundance of luscious green parks like Ruskin Park, Burgess Park and more – Denmark Hill has something for everyone.',
+'It is also home to a range of excellent schools and colleges, making it an ideal location for families or buy-to-let investors.',
+'Thanks to the new Cross-Rail trainline, it’s just a short journey from central London, placing it right on the commuter belt for those working in city centre.',
+'Think Denmark Hill could be the place for you? Get in touch with our team to start your search'
+
 ],
     'buttonLink' => '#',
     'buttonText' => 'Book a valuation'
