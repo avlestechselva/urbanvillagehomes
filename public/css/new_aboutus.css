@@ -8,6 +8,10 @@ body {
 h1, h2, h3{
     font-family: "DM Serif Display", serif;
 }
+h2, h3{
+    font-size: 35px !important;
+    font-weight: 400 !important;
+}
 
 .container {
     width: 100%;
@@ -196,7 +200,7 @@ color: #FFFFFF;
     content: "\e62b";
     position: absolute;
     bottom: -35%;
-    left: 50%;
+    left: 48%;
     color: #afb700;
 }
 .ruk-icon-arrow-right-thin-1-01 {
@@ -208,7 +212,23 @@ color: #FFFFFF;
     color: #992785;
     font-weight: 600 !important;
 }
-
+.card-carousel .owl-item{
+    width: 385px  !important;
+    height: 370px !important;
+    margin: 0px !important;
+}
+.card-carousel .ruk-icon-arrow-right-thin-1-01 {
+    font-size: 50px;
+    content: "\e62b";
+    position: absolute;
+    bottom: -12%;
+    left: 48%;
+    color: #992785;
+    font-weight: 600 !important;
+}
+.Why-sell-section{
+    margin-top: 4%;
+}
 .reviews-container {
     display: flex;
     justify-content: space-between;
@@ -284,7 +304,9 @@ color: #FFFFFF;
     padding: 80px 0px 50px 0px !important;
     text-align: center;
 }
-
+.landlord-property-market{
+    padding: 0px !important;
+}
 .property-market-section h2 {
     font-size: 2em;
     color: #992785 !important;
@@ -562,18 +584,24 @@ opacity: .8;
 } 
 .BOOK-VALUATION{
     background: #AFB700 0% 0% no-repeat padding-box !important;
-border-radius: 21px;
+border-radius: 28px;
 opacity: 1;
-width: 180px;
-height: 48px !important;
+width: 240px;
+height: 42px !important;
+padding: 21px !important;
 text-align: center;
-font: normal normal bold 16px/58px Outfit;
+font: normal normal bold 21px/58px Outfit !important;
 letter-spacing: 0px;
 color: #FFFFFF;
 opacity: 1;
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
 }
+
 .BOOK-VALUATION:hover{
     background-color: #afb700c7 !important;
+    color: #fff !important;
 }
 .classynav ul li a {
     padding: 0 12px;
@@ -584,6 +612,9 @@ opacity: 1;
 }
 .dark.classy-nav-container a:focus{
     color: #000 !important;
+}
+.dark.classy-nav-container a:hover{
+    color: #fff !important;
 }
 .dark.classy-nav-container .cn-dropdown-item a:focus{
     color: #000 !important;
@@ -709,9 +740,9 @@ opacity: .8;
     font-size: 28px;
 }
 /* owl-carousel */
-.owl-nav {
-    display: none; /* Hide default navigation */
-}
+/* .owl-nav {
+    display: none;
+} */
 
 .custom-nav {
     text-align: center;
@@ -742,13 +773,22 @@ opacity: .8;
 } */
 .custom-prev{
     position: absolute;
-    left: -66px;
-    top: -28px;
+    left: -124px;
+    top: -58px;
+}
+.custom-prev img{
+    height: 54px;
+}
+.custom-next img{
+    height: 54px;
+}
+.green-chevron img{
+    height: 54px;
 }
 .custom-next{
     position: absolute;
-    right: -46px;
-    top: -28px;
+    right: -124px;
+    top: -54px;
 }
 .footer_about .social ul li {
     width: 50px !important;
@@ -784,13 +824,19 @@ opacity: .8;
     line-height: 1;
 }
 .footer_nav ul li a{
-    font-size: 18px !important;
+    font-size: 14px !important;
     opacity: .7 !important;
 }
 .review-star img{
     height: 30px;
 }
+.landlord-property-market {
+    margin-bottom: 5% !important;
+}
 @media screen and (max-width: 768px) {
+    h2, h3{
+        font-size: 24px !important;
+    }
     .classynav ul li a {
 font-size: 12px !important;
     }
@@ -913,6 +959,16 @@ font-size: 24px;
     .container-group{
         padding: 20px;
     }
+    .custom-prev{
+        position: absolute;
+        left: -64px;
+        top: -58px;
+    }
+    .custom-next{
+        position: absolute;
+        left: -64px;
+        top: -58px;
+    }
     .footer_logo img{
         height: 50px;
     }
@@ -927,7 +983,16 @@ font-size: 24px;
         content: "\e62b";
         position: absolute;
         bottom: -5%;
+        left: 41%
     
+    }
+    .card-carousel .ruk-icon-arrow-right-thin-1-01 {
+        left: 42%;
+    }
+    .card-carousel .owl-item {
+        width: 369.5px !important;
+        height: 370px !important;
+        margin: 0px !important;
     }
     .our-community {
         margin-top: 0% !important;
@@ -973,6 +1038,9 @@ font-size: 22px !important;
     }
     .footer_info {
         margin-top: 12px;
+    }
+    .Why-sell-section {
+        margin-top: 2%;
     }
         
 }

@@ -36,6 +36,7 @@ class PageController extends Controller
         //add the one image to the property array
         foreach ($properties AS $k => $property){
             //Create slug and assign to the property
+            $slug_text = '';
             if(isset($property['displayAddress'])){
                 $slug_text = $property['displayAddress'];
             }elseif(isset($property['address2'])){

@@ -151,7 +151,7 @@
                 </div>
                 <p>The lovely team at Urban Village were always available and any minor problems were immediately resolved - I didn’t have any major ones! I was very happy with my part-furnished flat while I was searching for a permanent home of my own. I can recommend Urban Village whole-heartedly to any prospective tenant.</p>
             </div>
-            <div data-v-90132dd2="" class="ruk-icon-arrow-right-thin-1-01"></div>
+            <div data-v-90132dd2="" class="ruk-icon-arrow-right-thin-1-01 green-chevron">  <img src="{{ asset('images/icons/green-chevron.png') }}" ></div>
         </div>
     </div>
   
@@ -275,10 +275,18 @@
                 <div class="item"><a href="" target="_blank"><img src="{{ asset('images/logo/national_approved.jpg') }}" class="img-responsive" /></a></div>
             </div>
         </div>
-        <div class="custom-nav">
-            <span class="custom-prev d-none d-md-block"><div data-v-90132dd2="" class="ruk-icon-arrow-left-thin-1-01"></div></span>
-            <span class="custom-next d-none d-md-block"><div data-v-90132dd2="" class="ruk-icon-arrow-right-thin-1-01"></div></span>
-        </div>
+        <div class="custom-nav d-none d-lg-block">
+                        <span class="custom-prev d-none d-md-block">
+                        <!-- <i class="fa-solid fa-chevron-left"></i> -->
+                        <img src="{{ asset('images/icons/left-chevron.png') }}" >
+                            <div data-v-90132dd2="" class="ruk-icon-arrow-left-thin-1-01"></div>
+                        </span>
+                        <span class="custom-next d-none d-md-block">
+                        <!-- <i class="fa-solid fa-chevron-right"></i> -->
+                        <img src="{{ asset('images/icons/right-chevron.png') }}" >
+                            <div data-v-90132dd2="" class="ruk-icon-arrow-right-thin-1-01"></div>
+                        </span>
+                    </div>
     </div>
 </div>
     <!-- Profiles Section -->

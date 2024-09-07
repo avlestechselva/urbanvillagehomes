@@ -134,7 +134,7 @@
 
                     <!-- Nav Start -->
                     <div class="classynav">
-                        <ul>
+                        <ul >
                             <li><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li>
                             <li><a href="#">ABOUT US</a>
                                 <ul class="dropdown">
