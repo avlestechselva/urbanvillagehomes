@@ -25,7 +25,7 @@ class PageController extends Controller
         $withdrawn = array(6, 7);
 
         //latest featured properties
-        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability','images')
+        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms','propertyBathrooms', 'displayPropertyType','propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability','images')
             ->where('status', 1)
             // ->where('featuredProperty', 1)
             ->whereNotIn('availability', $withdrawn)
@@ -1326,6 +1326,69 @@ class PageController extends Controller
 
     public function show_sellers()
     {
+        $withdrawn = array(5);
+
+        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyBathrooms','propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability','images','displayPropertyType')
+            ->where('status', 1)
+            // ->where('featuredProperty', 1)
+            ->whereNotIn('availability', $withdrawn)
+            ->orderBy('price', 'DESC')
+            ->take(6)
+            ->get();
+
+            foreach ($properties AS $k => $property){
+                //Create slug and assign to the property
+                $slug_text = '';
+                if(isset($property['displayAddress'])){
+                    $slug_text = $property['displayAddress'];
+                }elseif(isset($property['address2'])){
+                    $slug_text = $property['address2'];
+                    $property['displayAddress'] = $property['address2'];
+                }elseif(isset($property['propertyFeature1'])){
+                    $slug_text = $property['propertyFeature1'];
+                    $property['displayAddress'] = $property['propertyFeature1'];
+                }
+                $slug = str_slug($slug_text);
+                $properties[$k]['slug'] = $slug;
+    
+                //get available resources of a property and set
+                $resource = Resource::where('propertyID', $property['propertyID'])
+                    ->where('type', 'image')
+                    ->orderBy('sort_order')
+                    ->first();
+    
+                $jsonString = $properties[$k]['images'];
+                $imagesArray = json_decode($jsonString, true);
+    
+                $properties[$k]['image'] = $imagesArray[0]['image'];
+    
+                //get property type
+                $resource_type = PropertyType::select('type')
+                    ->where('group_id', $property['propertyType'])
+                    ->where('department', $property['department'])
+                    ->first();
+                $properties[$k]['propertyType'] = $resource_type['type'];
+    
+                //get property style
+                $resource_style = ResidentialPropertyStyle::select('style_name')->where('style_id', $property['propertyStyle'])->first();
+                $properties[$k]['propertyStyle'] = $resource_style['style_name'];
+    
+                //get property availability
+                $resource_type = PropertyAvailability::select('name')
+                    ->where('group_id', $property['availability'])
+                    ->where('department', $property['department'])
+                    ->first();
+                $properties[$k]['availability'] = $resource_type['name'];
+    
+                //get property availability
+                if(isset($property['rentFrequency'])){
+                    $rent_type = RentFrequency::select('frequency_type')
+                        ->where('id', $property['rentFrequency'])
+                        ->first();
+                    $properties[$k]['rentFrequency'] = $rent_type['frequency_type'];
+                }
+            }
+
         $posts = Post::where('status', 'PUBLISHED')
             ->where('category_id', '4')
             ->orderBy('created_at', 'desc')
@@ -1340,7 +1403,8 @@ class PageController extends Controller
                 'page_title'    => 'Sellers',
                 'css_files'     => $css_files,
                 'js_files'      => $js_files,
-                'posts'      => $posts
+                'posts'      => $posts,
+                'properties'      => $properties
             ]);
     }
 
@@ -1359,6 +1423,69 @@ class PageController extends Controller
 
     public function show_landlords()
     {
+        $withdrawn = array('Lettings');
+
+        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyBathrooms','propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability','images','displayPropertyType')
+            ->where('status', 1)
+            // ->where('featuredProperty', 1)
+            ->whereNotIn('department', $withdrawn)
+            ->orderBy('price', 'DESC')
+            ->take(6)
+            ->get();
+
+            foreach ($properties AS $k => $property){
+                //Create slug and assign to the property
+                $slug_text = '';
+                if(isset($property['displayAddress'])){
+                    $slug_text = $property['displayAddress'];
+                }elseif(isset($property['address2'])){
+                    $slug_text = $property['address2'];
+                    $property['displayAddress'] = $property['address2'];
+                }elseif(isset($property['propertyFeature1'])){
+                    $slug_text = $property['propertyFeature1'];
+                    $property['displayAddress'] = $property['propertyFeature1'];
+                }
+                $slug = str_slug($slug_text);
+                $properties[$k]['slug'] = $slug;
+    
+                //get available resources of a property and set
+                $resource = Resource::where('propertyID', $property['propertyID'])
+                    ->where('type', 'image')
+                    ->orderBy('sort_order')
+                    ->first();
+    
+                $jsonString = $properties[$k]['images'];
+                $imagesArray = json_decode($jsonString, true);
+    
+                $properties[$k]['image'] = $imagesArray[0]['image'];
+    
+                //get property type
+                $resource_type = PropertyType::select('type')
+                    ->where('group_id', $property['propertyType'])
+                    ->where('department', $property['department'])
+                    ->first();
+                $properties[$k]['propertyType'] = $resource_type['type'];
+    
+                //get property style
+                $resource_style = ResidentialPropertyStyle::select('style_name')->where('style_id', $property['propertyStyle'])->first();
+                $properties[$k]['propertyStyle'] = $resource_style['style_name'];
+    
+                //get property availability
+                $resource_type = PropertyAvailability::select('name')
+                    ->where('group_id', $property['availability'])
+                    ->where('department', $property['department'])
+                    ->first();
+                $properties[$k]['availability'] = $resource_type['name'];
+    
+                //get property availability
+                if(isset($property['rentFrequency'])){
+                    $rent_type = RentFrequency::select('frequency_type')
+                        ->where('id', $property['rentFrequency'])
+                        ->first();
+                    $properties[$k]['rentFrequency'] = $rent_type['frequency_type'];
+                }
+            }
+
         $posts = Post::where('status', 'PUBLISHED')
             ->where('category_id', '8')
             ->orderBy('created_at', 'desc')
@@ -1373,7 +1500,8 @@ class PageController extends Controller
                 'page_title'    => 'Landlords',
                 'css_files'     => $css_files,
                 'js_files'      => $js_files,
-                'posts'         => $posts
+                'posts'         => $posts,
+                'properties'    => $properties
             ]);
     }
 

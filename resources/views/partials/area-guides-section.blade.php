@@ -1,31 +1,60 @@
 <!-- resources/views/partials/area-guides-section.blade.php -->
 <div class="area-guides-section">
     <style>
-        .area-guides-section {
-    text-align: center; /* Center-aligns the text */
-    padding: 20px; /* Padding around the section */
-    margin: 0 auto; /* Centers the section horizontally */
-    max-width: 800px; /* Sets a maximum width for the content */
-}
+        .item-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px; /* Adjust the size as needed */
+        }
 
-.area-guides-heading {
-    color: #A22D6C; /* Heading color */
-    font-size: 32px; /* Font size for the heading */
-    margin-bottom: 10px; /* Margin below the heading */
-    font-family: 'DM Serif Display', serif; /* Font family for the heading */
-    font-weight: normal; /* Normal font weight */
-}
+        .item-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            filter: blur(5px); /* Adjust the blur effect as needed */
+            -webkit-filter: blur(5px);
+        }
 
-.area-guides-subtitle {
-    color: #333; /* Subtitle text color */
-    font-size: 18px; /* Font size for the subtitle */
-    line-height: 1.5; /* Line height for better readability */
-    margin: 0; /* No margin to keep it tight to the heading */
-}
+        .item-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2em;
+            font-family: Arial, sans-serif;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds a shadow to improve readability */
+        }
 
         </style>
     <h2 class="area-guides-heading">{{ $heading }}</h2>
     <p class="area-guides-subtitle">
         {{ $subtitle }}
     </p>
+    
+    
+
+</div>
+
+<div class="owl-carousel owl-loaded">
+    <div class="owl-stage-outer">
+        <div class="owl-stage">
+            <div class="owl-item cloned" >
+                
+                    <div class="item-container">
+                        <img src="{{ asset('images/dulwich.png') }}" alt="Camberwell" class="item-image">
+                        <div class="item-ext">Camberwell</div>
+                    </div>
+               
+            </div>
+            <div class="owl-item cloned" >
+                
+                    <div class="item-container">
+                        <img src="{{ asset('images/dulwich.png') }}" alt="Camberwell" class="item-image">
+                        <div class="item-ext">Camberwell</div>
+                    </div>
+               
+            </div>
+        </div>
+    </div>
 </div>

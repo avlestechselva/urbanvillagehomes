@@ -331,167 +331,29 @@
             <!-- card-carousel -->
             <div class="container-fluid card-carousel mt-5">
                 <div class="row">
-                    <h2 class="m-auto">Properties we’ve let</h2>
+                    <h2 class="m-auto">Properties we’ve sold</h2>
                     <div class="col-md-12 mt-3">
                         <div id="news-slider" class="owl-carousel owl-loaded owl-drag">
                             <div class="owl-stage-outer">
                                 <div class="owl-stage">
+                                    
+                                    @foreach($properties AS $k => $property)
+                                    
                                     <div class="owl-item cloned" >
                                         <div class="post-slide">
                                             <div class="post-img">
-                                                <img src="http://127.0.0.1:8000/images/kitchen.jpg" alt="">
-                                                <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
+                                                <img src="{{ $property->image }}" alt="">
+                                                <a href="{{ url('property/'.$property->propertyID.'/'.$property->slug) }}" class="over-layer"><i class="fa fa-link"></i></a>
                                             </div>
                                             <div class="post-content">
                                                 <p class="post-description mb-0">
-                                                    <span class="post-date">Road name, SE5</span>
+                                                    <span class="post-date">{{ str_limit($property->displayAddress, $limit = 25, $end = '...') }}</span>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="owl-item cloned" >
-                                        <div class="post-slide">
-                                            <div class="post-img">
-                                                <img src="http://127.0.0.1:8000/images/kitchen.jpg" alt="">
-                                                <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            <div class="post-content">
-                                                <p class="post-description mb-0">
-                                                    <span class="post-date">Road name, SE5</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" >
-                                        <div class="post-slide">
-                                            <div class="post-img">
-                                                <img src="http://127.0.0.1:8000/images/kitchen.jpg" alt="">
-                                                <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            <div class="post-content">
-                                                <p class="post-description mb-0">
-                                                    <span class="post-date">Road name, SE5</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item active" >
-                                        <div class="post-slide">
-                                            <div class="post-img">
-                                                <img src="http://127.0.0.1:8000/images/kitchen.jpg" alt="">
-                                                <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            <div class="post-content">
-                                                <p class="post-description mb-0">
-                                                    <span class="post-date">Road name, SE5</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item active" >
-                                        <div class="post-slide">
-                                            <div class="post-img">
-                                                <img src="http://127.0.0.1:8000/images/kitchen.jpg" alt="">
-                                                <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            <div class="post-content">
-                                                <p class="post-description mb-0">
-                                                    <span class="post-date">Road name, SE5</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item active" >
-                                        <div class="post-slide">
-                                            <div class="post-img">
-                                                <img src="http://127.0.0.1:8000/images/kitchen.jpg" alt="">
-                                                <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            <div class="post-content">
-                                                <p class="post-description mb-0">
-                                                    <span class="post-date">Road name, SE5</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" >
-                                        <div class="post-slide">
-                                            <div class="post-img">
-                                                <img src="http://127.0.0.1:8000/images/kitchen.jpg" alt="">
-                                                <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            <div class="post-content">
-                                                <p class="post-description mb-0">
-                                                    <span class="post-date">Road name, SE5</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" >
-                                        <div class="post-slide">
-                                            <div class="post-img">
-                                                <img src="http://127.0.0.1:8000/images/kitchen.jpg" alt="">
-                                                <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            <div class="post-content">
-                                                <p class="post-description mb-0">
-                                                    <span class="post-date">Road name, SE5</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" >
-                                        <div class="post-slide">
-                                            <div class="post-img">
-                                                <img src="http://127.0.0.1:8000/images/kitchen.jpg" alt="">
-                                                <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            <div class="post-content">
-                                                <p class="post-description mb-0">
-                                                    <span class="post-date">Road name, SE5</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" >
-                                        <div class="post-slide">
-                                            <div class="post-img">
-                                                <img src="http://127.0.0.1:8000/images/kitchen.jpg" alt="">
-                                                <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            <div class="post-content">
-                                                <p class="post-description mb-0">
-                                                    <span class="post-date">Road name, SE5</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" >
-                                        <div class="post-slide">
-                                            <div class="post-img">
-                                                <img src="http://127.0.0.1:8000/images/kitchen.jpg" alt="">
-                                                <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            <div class="post-content">
-                                                <p class="post-description mb-0">
-                                                    <span class="post-date">Road name, SE5</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" >
-                                        <div class="post-slide">
-                                            <div class="post-img">
-                                                <img src="http://127.0.0.1:8000/images/kitchen.jpg" alt="">
-                                                <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            <div class="post-content">
-                                                <p class="post-description mb-0">
-                                                    <span class="post-date">Road name, SE5</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
+                                   
                                 </div>
                             </div>
                             <div id="customNav">
