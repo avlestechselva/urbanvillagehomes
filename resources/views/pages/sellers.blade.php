@@ -139,7 +139,7 @@
 
     .selling-image {
         /* max-width: 45%;  */
-        margin-left:
+        /* margin-left: */
     }
 
     .property-section {
@@ -353,7 +353,7 @@
                                         </div>
                                     </div>
                                     @endforeach
-                                   
+                                    
                                 </div>
                             </div>
                             <div id="customNav">
@@ -450,19 +450,19 @@
                             <p>Home staging also offers various benefits to you as the seller:</p>
                             <ul>
                                 <ul class="d-flex mb-0">
-                                    <img src="http://127.0.0.1:8000/images/about-us/logo.png" alt="">
+                                    <img src="{{ asset('images/about-us/logo.png') }}" alt="">
                                     <li>Organising your home reduces stress</li>
                                 </ul>
                                 <ul class="d-flex mb-0">
-                                    <img src="http://127.0.0.1:8000/images/about-us/logo.png" alt="">
+                                    <img src="{{ asset('images/about-us/logo.png') }}" alt="">
                                     <li>Selling unwanted items make you money</li>
                                 </ul>
                                 <ul class="d-flex mb-0">
-                                    <img src="http://127.0.0.1:8000/images/about-us/logo.png" alt="">
+                                    <img src="{{ asset('images/about-us/logo.png') }}" alt="">
                                     <li>Increases the value of your home</li>
                                 </ul>
                                 <ul class="d-flex mb-0">
-                                    <img src="http://127.0.0.1:8000/images/about-us/logo.png" alt="">
+                                    <img src="{{ asset('images/about-us/logo.png') }}" alt="">
                                     <li>Decluttering creates valuable space</li>
                                 </ul>
                             </ul>
@@ -473,7 +473,7 @@
                     </div>
                     <div class="col-12 col-lg-5 text-center pt-5 pt-lg-0">
                         <div class="consultation-image">
-                            <img src="http://127.0.0.1:8000/images/logo.jpg" alt="Urban Village Logo">
+                            <img src="{{ asset('images/logo.jpg') }}" alt="Urban Village Logo">
                         </div>
                     </div>
                 </div>
@@ -495,8 +495,8 @@
                 <h2>What's happening in the property market?</h2>
                 <div class="property-market-container pt-4">
                     @foreach($posts AS $k => $post)
-            
-                    
+
+
                         <div class="property-card">
                             <!-- <img src="path_to_image1.png" alt="7 ways to maximise your outdoor space"> -->
                             <img src="{{ Storage::url($post->image) }}" alt="Suzanne Vincent" class="profile-image">
@@ -512,7 +512,7 @@
                             </div>
                         </div>
                     @endforeach
-                   
+
                 </div>
             </div>
             <!-- carousel -->
