@@ -14,7 +14,7 @@ use App\RentFrequency;
 use DateTime;
 class PageController extends Controller
 {
-    public function show_home()
+    public function show_home(Request $request)
     {
         $posts = Post::where('status', 'PUBLISHED')
             ->orderBy('created_at', 'desc')
@@ -561,12 +561,15 @@ class PageController extends Controller
 
     public function new_aboutus(Request $request)
     {
-
+        $posts = Post::where('status', 'PUBLISHED')
+            ->orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
 
          return view('pages.new_aboutus_view',
              [
                  'page_title'    => 'About us',
-
+                'posts'    => $posts,
              ]);
     }
 

@@ -102,7 +102,7 @@
 
                 <!-- Logo -->
                 <a class="nav-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('images/logo.jpg') }}" alt="Logo" style="width: 150px; height: auto;">
+                    <img src="{{ asset('images/logo.jpg') }}" alt="Logo" style="width: 200px; height: auto;">
                 </a>
 
                 <!-- Navbar Toggler -->

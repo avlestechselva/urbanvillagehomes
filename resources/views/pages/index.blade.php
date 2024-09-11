@@ -382,66 +382,9 @@
     </div>
 </section>
 
-<div class="property-market-section container">
-    <h2>What's happening in the property market?</h2>
-    <div class="property-market-container pt-4">
-        @foreach($posts AS $k => $post)
+@include('partials.property-market', ['posts' => $posts])
 
-
-            <div class="property-card">
-                <!-- <img src="path_to_image1.png" alt="7 ways to maximise your outdoor space"> -->
-                <img src="{{ Storage::url($post->image) }}" alt="Suzanne Vincent" class="profile-image">
-                <div class="property-card-content">
-                    <span class="category">{{ $post->category->name }} <span class="read-time">| 5 MINS READ</span></span>
-                    <h3>{{$post->title }}</h3>
-                    <br>
-                    <div class="author">
-                        {{-- <img src="{{ asset('images/about-us/MaskGroup15.png') }}" alt="Suzanne Vincent">
-                        <span>Suzanne Vincent</span> --}}
-                        <a href="{{ url('blog/view/'.$post->slug) }}" class="read-more">Read more...</a>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-
-    </div>
-</div>
-
-<!-- carousel -->
-<div class="hot logo-spinner" style="margin-bottom:-32px;">
-    <div class="container">
-        <div class="carousel-wrap">
-            <div class="owl-carousel" id="about-us-carousel">
-                <div class="item"><a href="https://safeagents.co.uk/" target="_blank"><img src="{{ asset('images/logo/safeagent_Logo_RGB.jpg') }}" class="img-responsive"></a></div>
-                <div class="item"><a href="https://www.guildproperty.co.uk" target="_blank"><img src="{{ asset('images/logo/guildproperty.jpg') }}" class="img-responsive"></a></div>
-                <div class="item"><a href="https://www.hometrack.com/uk" target="_blank"><img src="{{ asset('images/logo/hometrack.jpg') }}" class="img-responsive"></a></div>
-                <div class="item"><a href="https://www.primelocation.com" target="_blank"><img src="{{ asset('images/logo/primelocation.jpg') }}" class="img-responsive"></a></div>
-                <div class="item"><a href="https://www.rightmove.co.uk/" target="_blank"><img src="{{ asset('images/logo/rightmove.jpg') }}" class="img-responsive"></a></div>
-                <div class="item"><a href="https://www.onthemarket.com/" target="_blank"><img src="{{ asset('images/logo/onthemarket.jpg') }}" class="img-responsive" /></a></div>
-                <div class="item"><a href="https://www.urbanvillagehomes.com/" target="_blank"><img src="{{ asset('images/logo/urbanvillagehomes.jpg') }}" class="img-responsive" /></a></div>
-                <div class="item"><a href="" target="_blank"><img src="{{ asset('images/logo/tenant.jpg') }}" class="img-responsive" /></a></div>
-                <div class="item"><a href="" target="_blank"><img src="{{ asset('images/logo/national_approved.jpg') }}" class="img-responsive" /></a></div>
-
-                <div class="item"><a href="" target="_blank"><img src="{{ asset('images/logo/arla-colour.png') }}" class="img-responsive" /></a></div>
-                <div class="item"><a href="" target="_blank"><img src="{{ asset('images/logo/zoopla-colour.png') }}" class="img-responsive" /></a></div>
-                <div class="item"><a href="https://www.zoopla.co.uk/" target="_blank"><img src="{{ asset('images/logo/jupix.png') }}" class="img-responsive"></a></div>
-                <div class="item"><a href="https://www.zoopla.co.uk/" target="_blank"><img src="{{ asset('images/logo/tpos.jpg') }}" class="img-responsive"></a></div>
-            </div>
-        </div>
-        <div class="custom-nav d-none d-lg-block">
-            <span class="custom-prev d-none d-md-block">
-            <img src="{{ asset('images/icons/left-chevron.png') }}" >
-            <!-- <i class="fa-solid fa-chevron-left"></i> -->
-                <div data-v-90132dd2="" class="ruk-icon-arrow-left-thin-1-01"></div>
-            </span>
-            <span class="custom-next d-none d-md-block">
-            <img src="{{ asset('images/icons/right-chevron.png') }}" >
-            <!-- <i class="fa-solid fa-chevron-right"></i> -->
-                <div data-v-90132dd2="" class="ruk-icon-arrow-right-thin-1-01"></div>
-            </span>
-        </div>
-    </div>
-</div>
+@include('partials.companies')
 
 </div>
 <script>
