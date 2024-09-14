@@ -1342,3 +1342,10 @@ section
 {
 	color: #adc867;
 }
+
+.pagination {
+    background: #adc867;
+    margin: auto;
+    padding:20px;
+    border-radius: 0;
+}

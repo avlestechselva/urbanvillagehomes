@@ -1,6 +1,5 @@
 @include('includes.header')
 <link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
-<link rel="stylesheet" href="{{ asset('css//newhome.css') }}">
 <!--<header class="header-area home-banner">
     <img src="{{ asset('images/banner/about.jpg') }}" alt="banner" />
 </header>-->
@@ -50,12 +49,10 @@
 ])
 
 
-
-{{-- @include('partials.area-guides-section', [
+@include('partials.area-guides-section', [
     'heading' => 'Area guides',
     'subtitle' => 'We sell and let homes all across London\'s cityscape, discover the areas we cover'
-]) --}}
-@include('partials.area-guides')
+])
 
 
 @if(count($posts) > 0)
@@ -66,5 +63,3 @@
 
 
 @include('includes.footer')
-
-

@@ -31,12 +31,13 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PJPJBXD');</script>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PJPJBXD');</script>
     <!-- End Google Tag Manager -->
+    <!-- FB Tag -->
     <script type="application/ld+json">
         {
           "@context" : "http://schema.org",
@@ -59,90 +60,44 @@
     </script>
     <!-- End FB Tag -->
     <!-- Facebook Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-     fbq('init', '1874803346125046'); 
-    fbq('track', 'PageView');
-    </script>
-    <noscript>
-     <img height="1" width="1" 
-    src="https://www.facebook.com/tr?id=1874803346125046&ev=PageView
-    &noscript=1"/>
-    </noscript>
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+         fbq('init', '1874803346125046'); 
+        fbq('track', 'PageView');
+        </script>
+        <noscript>
+         <img height="1" width="1" 
+        src="https://www.facebook.com/tr?id=1874803346125046&ev=PageView
+        &noscript=1"/>
+        </noscript>
     <!-- End Facebook Pixel Code -->
-
-    <style>
-        /* Modal styles */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            background-color: rgba(0,0,0,0.5); 
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            border-radius: 8px;
-            width: 50%;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJPJBXD"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJPJBXD"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Modal -->
-    <div id="popupModal-valuation" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Property Valuation Form</h2>
-            <form>
-                <label for="propertyAddress">Property Address</label>
-                <input type="text" id="propertyAddress" name="propertyAddress"><br><br>
-                <label for="propertyPostcode">Property Postcode</label>
-                <input type="text" id="propertyPostcode" name="propertyPostcode"><br><br>
-                <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" name="fullName"><br><br>
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email"><br><br>
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone"><br><br>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
 
+
+   
+
+<style>
+#stickyHeader-sticky-wrapper{
+    z-index:10 !important;
+}
+</style>
     <!-- Main Header Area -->
     <div class="main-header-area" id="stickyHeader">
         <div class="classy-nav-container breakpoint-off">
+            <!-- Classy Menu -->
             <nav class="classy-navbar justify-content-between mt-3" id="southNav">
 
                 <!-- Logo -->
@@ -165,12 +120,27 @@
                     <!-- Nav Start -->
                     <div class="classynav">
                         <ul>
-                            <li><a href="#" class="text-black">SALES</a></li>
-                            <li><a href="#" class="text-black">LETTINGS</a></li>
-                            <li><a href="{{ url('new-aboutus') }}"> About Us</a></li>
+                            <!-- <li><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li> -->
+                          
+                            <li><a href="#" class="text-black">SALES <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 320 512" style="width: 35px; height:20px"><path  d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg></a>
+                                <ul class="dropdown dropdown-3">
+                                    <li><a href="{{ url('property/buyers') }}">Buyers</a></li>
+                                    <li><a href="{{ url('sellers') }}">Sellers</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="text-black">LETTINGS  <svg xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 320 512" style="width: 35px; height:20px"><path   d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg></a>
+                                <ul class="dropdown dropdown-3">
+                                    <li><a href="{{ url('property/tenants') }}">Tenants</a></li>
+                                    <li><a href="{{ url('landlords') }}">Landlords</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{{ url('new-aboutus') }}"> About Us</a>
+                                 
+                            </li>
                             <li><a href="{{ url('blog') }}" class="text-black">BLOG</a></li>
                             <li><a href="{{ url('contact') }}" class="text-black">CONTACT</a></li>
-                            <li><a href="#" class="BOOK-VALUATION text-white ml-4">BOOK A VALUATION</a></li>
+                            <li>
+                            <a href="https://urban-village-homes.engage.epropservices.com/" class="BOOK-VALUATION text-white ml-4">BOOK A VALUATION</a></li>
                         </ul>
 
                         <!-- Search Form -->
@@ -186,36 +156,5 @@
             </nav>
         </div>
     </div>
-
-    <script>
-        // Get the modal
-        var modalex = document.getElementById("popupModal-valuation");
-
-        // Get the button that opens the modal
-        var link = document.querySelector(".BOOK-VALUATION");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks the button, open the modal 
-        link.onclick = function(event) {
-            debugger;
-            event.preventDefault(); // Prevents following the link
-            modalex.style.display = "block"; // Show the modal
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modalex.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            debugger;
-            if (event.target == modal) {
-                modalex.style.display = "none";
-            }
-        }
-    </script>
-</body>
-</html>
+</header>
+<!-- ##### Header Area End ##### -->

@@ -11,6 +11,10 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+use TCG\Voyager\Facades\Voyager;
+
+
 Route::get('/','PageController@show_home');
 Route::get('who-we-are','PageController@show_who_we_are');
 Route::get('meet-the-team','PageController@show_meet_the_team');
