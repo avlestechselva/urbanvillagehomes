@@ -46,10 +46,7 @@
 ])
 
 
-@include('partials.area-guides-section', [
-    'heading' => 'Area guides',
-    'subtitle' => 'We sell and let homes all across London\'s cityscape, discover the areas we cover'
-])
+@include('partials.area-guides')
 
 
 @if(count($posts) > 0)

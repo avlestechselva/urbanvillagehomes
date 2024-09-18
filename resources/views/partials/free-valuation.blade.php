@@ -23,7 +23,7 @@
     margin: 0; /* No margin to keep it tight to the heading */
 }
         </style>
-    <img src="{{ $imagePath }}" alt="{{ $imageAlt }}">
+    <img src="{{ asset('images/about-us/logo.png') }}" alt="{{ $imageAlt }}">
     <h2 class="text-white position-relative">{{ $heading }}</h2>
     <div class="body-component text-center mx-0">
         @foreach($paragraphs as $paragraph)

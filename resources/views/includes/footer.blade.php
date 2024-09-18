@@ -182,9 +182,9 @@
                                     <li><a class="footer_link" href="{{ url('blog') }}">Blog</a></li>
                                     <li><a class="footer_link" href="{{ url('new-aboutus') }}">About Us</a></li>
                                     <li><a class="footer_link" href="{{ url('/') }}">Register as a tenant or a buyer</a></li>
-                                    <li><a class="footer_link" href="{{ url('/') }}">CMP certificate</a></li>
-                                    <li><a class="footer_link" href="{{ url('/') }}">Legal information</a></li>
-                                    <li><a class="footer_link" href="{{ url('/') }}">Property Ombudsmen Scheme</a></li>
+                                    <li><a class="footer_link" href="{{ asset('pdf/Propertymark-CMP-Security-Certificate.pdf') }}">CMP certificate</a></li>
+                                    <li><a class="footer_link" href="{{ asset('pdf/D12796-Certificate-ombudsman-TPOS.pdf') }}">Property Ombudsmen Scheme</a></li>
+                                    <li><a class="footer_link" href="{{ asset('pdf/Complaints-procedure-ARLA-2024.pdf') }}">Complaints Procedure</a></li>
                                     <!-- <li><a class="footer_link" href="{{ url('vacancies') }}">Vacancies</a></li>
                                     <li><a class="footer_link" href="{{ url('areas') }}">Areas</a></li>
                                     <li><a class="footer_link" href="{{ url('class-list') }}">Class List</a></li> -->

@@ -115,12 +115,124 @@
                             <div class="owl-item cloned">
                                 <div class="post-slide">
                                     <div class="post-img">
-                                        <img src="/images/blog_2.jpg" alt="">
+                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
                                     <div class="post-content">
                                         <p class="post-description mb-0">
                                             <span class="post-date">Camberwell</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item cloned">
+                                <div class="post-slide">
+                                    <div class="post-img">
+                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
+                                    </div>
+                                    <div class="post-content">
+                                        <p class="post-description mb-0">
+                                            <span class="post-date">Herne Hill</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item cloned">
+                                <div class="post-slide">
+                                    <div class="post-img">
+                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
+                                    </div>
+                                    <div class="post-content">
+                                        <p class="post-description mb-0">
+                                            <span class="post-date">Denmark Hill</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item cloned">
+                                <div class="post-slide">
+                                    <div class="post-img">
+                                        <img src="{{ asset('images/dulwich.png' ) }}" alt="">
+                                        <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
+                                    </div>
+                                    <div class="post-content">
+                                        <p class="post-description mb-0">
+                                            <span class="post-date">Dulwich</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item cloned">
+                                <div class="post-slide">
+                                    <div class="post-img">
+                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
+                                    </div>
+                                    <div class="post-content">
+                                        <p class="post-description mb-0">
+                                            <span class="post-date">Brixton</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item cloned">
+                                <div class="post-slide">
+                                    <div class="post-img">
+                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
+                                    </div>
+                                    <div class="post-content">
+                                        <p class="post-description mb-0">
+                                            <span class="post-date">Peckham</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item cloned">
+                                <div class="post-slide">
+                                    <div class="post-img">
+                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
+                                    </div>
+                                    <div class="post-content">
+                                        <p class="post-description mb-0">
+                                            <span class="post-date">Stockwell</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item cloned">
+                                <div class="post-slide">
+                                    <div class="post-img">
+                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
+                                    </div>
+                                    <div class="post-content">
+                                        <p class="post-description mb-0">
+                                            <span class="post-date">Waterloo</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item cloned">
+                                <div class="post-slide">
+                                    <div class="post-img">
+                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
+                                    </div>
+                                    <div class="post-content">
+                                        <p class="post-description mb-0">
+                                            <span class="post-date">Loughborough Junction</span>
                                         </p>
                                     </div>
                                 </div>
