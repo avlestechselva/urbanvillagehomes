@@ -374,7 +374,7 @@
                         <p>Our fresh, forward-thinking, customer-focused approach to property sales, paired with our vast amount of local and market knowledge, has helped us to achieve record prices in our core area, and an impressively low sale fall-through rate.</p>
                         <p>Ready to get your property on the market?</p>
                         <div class="selling-button-container">
-                            <a href="#" class="selling-btn">Book a valuation</a>
+                            <a href="{{ url('book-a-valuation') }}" class="selling-btn">Book a valuation</a>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6 p-0 px-lg-4 ">

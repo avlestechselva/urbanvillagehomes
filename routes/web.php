@@ -59,7 +59,8 @@ Route::get('mortgage-calculator','PageController@mortgage_calculator');
 Route::get('stamp-duty-calculator','PageController@stamp_duty_calculator');
 Route::get('life-magazines','PageController@life_magazines');
 Route::get('new-aboutus','PageController@new_aboutus');
-
+Route::get('book-a-valuation','PageController@book_a_valuation');
+Route::post('/property-valuation-submit', [PropertyValuationController::class, 'submit'])->name('property.valuation.submit');
 // property
 Route::get('property/{url_type}','PageController@show_properties');
 Route::get('property/{property_id}/{slug}','PageController@get_single_property');

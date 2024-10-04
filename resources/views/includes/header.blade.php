@@ -140,7 +140,7 @@
                             <li><a href="{{ url('blog') }}" class="text-black">BLOG</a></li>
                             <li><a href="{{ url('contact') }}" class="text-black">CONTACT</a></li>
                             <li>
-                            <a href="https://urban-village-homes.engage.epropservices.com/" class="BOOK-VALUATION text-white ml-4">BOOK A VALUATION</a></li>
+                            <a href="{{ url('book-a-valuation') }}" class="BOOK-VALUATION text-white ml-4">BOOK A VALUATION</a></li>
                         </ul>
 
                         <!-- Search Form -->

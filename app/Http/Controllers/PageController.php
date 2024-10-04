@@ -642,6 +642,18 @@ class PageController extends Controller
         );
     }
 
+    public function book_a_valuation(Request $request)
+    {
+
+        return view(
+            'pages.book_a_valuation',
+            [
+                'page_title'    => 'About us',
+               
+            ]
+        );
+    }
+
     public function show_who_we_are()
     {
         $css_files  = array('about');

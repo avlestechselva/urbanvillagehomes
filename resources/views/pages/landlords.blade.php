@@ -403,7 +403,7 @@
                         <p>We make an effort to get to know our landlords personally, as well as their properties, so we can provide a bespoke service tailored to you as an individual, not just as an addition to our portfolio. Essentially, we are a real estate agency run by real people that you can contact whenever you need to.</p>
                         <p>With our extensive knowledge of the local rental market, unparalleled lettings experience and regularly updated database of suitable tenants, we can help you find the ideal match, making sensible and fast decisions on your behalf to best protect your property and tenancy.</p>
                         <div class="selling-button-container">
-                            <a href="#" class="selling-btn">Book a valuation</a>
+                            <a href="{{ url('book-a-valuation') }}" class="selling-btn">Book a valuation</a>
                         </div>
                     </div>
                     <div class="selling-image col-12 col-lg-4 p-0 p-lg-4 ">
@@ -474,7 +474,7 @@
 
 
                         <div class="service-buttons">
-                            <a href="#" class="btn service-btn">BOOK A VALUATION</a>
+                            <a href="{{ url('book-a-valuation') }}" class="btn service-btn">BOOK A VALUATION</a>
                             <a href="#" class="btn service-btn whatsapp"> <img src="{{ asset('images/icons/whatsapp.png') }}" alt="whatsapp"></a>
                         </div>
                     </div>
@@ -485,7 +485,7 @@
                         <p>You will be in total control of your own property maintenance, rental collection, and tenancy, from start to finish.</p>
                         <p><strong>10% including VAT for our standard 12-month tenancy. No automatic renewal fees charged, which is a unique benefit with Urban Village.</strong></p>
                         <div class="service-buttons">
-                            <a href="#" class="btn service-btn">Book a Valuation</a>
+                            <a href="{{ url('book-a-valuation') }}" class="btn service-btn">Book a Valuation</a>
                             <a href="#" class="btn service-btn whatsapp"><img src="{{ asset('images/icons/whatsapp.png') }}" alt="whatsapp"></a>
                         </div>
                     </div>

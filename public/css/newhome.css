@@ -33,16 +33,58 @@ h2, h3{
 .dark .classynav ul li .dropdown li a:hover{
     color: #afb700 !important;
 }
+/* Default styles for title and subtitle */
 .page-title-div {
     text-align: center;
-    font: normal normal normal 50px / 111px DM Serif Display;
+    font: normal normal 50px/111px "DM Serif Display", serif;
     letter-spacing: 1.54px;
     color: #992785;
-    opacity: 1;
     padding: 5px;
-    height: 65px;
+    height: auto; /* Remove fixed height */
     line-height: normal;
+    margin: 10px 0; /* Add some margin */
 }
+
+.page-subtitle-div {
+    text-align: center;
+    font: normal normal 300 30px/111px "Outfit", sans-serif;
+    letter-spacing: 0.89px;
+    color: #000000;
+    padding: 5px;
+    height: auto; /* Remove fixed height */
+    line-height: normal;
+    margin: 5px 0; /* Add some margin */
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .page-title-div {
+        font-size: 30px; /* Adjust font size */
+        line-height: 1.2; /* Adjust line height */
+        padding: 0 20px; /* Add padding for smaller screens */
+    }
+
+    .page-subtitle-div {
+        font-size: 20px; /* Adjust font size */
+        line-height: 1.2; /* Adjust line height */
+        padding: 0 20px; /* Add padding for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .page-title-div {
+        font-size: 24px; /* Further adjust font size for very small screens */
+        line-height: 1.2; /* Adjust line height */
+        padding: 0 10px; /* Add padding for very small screens */
+    }
+
+    .page-subtitle-div {
+        font-size: 18px; /* Further adjust font size for very small screens */
+        line-height: 1.2; /* Adjust line height */
+        padding: 0 10px; /* Add padding for very small screens */
+    }
+}
+
 .search-bar .navbar{
     background: #C6BEC42C 0% 0% no-repeat padding-box;
 border: 1px solid #992785;
@@ -220,6 +262,7 @@ opacity: 1;
     font-weight: 500;
     color: #685d5d;
 }
+
 .listing_price {
     position: absolute;
     left: 35%;
@@ -329,9 +372,6 @@ opacity: 1;
         line-height: normal;
     }
     
-.page-subtitle-div{
-    line-height: normal;
-}
 .search-bar .form-group{
     width: 100%;
 }
@@ -414,16 +454,6 @@ opacity: 1;
     color: #A22D6C;
     font-size: 30px !important;
     margin-bottom: 15px;
-}
-.page-subtitle-div {
-    text-align: center;
-    font: normal normal 300 30px / 111px Outfit;
-    letter-spacing: 0.89px;
-    color: #000000;
-    opacity: 1;
-    padding: 5px;
-    height: 70px;
-    line-height: normal;
 }
 .selling-content{
     background-color: white;

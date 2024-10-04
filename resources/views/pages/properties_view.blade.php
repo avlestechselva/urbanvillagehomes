@@ -28,7 +28,7 @@
                     <a href="">Properties for rent</a>
                 </div>
                 <div class="all-properties d-flex justify-content-center align-items-center">
-                    <a href="">Book a valuation</a>
+                    <a href="{{ url('book-a-valuation') }}">Book a valuation</a>
                 </div>
             </div>
             <form class="w-100 d-flex flex-column flex-lg-row pt-4" id="searchForm" method="GET" action="">
