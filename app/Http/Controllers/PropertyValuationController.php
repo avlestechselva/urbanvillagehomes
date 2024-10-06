@@ -21,7 +21,7 @@ class PropertyValuationController extends Controller
 
         // Send the email
         Mail::send('emails.property_valuation', ['data' => $request->all()], function ($message) use ($request) {
-            $message->to('recipient@example.com')
+            $message->to('smaheshselva@gmail.com')
                     ->subject('New Property Valuation Request');
         });
 

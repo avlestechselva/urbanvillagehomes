@@ -265,9 +265,10 @@ opacity: 1;
 
 .listing_price {
     position: absolute;
-    left: 35%;
-    bottom: -19px;
+    left: 50%; /* Move element to the center */
+    transform: translateX(-50%); /* Adjust position to truly cente
 }
+
 .valuation p {
     text-align: center;
     letter-spacing: 0px;

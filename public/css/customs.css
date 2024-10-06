@@ -683,8 +683,10 @@ img {vertical-align: middle;}
 }
 
 .listing_image_container img{
-    height: 240px;
     width: 100%;
+    height: auto;
+    object-fit: cover; /* Adjust this if you want the entire image to be shown without cropping */
+    max-height: 300px; /* Set a reasonable height limit to prevent it from becoming too tall */
 }
 
 .head-title{

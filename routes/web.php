@@ -13,7 +13,7 @@
 
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
-
+use App\Http\Controllers\PropertyValuationController;
 
 Route::get('/','PageController@show_home');
 Route::get('who-we-are','PageController@show_who_we_are');
