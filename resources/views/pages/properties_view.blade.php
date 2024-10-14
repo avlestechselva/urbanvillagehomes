@@ -13,7 +13,7 @@
     </ol>
 </div>
 
-<div class="page-title-div"> Selling your property with Urban Village </div>
+<div class="page-title-div"> Let us help you find your dream property </div>
 <div class="page-subtitle-div"> Discover why others choose to partner with us </div>
 
 <!-- search-bar -->
@@ -106,7 +106,7 @@
                                                 </p>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <p class="">
-                                                        {{ $property->displayPropertyType }}
+                                                        {{ $property->propertyStyle }}
                                                     </p>
                                                     <div class="d-flex justify-content-between" style="gap: 9px;">
                                                         <div class="d-flex align-items-center"

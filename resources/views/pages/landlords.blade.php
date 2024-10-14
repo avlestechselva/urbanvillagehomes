@@ -504,7 +504,10 @@
                 <h2>We keep tenants and landlords fully informed</h2>
                 <div class="reviews-container pt-2 pt-lg-4 row d-flex justify-content-center row">
                     <div class="col-6" style="display: contents;">
-                        <iframe width="100%" height="591" class=" set-phone-height" src="https://player.vimeo.com/video/328369211" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                        <video width="75%" height="546" controls loop muted style="display: block; margin: 20px auto;" poster="{{ asset('images/about-us/logo_poster.jpg') }}">
+                            <source src="{{ asset('videos/Landlords_UV.mp4') }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
 
                 </div>

@@ -18,8 +18,10 @@
     <div class="d-flex justify-content-center">
         <div class="col-6  d-flex justify-content-center">
             <div class="row  accommodation home-accommodation">
-                    <video id="myVideo" poster="{{ asset('images/about-us/logo_poster.jpg') }}" width="100%" height="546">
-                    <source src="We love estate agency - Estate Agency In London.mp4" type="video/mp4">
+                    
+                <video width="100%" height="546" controls loop muted style="display: block; margin: 20px auto;" poster="{{ asset('images/about-us/logo_poster.jpg') }}">
+                    <source src="{{ asset('videos/AboutUs_UV.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
                 </video>
             </div>
         </div>
