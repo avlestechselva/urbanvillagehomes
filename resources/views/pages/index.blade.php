@@ -203,7 +203,7 @@
                         <div class="listing_image">
                             <div class="listing_image_container">
 
-                                <a href="{{ url('property/' . $property->propertyID . '/' . $property->slug) }}">
+                                <a href="{{ url('property/' . $property->propertyID . '/' . $property->propertyID) }}">
                                     <img src="{{ $property->image }}"
                                         alt="Urban Village Home - {{ $property->displayAddress }}">
                                 </a>
