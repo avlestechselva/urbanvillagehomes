@@ -22,10 +22,10 @@
         <div class="container-fluid p-0">
             <div class="Properties-for-sale d-flex justify-content-center align-items-center w-100">
                 <div class="all-properties d-flex justify-content-center align-items-center">
-                    <a href="">Properties for sale</a>
+                    <a href="{{ url('property/buyers') }}">Properties for sale</a>
                 </div>
                 <div class="all-properties d-flex justify-content-center align-items-center">
-                    <a href="">Properties for rent</a>
+                    <a href="{{ url('property/tenants') }}">Properties for rent</a>
                 </div>
                 <div class="all-properties d-flex justify-content-center align-items-center">
                     <a href="{{ url('book-a-valuation') }}">Book a valuation</a>

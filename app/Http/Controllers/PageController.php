@@ -1486,7 +1486,7 @@ class PageController extends Controller
     {
         $withdrawn = array(5);
 
-        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyBathrooms', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability', 'images', 'displayPropertyType')
+        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyBathrooms', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability', 'images', 'displayPropertyType','addressName','address3','addressStreet')
             ->where('status', 1)
             // ->where('featuredProperty', 1)
             ->whereNotIn('availability', $withdrawn)

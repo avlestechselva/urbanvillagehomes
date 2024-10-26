@@ -29,7 +29,7 @@
 'For both landlords and homeowners, Brixton has always been a reliable marketplace, with a stable stream of tenants and buyers keen to zone in on the action. '
     
 ],
-    'buttonLink' => '#',
+    'buttonLink' => '{{ url('book-a-valuation') }}',
     'buttonText' => 'Book a valuation'
 ])
 

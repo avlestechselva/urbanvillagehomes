@@ -410,8 +410,8 @@
 						<div class="footer_links">
 							<div class="footer_title">Properties Types</div>
 							<ul>
-								<li><a href="#">Properties for rent</a></li>
-								<li><a href="#">Properties for sale</a></li>
+								<li><a href="{{ url('property/tenants') }}">Properties for rent</a></li>
+								<li><a href="{{ url('property/buyers') }}">Properties for sale</a></li>
 								<li><a href="#">Commercial</a></li>
 								<li><a href="#">Homes</a></li>
 								<li><a href="#">Villas</a></li>

@@ -79,8 +79,8 @@
         @endforeach
 
         <div class="button-container">
-            <a href="{{ $saleLink }}" class="btn property-btn">Properties for sale</a>
-            <a href="{{ $rentLink }}" class="btn property-btn">Properties for rent</a>
+            <a href="{{ url('property/buyers') }}" class="btn property-btn">Properties for sale</a>
+            <a href="{{ url('property/tenants') }}" class="btn property-btn">Properties for rent</a>
         </div>
     </div>
     

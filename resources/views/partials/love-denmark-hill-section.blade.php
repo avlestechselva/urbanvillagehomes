@@ -86,7 +86,7 @@
             <p>{{ $paragraph }}</p>
         @endforeach
         <div class="button-container">
-            <a href="{{ $buttonLink }}" class="btn valuation-btn">{{ $buttonText }}</a>
+            <a href="{{ url('book-a-valuation') }}" class="btn valuation-btn">{{ $buttonText }}</a>
         </div>
     </div>
 </div>

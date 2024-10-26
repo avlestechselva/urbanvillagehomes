@@ -2,95 +2,71 @@
 
 <link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
 <link rel="stylesheet" href="{{ asset('css/page_header.css') }}">
-<link rel="stylesheet" href="{{ asset('css//new_aboutus.css') }}">
+<link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
 <link rel="stylesheet" href="{{ asset('css//newhome.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> -->
 
 <style>
-    .work-with-us-section {
-        display: flex;
-        /* Flexbox for layout */
-        justify-content: space-between;
-        /* Space between text and image */
-        align-items: center;
-        /* Center align items vertically */
-        background-color: white;
-        /* Background color for the section */
-        border-radius: 10px;
-        /* Rounded corners */
-        padding: 20px;
-        /* Padding inside the section */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        /* Box shadow for slight elevation */
-        margin: 20px 0;
-        /* Margin for spacing above and below */
-    }
+    .book-now {
+    background-color: #c4d442; /* Button background color */
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
 
-    .work-with-us-content {
-        max-width: 50%;
-        /* Maximum width for text content */
-    }
-
-    .work-with-us-content h2 {
-        color: #A22D6C;
-        /* Heading color */
-        font-size: 24px;
-        /* Font size for the heading */
-        margin-bottom: 15px;
-        /* Margin below the heading */
-    }
-
-    .work-with-us-content p {
-        font-size: 16px;
-        /* Font size for paragraphs */
-        line-height: 1.5;
-        /* Line height for readability */
-        color: #333;
-        /* Text color */
-        margin-bottom: 15px;
-        /* Margin below paragraphs */
-    }
-
-    .work-with-us-content ul {
-        list-style-type: none;
-        /* Remove default list style */
-        padding-left: 0;
-        /* Remove left padding */
-        margin-bottom: 0;
-        /* Remove bottom margin */
-    }
-
-    .work-with-us-content ul li {
-        font-size: 16px;
-        /* Font size for list items */
-        line-height: 1.5;
-        /* Line height for list items */
-        color: #6f6f6f;
-        /* Text color */
-        margin-bottom: 10px;
-        /* Margin between list items */
-        padding-left: 8px;
-        /* Padding to align text */
-        position: relative;
-        /* Positioning for icon */
-    }
+.d-flex.justify-content-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
+.work-with-us-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
+}
 
-    .work-with-us-image {
-        max-width: 45%;
-        /* Maximum width for image */
-        margin-left: 20px;
-        /* Margin between image and text */
-    }
+.work-with-us-content {
+    flex: 1; /* Allow the content to grow to fill space */
+    margin-right: 20px; /* Add some space between text and image */
+}
 
-    .work-with-us-image img {
-        width: 100%;
-        /* Full width image */
-        border-radius: 10px;
-        /* Rounded corners   */
-    }
+.work-with-us-content h2 {
+    color: #A22D6C;
+    font-size: 28px; /* Adjust the font size for better readability */
+    margin-bottom: 15px;
+}
+
+.work-with-us-content p, .work-with-us-content ul li {
+    font-size: 18px; /* Increase the font size for readability */
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.work-with-us-image {
+    flex: 1; /* Allow the image to grow to fill space */
+    margin-left: 20px;
+}
+
+.work-with-us-image img {
+    width: 100%;
+    height: auto; /* Ensure the image maintains aspect ratio */
+    border-radius: 10px;
+}
+
 
     .quote-text {
         text-align: center;
@@ -133,10 +109,10 @@
         <div class="container-fluid p-0">
             <div class="Properties-for-sale d-flex justify-content-center align-items-center w-100">
                 <div class="all-properties d-flex justify-content-center align-items-center">
-                    <a href="">Properties for sale</a>
+                    <a href="{{ url('property/buyers') }}">Properties for sale</a>
                 </div>
                 <div class="all-properties d-flex justify-content-center align-items-center">
-                    <a href="">Properties for rent</a>
+                    <a href="{{ url('property/tenants') }}">Properties for rent</a>
                 </div>
                 <div class="all-properties d-flex justify-content-center align-items-center">
                     <a href="{{ url('book-a-valuation') }}">Book a valuation</a>
@@ -353,8 +329,7 @@
                 </br>Whether you want to sell, let, buy or rent – we’re here to support you at every step.
             </p>
             <div class="d-flex justify-content-center pt-4 pt-lg-5">
-                <a href="#" class="book-now text-white d-flex justify-content-center align-items-center">MEET
-                    THE TEAM</a>
+                <a href="#" class="book-now text-white d-flex justify-content-center align-items-center">MEET THE TEAM</a>
             </div>
         </div>
     </div>

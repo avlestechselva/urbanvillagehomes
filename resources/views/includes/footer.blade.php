@@ -106,7 +106,7 @@
                                     <div class="footer_logo"><a href="#"><img src="{{ asset(('images/about-us/logo.png')) }}" alt="British Property Awards 2019 - Gold Winner - Estate Agent In SE5" /> </a></div>
                                 </div>
                                 <div class="col-md-9 p-0">
-                                    <p class="footer_address_detail col-md-7 p-lg-0">121 Denmark Hill London,SE5 8EN</p>
+                                    <p class="footer_address_detail col-md-7 p-lg-0">121 Denmark Hill London, SE5 8EN</p>
                                 </div>
 
                             </div>
@@ -140,10 +140,10 @@
                             <div class="para-justify">
                                 <p>
                                     Urban Village is a trading name of Urban Village Homes Limited</p>
-                                <p>Registered address: 121 Denmark Hill, London SE5 8EN <br> Telephone: 02035199121 |  Email: info@urbanvillagehomes.com </p>
+                                <p>Registered address: 121 Denmark Hill, London SE5 8EN <br> Telephone: 020 3519 9121 |  Email: info@urbanvillagehomes.com </p>
                                 <p>Company registration number: 09523009 registered in England and Wales | VAT no. 211 010 205
                                 </p>
-                                <!-- Registered address: 121 Denmark Hill, London SE5 8EN Telephone: 02035199121 | Email: info@urbanvillagehomes.com  -->
+                                <!-- Registered address: 121 Denmark Hill, London SE5 8EN Telephone: 020 3519 9121 | Email: info@urbanvillagehomes.com  -->
                             </div>
                     </div>
                 </div>

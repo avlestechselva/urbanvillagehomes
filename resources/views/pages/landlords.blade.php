@@ -352,7 +352,7 @@
             <div class="col-lg-12 move_up_top-2">
                 <div class="intro_content">
                     <div class="button-container mt-4 mt-lg-0 pt-lg-5"> <!-- Wrapper to center the button -->
-                        <a target="_blank" href="https://urban-village-homes.engage.epropservices.com/" class="btn custom-btn">
+                        <a target="_blank" href="{{ url('book-a-valuation') }}" class="btn custom-btn">
                             <b>Book a Free Valuation</b>
                         </a>
                     </div>
@@ -490,13 +490,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="Service-options">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <p class="text-white">Service options and charges</p>
-                        <!-- <i class="fa-solid fa-play"></i> -->
-                        <img src="{{ asset('images/icons/white-chevron.png') }}">
+                <a href="https://urbanvillagehomes.com/wp-content/uploads/Landlord-fees-schedule-V3.4-187.pdf" style="text-decoration: none;">
+                    <div class="Service-options">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="text-white">Service options and charges</p>
+                            <!-- <i class="fa-solid fa-play"></i> -->
+                            <img src="{{ asset('images/icons/white-chevron.png') }}">
+                        </div>
                     </div>
-                </div>
+                </a>
+                
             </div>
 
             <!-- We keep tenants and landlords fully informed-video -->
