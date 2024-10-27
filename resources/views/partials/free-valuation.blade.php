@@ -30,7 +30,7 @@
             <p>{{ $paragraph }}</p>
         @endforeach
         <div class="d-flex justify-content-center pt-4 pt-lg-5">
-            <a href="{{ $buttonLink }}" class="book-now text-white d-flex justify-content-center align-items-center">{{ $buttonText }}</a>
+            <a href="{{ url('book-a-valuation') }}" class="book-now text-white d-flex justify-content-center align-items-center">BOOK NOW</a>
         </div>
     </div>
 </section>

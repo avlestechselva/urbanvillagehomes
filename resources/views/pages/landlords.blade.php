@@ -531,7 +531,7 @@
                             Get in touch with our team to book your free valuation today.
                         </p>
                         <div class="button-container mt-4"> <!-- Wrapper to center the button -->
-                            <a target="_blank" href="https://urban-village-homes.engage.epropservices.com/" class="btn custom-btn">
+                            <a target="_blank" href="{{ url('book-a-valuation') }}" class="btn custom-btn">
                                 <b>Book Now</b>
                             </a>
                         </div>

@@ -44,8 +44,7 @@
         'Pricing your property is a balancing act, which is why getting an accurate, up-to-date, and research-based valuation is critical.',
         'Get in touch with our team to book your free valuation today.'
     ],
-    'buttonLink' => '#',
-    'buttonText' => 'BOOK NOW'
+    
 ])
 
 

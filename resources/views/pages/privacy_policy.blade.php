@@ -25,7 +25,7 @@
 
                         <p>We may change the privacy notice from time to time by amending this page.</p>
 
-                        <h4>For The Purpose Of The Data Protection Act 1998 And General Data Protection Regulation EU 2016/679, The Data Controller Is Urban Village A Company Registered In England Under Company Number 09523009 Whose Registered Address 121 Denmark Hill London SE5 8EN.</h4>
+                        <h4>For The Purpose Of The Data Protection Act 1998 And General Data Protection Regulation EU 2016/679, The Data Controller Is Urban Village A Company Registered In England Under Company Number 09523009 Whose Registered Address - 121, Denmark Hill, London, SE5 8EN.</h4>
                         <small>What type of information will we collect from you?</small>
                         <p>The personal information we collect from you will typically include the following:</p>
                         <ul>
@@ -101,7 +101,7 @@
 
                         <p>How you can access and update your information</p>
 
-                        <p>You have a right to request a copy of the personal information we hold about you, known as a data subject access request. You also have the right to request that information we hold about you which may be incorrect, or which has been changed since you first told us, is updated or removed. These requests are free of charge and can be sent to Suzanne Vincent, Urban Village 121 Denmark Hill, London SE5 8EN.</p>
+                        <p>You have a right to request a copy of the personal information we hold about you, known as a data subject access request. You also have the right to request that information we hold about you which may be incorrect, or which has been changed since you first told us, is updated or removed. These requests are free of charge and can be sent to Suzanne Vincent, Urban Village 121 Denmark Hill, London, SE5 8EN.</p>
 
 
 

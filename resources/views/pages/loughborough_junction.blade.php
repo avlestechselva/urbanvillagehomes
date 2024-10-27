@@ -44,8 +44,6 @@
 'Think Peckham could be the place for you? Get in touch with our team to start your search.'
 
     ],
-    'buttonLink' => '#',
-    'buttonText' => 'BOOK NOW'
 ])
 
 
