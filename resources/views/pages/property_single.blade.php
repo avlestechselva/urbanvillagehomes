@@ -150,7 +150,7 @@
                             <div class="listing_features" style="margin-top: 0px !important;">
                                 <h3>Property at A Glance</h3>
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-13">
                                         <ul>
                                             <li>{!! $property->propertyFeature1 !!}</li>
                                             <li>{!! $property->propertyFeature2 !!}</li>
