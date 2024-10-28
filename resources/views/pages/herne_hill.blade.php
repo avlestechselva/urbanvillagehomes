@@ -16,7 +16,7 @@
     ],
     'saleLink' => '#',
     'rentLink' => '#',
-    'videoLink' => 'https://www.youtube.com/embed/paW1T11FAZc'
+    'videoLink' => ''
 ])
 
 @include('partials.love-denmark-hill-section', [

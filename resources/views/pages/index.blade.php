@@ -35,37 +35,38 @@
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px 0;
-    flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
+    width: 100%; /* Ensures the section takes full available width */
+    box-sizing: border-box; /* Ensures padding is considered in width calculation */
 }
 
 .work-with-us-content {
-    flex: 1; /* Allow the content to grow to fill space */
-    margin-right: 20px; /* Add some space between text and image */
-}
-
-.work-with-us-content h2 {
-    color: #A22D6C;
-    font-size: 28px; /* Adjust the font size for better readability */
-    margin-bottom: 15px;
-}
-
-.work-with-us-content p, .work-with-us-content ul li {
-    font-size: 18px; /* Increase the font size for readability */
-    line-height: 1.7;
-    color: #333;
-    margin-bottom: 10px;
+    height: 350px;
+    flex: 0 0 90%; /* Take exactly 50% of the width */
+    padding-right: 20px; /* Adjust space between content and image */
+    box-sizing: border-box; /* Ensures padding is considered in width calculation */
 }
 
 .work-with-us-image {
-    flex: 1; /* Allow the image to grow to fill space */
-    margin-left: 20px;
+    flex: 0 0 50%; /* Take exactly 50% of the width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .work-with-us-image img {
-    width: 100%;
-    height: auto; /* Ensure the image maintains aspect ratio */
+    width: 100%; /* Ensure the image takes the full width of its container */
+    height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
 }
+
+
+.profile-card img {
+    width: 100%; /* Let the image take the full width available in its container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    object-fit: cover; /* Ensure the image fits nicely without stretching */
+}
+
 
 
     .quote-text {
@@ -367,7 +368,7 @@
                 <p>Suzanne is our very own estate agency guru. She first started in the industry in 1992 by complete accident, following a misunderstanding at a job interview. Little did she know that it would be the catalyst for a lifelong passion! Fast forward 33 years, and she set up her own independent estate agency, Urban Village, in 2015. Today, she’s all about delivering bespoke, trusted experiences for our clients, with fair and transparent fees and dedicated customer service. When she’s not wowing our clients, you’ll likely find her horse riding or walking her dog.</p>
             </div> -->
             <div class="col-12 col-md-6 p-0 px-lg-3">
-                <img src="{{ asset('images/about-us/MaskGroup44.png') }}" alt="" class="profile-image ms-3">
+                <img src="{{ asset('images/about-us/MaskGroup44.png') }}" alt="" class="profile-image ms-4">
             </div>
         </div>
     </div>

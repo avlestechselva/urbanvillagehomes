@@ -1,7 +1,7 @@
 <style>
     #about-us-carousel .item img {
-    width: 120px; /* Set a fixed width for all logos */
-    height: 95px; /* Set a fixed height for all logos */
+    width: 150px; /* Set a fixed width for all logos */
+    height: 120px; /* Set a fixed height for all logos */
     object-fit: contain; /* This ensures the image fits within the width/height without being distorted */
     display: block;
     margin: 0 auto; /* Center the images */

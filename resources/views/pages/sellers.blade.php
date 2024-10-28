@@ -322,7 +322,7 @@
             <div class="col-lg-12 move_up_top-2">
                 <div class="intro_content">
                     <div class="button-container pt-lg-5"> <!-- Wrapper to center the button -->
-                        <a target="_blank" href="https://urban-village-homes.engage.epropservices.com/" class="btn custom-btn">
+                        <a target="_blank" href="{{ url('book-a-valuation') }}" class="btn custom-btn">
                             <b>Book a Free Valuation</b>
                         </a>
                     </div>

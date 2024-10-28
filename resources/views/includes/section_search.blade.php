@@ -6,7 +6,7 @@
             <div class="col-lg-12 move_up_top-2">
                 <div class="intro_content">
                     <br/>
-                    <a target="_blank" href="https://urban-village-homes.engage.epropservices.com/" class="btn cus-btn-2" style="background:#a82266 !important; border:#a82266 !important;"><b>Book a Free Valuation</b></a>
+                    <a target="_blank" href="{{ url('book-a-valuation') }}" class="btn cus-btn-2" style="background:#a82266 !important; border:#a82266 !important;"><b>Book a Free Valuation</b></a>
                 </div>
             </div>
             <div class="col-md-12" style="margin-top: 4px;">

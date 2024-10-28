@@ -475,7 +475,7 @@
 
                         <div class="service-buttons">
                             <a href="{{ url('book-a-valuation') }}" class="btn service-btn">BOOK A VALUATION</a>
-                            <a href="#" class="btn service-btn whatsapp"> <img src="{{ asset('images/icons/whatsapp.png') }}" alt="whatsapp"></a>
+                            
                         </div>
                     </div>
 
@@ -486,7 +486,7 @@
                         <p><strong>10% including VAT for our standard 12-month tenancy. No automatic renewal fees charged, which is a unique benefit with Urban Village.</strong></p>
                         <div class="service-buttons">
                             <a href="{{ url('book-a-valuation') }}" class="btn service-btn">Book a Valuation</a>
-                            <a href="#" class="btn service-btn whatsapp"><img src="{{ asset('images/icons/whatsapp.png') }}" alt="whatsapp"></a>
+                            
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
         font-family: 'Outfit', sans-serif;
     }
     .foot_title_new_datail {
-        font-size: 28px;
+        font-size: 20px;
         text-align: left;
         color: #AFB700;
         font-family: 'Outfit', sans-serif;
@@ -13,7 +13,7 @@
 
     .foot_title_new {
 
-        font-size: 28px;
+        font-size: 20px;
         text-align: left;
         color: #AFB700;
         font-family: 'Outfit', sans-serif;
@@ -24,12 +24,12 @@
 
     .footer_address_detail {
         text-align: left;
-        font: normal normal normal 28px/55px Outfit;
+        font: normal normal normal 14px/27.5px Outfit;
         letter-spacing: 0px;
         color: #FFFFFF;
         opacity: .9 !important;
         opacity: 1;
-        font-size: 28px;
+        font-size: 20px;
     }
 
     .footer_link {
@@ -103,7 +103,12 @@
                         <h4 class="foot_title_new_datail">OFFICE DETAILS</>
                             <div class="row mt-2 mt-lg-5">
                                 <div class="col-md-3 p-lg-0">
-                                    <div class="footer_logo"><a href="#"><img src="{{ asset(('images/about-us/logo.png')) }}" alt="British Property Awards 2019 - Gold Winner - Estate Agent In SE5" /> </a></div>
+                                    <div class="footer_logo">
+                                        <a href="#">
+                                            <img src="{{ asset(('images/about-us/logo.png')) }}" alt="British Property Awards 2019 - Gold Winner - Estate Agent In SE5" style="height: 75px;" />
+                                        </a>
+                                    </div>
+                                    
                                 </div>
                                 <div class="col-md-9 p-0">
                                     <p class="footer_address_detail col-md-7 p-lg-0">121 Denmark Hill London, SE5 8EN</p>
@@ -237,7 +242,7 @@
                                 <li><a href="#">© Copyright {{ date('Y') }}</a></li>
                                 <li><a href="#">Complaints Procedure</a></li>
                                 <li><a href="#">Industry Regulation</a></li>
-                                <li><a href="#">Privacy Notice </a></li>
+                                <li><a href="{{ url('privacy-policy') }}">Privacy Notice </a></li>
                                 <li><a href="{{ url('terms-and-condition') }}">Terms and Conditions</a></li>
                                 <li><a href="#">VAT GB</a></li>
                                 <!-- <li><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>

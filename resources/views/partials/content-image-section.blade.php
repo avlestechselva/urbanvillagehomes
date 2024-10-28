@@ -84,7 +84,9 @@
         </div>
     </div>
     
-    <div class="content-image">
-        <iframe width="100%" height="355" class="set-phone-height" src="{{ $videoLink }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+    @if(!empty($videoLink))
+        <div class="content-image">
+            <iframe width="100%" height="355" class="set-phone-height" src="{{ $videoLink }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    @endif
 </div>
