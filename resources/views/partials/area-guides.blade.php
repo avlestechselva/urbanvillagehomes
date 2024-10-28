@@ -115,7 +115,7 @@
                             <div class="owl-item cloned">
                                 <div class="post-slide">
                                     <div class="post-img">
-                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <img src="{{ asset('images/camberwell.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
                                     <div class="post-content">
@@ -129,7 +129,7 @@
                             <div class="owl-item cloned">
                                 <div class="post-slide">
                                     <div class="post-img">
-                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <img src="{{ asset('images/herene-hill.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
                                     <div class="post-content">
@@ -143,7 +143,7 @@
                             <div class="owl-item cloned">
                                 <div class="post-slide">
                                     <div class="post-img">
-                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <img src="{{ asset('images/denmark-hill.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
                                     <div class="post-content">
@@ -171,7 +171,7 @@
                             <div class="owl-item cloned">
                                 <div class="post-slide">
                                     <div class="post-img">
-                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <img src="{{ asset('images/brixton.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
                                     <div class="post-content">
@@ -185,7 +185,7 @@
                             <div class="owl-item cloned">
                                 <div class="post-slide">
                                     <div class="post-img">
-                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <img src="{{ asset('images/peckham.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
                                     <div class="post-content">
@@ -199,7 +199,7 @@
                             <div class="owl-item cloned">
                                 <div class="post-slide">
                                     <div class="post-img">
-                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <img src="{{ asset('images/stockwell.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
                                     <div class="post-content">
@@ -213,7 +213,7 @@
                             <div class="owl-item cloned">
                                 <div class="post-slide">
                                     <div class="post-img">
-                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <img src="{{ asset('images/waterloo.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
                                     <div class="post-content">
@@ -227,7 +227,7 @@
                             <div class="owl-item cloned">
                                 <div class="post-slide">
                                     <div class="post-img">
-                                        <img src="{{ asset('images/camberwell-denmark-hill.png' ) }}" alt="">
+                                        <img src="{{ asset('images/loughborough.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
                                     <div class="post-content">

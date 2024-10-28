@@ -19,7 +19,7 @@
 ])
 
 @include('partials.love-denmark-hill-section', [
-    'imagePath' => 'camberwell-denmark-hill.png',
+    'imagePath' => 'denmark-hill.png',
     'imageAlt' => 'Denmark Hill Image',
     'heading' => 'Why we love Denmark Hill',
     'paragraphs' => [

@@ -20,7 +20,7 @@
 ])
 
 @include('partials.love-denmark-hill-section', [
-    'imagePath' => 'camberwell-denmark-hill.png',
+    'imagePath' => 'brixton.png',
     'imageAlt' => 'Denmark Hill Image',
     'heading' => 'Why we love Brixton',
     'paragraphs' => [
@@ -29,7 +29,7 @@
 'For both landlords and homeowners, Brixton has always been a reliable marketplace, with a stable stream of tenants and buyers keen to zone in on the action. '
     
 ],
-    'buttonLink' => '{{ url('book-a-valuation') }}',
+    'buttonLink' => '#',
     'buttonText' => 'Book a valuation'
 ])
 

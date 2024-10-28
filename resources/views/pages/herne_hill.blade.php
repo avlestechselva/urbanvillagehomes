@@ -20,7 +20,7 @@
 ])
 
 @include('partials.love-denmark-hill-section', [
-    'imagePath' => 'path/to/your/image.jpg',
+    'imagePath' => 'herene-hill.png',
     'imageAlt' => 'Denmark Hill Image',
     'heading' => 'Why we love Herne Hill',
     'paragraphs' => [

@@ -134,24 +134,38 @@
             </div>
             <div class="review-card" style="background-color: #C6BEC426; border: 1px solid #992785;">
                 <div class="d-flex pb-2">
-                    <h4>Ruth Mackie</h4>
+                    <h4>Rosie - Verified Reviewer</h4>
                     <div class="stars ml-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 </div>
-                <p>The lovely team at Urban Village were always available and any minor problems were immediately resolved - I didn’t have any major ones! I was very happy with my part-furnished flat while I was searching for a permanent home of my own. I can recommend Urban Village whole-heartedly to any prospective tenant.</p>
+                <p>Urban Village Camberwell were excellent from start to finish. When I left London
+                    they let my property for over 2 years and then went on to sell it for me in March
+                    2024. Natalie was professional, prompt, with excellent communication and I loved
+                    that she was so genuine. I really felt like I could trust her and the team, which made
+                    a real difference to my experience. Thankyou so much for your hard work on my
+                    behalf! I would highly recommended Urban Village for renting, buying and selling. 5
+                    stars </p>
             </div>
             <div class="review-card">
                 <div class="d-flex pb-2">
-                    <h4>Ruth Mackie</h4>
+                    <h4>Duyen Nguyen - Verified Reviewer</h4>
                     <div class="stars ml-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 </div>
-                <p>The lovely team at Urban Village were always available and any minor problems were immediately resolved - I didn’t have any major ones! I was very happy with my part-furnished flat while I was searching for a permanent home of my own. I can recommend Urban Village whole-heartedly to any prospective tenant.</p>
+                <p>I am very satisfied and happy with the customer services provided by Tyler Connor.
+                    I am totally impressed with her patience and friendly approaches to answer my
+                    queries, especially to work with the seller to answer my concerns promptly. As a
+                    landlord who has been dealing with a number of estate agents, and from the
+                    experience working with Tyler Connor at Urban Village from the 1st viewing to the
+                    completion stage of the purchase, I consider Tyler as one the best estate agent staff
+                    and would not hesitate to ask for her assistance in the future if I can find a possible
+                    purchase with Urban Village in the future.</p>
             </div>
             <div class="review-card">
                 <div class="d-flex pb-2">
-                    <h4>Ruth Mackie</h4>
+                    <h4>Dan - Verified Reviewer</h4>
                     <div class="stars ml-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 </div>
-                <p>The lovely team at Urban Village were always available and any minor problems were immediately resolved - I didn’t have any major ones! I was very happy with my part-furnished flat while I was searching for a permanent home of my own. I can recommend Urban Village whole-heartedly to any prospective tenant.</p>
+                <p>We bought our house through Urban Village and found the whole process with them to be straightforward. They communicate clearly, reply to messages promptly and were always friendly and helpful. In our experience of buying and selling, Urban
+                    Village have been the best we have come across. Special thanks to Natalie for being so easy to work with.</p>
             </div>
             <div data-v-90132dd2="" class="ruk-icon-arrow-right-thin-1-01 green-chevron">  <img src="{{ asset('images/icons/green-chevron.png') }}" ></div>
         </div>
@@ -185,35 +199,7 @@
         </div>
     </section>
 
-    <!-- <div class="reviews-section">
-        <h2>See what our customers say</h2>
-        <div class="reviews-container">
-            <div class="review-summary">
-                <div class="review-rating">
-                    <p class="rating-title">Excellent</p>
-                    <div class="stars">
-                        ★★★★★
-                    </div>
-                    <p class="rating-info">4.9 average<br>207 reviews</p>
-                </div>
-                <div class="review-logo">
-                    <img src="path_to_reviews_logo.png" alt="Reviews.io">
-                </div>
-            </div>
-            <div class="review-card">
-                <p><strong>Ruth Mackie</strong> ★★★★★</p>
-                <p>The lovely team at Urban Village were always available and any minor problems were immediately resolved - I didn’t have any major ones! I was very happy with my part-furnished flat while I was searching for a permanent home of my own. I can recommend Urban Village whole-heartedly to any prospective tenant.</p>
-            </div>
-            <div class="review-card">
-                <p><strong>Ruth Mackie</strong> ★★★★★</p>
-                <p>The lovely team at Urban Village were always available and any minor problems were immediately resolved - I didn’t have any major ones! I was very happy with my part-furnished flat while I was searching for a permanent home of my own. I can recommend Urban Village whole-heartedly to any prospective tenant.</p>
-            </div>
-            <div class="review-card">
-                <p><strong>Ruth Mackie</strong> ★★★★★</p>
-                <p>The lovely team at Urban Village were always available and any minor problems were immediately resolved - I didn’t have any major ones! I was very happy with my part-furnished flat while I was searching for a permanent home of my own. I can recommend Urban Village whole-heartedly to any prospective tenant.</p>
-            </div>
-        </div>
-    </div> -->
+    
     @include('partials.property-market', ['posts' => $posts])
     @include('partials.companies')
    

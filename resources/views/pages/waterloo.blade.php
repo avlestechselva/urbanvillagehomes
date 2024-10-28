@@ -19,7 +19,7 @@
 ])
 
 @include('partials.love-denmark-hill-section', [
-    'imagePath' => 'camberwell-denmark-hill.png',
+    'imagePath' => 'waterloo.png',
     'imageAlt' => 'Denmark Hill Image',
     'heading' => 'Why we love Waterloo',
     'paragraphs' => [
@@ -34,7 +34,7 @@
 
 
 @include('partials.free-valuation', [
-   'imagePath' => 'camberwell-denmark-hill.png',
+   'imagePath' => 'waterloo.png',
     'imageAlt' => 'Company Logo',
     'heading' => 'Get a free property valuation',
     'paragraphs' => [
