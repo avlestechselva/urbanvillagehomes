@@ -41,7 +41,7 @@
 
 .work-with-us-content {
     height: 350px;
-    flex: 0 0 90%; /* Take exactly 50% of the width */
+    flex: 0 0 95%; /* Take exactly 50% of the width */
     padding-right: 20px; /* Adjust space between content and image */
     box-sizing: border-box; /* Ensures padding is considered in width calculation */
 }
@@ -201,14 +201,11 @@
                             <div class="prop_location listing_location align-items-start justify-content-start">
 
                                 <div class="row">
-                                    <!-- <div class="col-md-2">
-                            <img src="{{ asset('images/icon_4_large.png') }}" alt="Icon Image">
-                        </div> -->
+                                    
 
                                     <div class="col-md-12">
 
-                                        <!-- <a class="pro-title" href="{{ url('property/' . $property->propertyID . '/' . $property->slug) }}">
-                                {{ str_limit($property->displayAddress, $limit = 25, $end = '...') }}</a> -->
+                                        
                                         <div class="sold-cards">
                                             <p>
                                                 <b class="text-dark">£ @if ($property->rent)
@@ -218,7 +215,7 @@
                                                     @endif
                                                 </b>
                                                 <br>
-                                                {!! str_limit($property->displayAddress, $limit = 25, $end = '...') ?? '&nbsp;' !!}
+                                                {!! str_limit($property->addressStreet . ', ' . $property->address3, $limit = 25, $end = '...') ?? '&nbsp;' !!}
                                             </p>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <p class="">

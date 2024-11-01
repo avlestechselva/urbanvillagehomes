@@ -19,9 +19,7 @@
 		<div class="container">
 			<div class="row move_up_top">
 				<div class="col">
-					<div class="text-center">
-                        <p>Please feel free to contact us should you have any questions, queries or suggestions, and we would be happy to help.</p>
-					</div>
+					
 				</div>
 			</div>
 			<div class="row contact_row">
@@ -38,7 +36,7 @@
                                 <div class="d-flex flex-column align-items-center justify-content-center">
                                     <div><img src="images/placeholder_2.svg" alt=""></div>
                                 </div>
-                                <span>121 Denmark Hill, SE5 8EN, London</span>
+                                <span>121 Denmark Hill, London ,SE5 8EN</span>
                             </li>
                             <li class="d-flex flex-row align-items-center justify-content-start">
                                 <div class="d-flex flex-column align-items-center justify-content-center">
@@ -72,10 +70,7 @@
                                 @endif
                             </div>
                             <div class="row" style="margin-top:25px;">
-                                <div class="col-lg-4">
-                                    <label>Department</label>
-                                    <input type="text" class="contact_input" name="department" placeholder="Department">
-                                </div>
+                                
                                 <div class="col-lg-4">
                                     <label>Name</label>
                                     <input type="text" class="contact_input" name="name" placeholder="Your name" required="required">
@@ -88,10 +83,7 @@
                                     <label>Phone</label>
                                     <input type="text" class="contact_input" name="phone" placeholder="Phone">
                                 </div>
-                                <div class="col-lg-8">
-                                    <label>Subject</label>
-                                    <input type="text" class="contact_input" name="subject" placeholder="Subject">
-                                </div>
+                                
                             </div>
                             <textarea class="contact_textarea contact_input" style="font-family: 'Montserrat', sans-serif;" name="body_text" placeholder="Message" required="required"></textarea>
                             <div class="row">

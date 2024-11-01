@@ -29,7 +29,7 @@
 'Think Stockwell could be the place for you? Get in touch with our team to start your search.'
 ],
     'buttonLink' => '#',
-    'buttonText' => 'Book a valuation'
+    'buttonText' => 'Talk to our team'
 ])
 
 
@@ -38,10 +38,9 @@
     'imageAlt' => 'Company Logo',
     'heading' => 'Get a free property valuation',
     'paragraphs' => [
-'No longer an undiscovered secret, Peckham has quickly become one of the most popular locations for prospective buyers and tenants – and it isn’t difficult to see why.',
-'Peckham Rye’s cool credentials and small town vibe offers wonderful housing options, a wide array of independent boutiques and an excellent selection of pubs and popular restaurants ranging from street food to fine dining. ',
-'Paired with its easy access to transport links into central London and the West End, Peckham offers the best of village and city life, appealing to residents of all ages.',
-'Think Peckham could be the place for you? Get in touch with our team to start your search.'
+'The London property market is hugely competitive, which means getting your pricing right and pitching to the right audience is key. Aim too high with your asking price, and your property can go stale by sitting too long on the portals. Aim too low, and you could talk yourself out of a considerable profit.',
+        'Pricing your property is a balancing act, which is why getting an accurate, up-to-date, and research-based valuation is critical.',
+        'Get in touch with our team to book your free valuation today.'
 
     ],
     'buttonLink' => '#',

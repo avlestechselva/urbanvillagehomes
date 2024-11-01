@@ -28,7 +28,7 @@
 'If you’re looking for the perfect blend of quaint rural life and city excitement, Dulwich is the perfect place for you.'
 ],
     'buttonLink' => '#',
-    'buttonText' => 'Book a valuation'
+    'buttonText' => 'Talk to our team'
 ])
 
 

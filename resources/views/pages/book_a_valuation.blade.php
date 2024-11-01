@@ -100,7 +100,7 @@
 <div aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Book A Valuation</li>
+        <li class="breadcrumb-item active" aria-current="page">Book a valuation</li>
     </ol>
 </div>
 

@@ -29,7 +29,7 @@
         'With such a strong community vibe and great transport links, it’s easy to see why properties in Herne Hill don’t stay on the market for long. That’s why our team is focused on being fast and efficient – finding serious buyers and tenants and helping the best properties get seen by the right people. '
             ],
     'buttonLink' => '#',
-    'buttonText' => 'Book a valuation'
+    'buttonText' => 'Talk to our team'
 ])
 
 

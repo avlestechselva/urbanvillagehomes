@@ -32,7 +32,7 @@
         'Think Camberwell could be the place for you? Get in touch with our team to start your search.'
     ],
     'buttonLink' => '#',
-    'buttonText' => 'Book a valuation'
+    'buttonText' => 'Talk to our team'
 ])
 
 

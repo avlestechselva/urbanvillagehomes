@@ -30,7 +30,7 @@
     
 ],
     'buttonLink' => '#',
-    'buttonText' => 'Book a valuation'
+    'buttonText' => 'Talk to our team'
 ])
 
 

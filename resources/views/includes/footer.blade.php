@@ -7,7 +7,7 @@
         text-align: left;
         color: #AFB700;
         font-family: 'Outfit', sans-serif;
-        font-weight: 400;
+        font-weight: bold;
         /* SemiBold */
     }
 
@@ -183,7 +183,7 @@
                 <h4 class="footer_title foot_title_new">USEFUL LINKS</h4>
                                 <ul>
                                     <li><a class="footer_link" href="{{ url('contact') }}">Contact Us</a></li>
-                                    <li><a class="footer_link" href="{{ url('book-a-valuation') }}">Book a Valuation</a></li>
+                                    <li><a class="footer_link" href="{{ url('book-a-valuation') }}">Book a valuation</a></li>
                                     <li><a class="footer_link" href="{{ url('blog') }}">Blog</a></li>
                                     <li><a class="footer_link" href="{{ url('new-aboutus') }}">About Us</a></li>
                                     <li><a class="footer_link" href="{{ url('/') }}">Register as a tenant or a buyer</a></li>

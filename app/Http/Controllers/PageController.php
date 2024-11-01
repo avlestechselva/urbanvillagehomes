@@ -26,7 +26,7 @@ class PageController extends Controller
         $withdrawn = array(6, 7);
 
         //latest featured properties
-        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyBathrooms', 'displayPropertyType', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability', 'images')
+        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyBathrooms', 'displayPropertyType', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability', 'images','address3','addressStreet')
             ->where('status', 1)
             // ->where('featuredProperty', 1)
             ->whereNotIn('availability', $withdrawn)

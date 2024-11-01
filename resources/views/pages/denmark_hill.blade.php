@@ -21,7 +21,7 @@
 @include('partials.love-denmark-hill-section', [
     'imagePath' => 'denmark-hill.png',
     'imageAlt' => 'Denmark Hill Image',
-    'heading' => 'Why we love Denmark Hill',
+    'heading' => 'Why we love Denmark Hill.',
     'paragraphs' => [
         'Denmark Hill is perfectly positioned for those seeking an inner-London postcode with easy access to the city centre, without sacrificing the open green spaces and community vibe.',
     'From period properties with large gardens to an abundance of luscious green parks like Ruskin Park, Burgess Park and more – Denmark Hill has something for everyone.',
@@ -31,7 +31,7 @@
 
 ],
     'buttonLink' => '#',
-    'buttonText' => 'Book a valuation'
+    'buttonText' => 'Talk to our team'
 ])
 
 
