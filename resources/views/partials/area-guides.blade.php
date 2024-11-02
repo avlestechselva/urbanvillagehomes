@@ -1,4 +1,14 @@
     <style>
+        .link-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0); /* Make it transparent */
+}
+
         .card-carousel h2 {
             color: #992785;
             font-size: 35px !important;
@@ -40,22 +50,38 @@
             margin: -12px 15px 8px 15px;
         }
 
-        .post-slide .post-content {
+        .post-slide  {
             position: absolute;
             top: 36%;
             left: 21%;
             background-color: transparent;
             z-index: 30;
         }
+        .post-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the content */
+    text-align: center;
+    background-color: transparent;
+    z-index: 30;
+    width: 100%; /* Ensures the content takes full width */
+}
 
         .post-slide .post-description {
             color: #fff !important;
         }
 
-        .post-slide .post-date {
+        .post-slide  {
             color: #fff !important;
             font-size: 28px;
         }
+
+        .post-date {
+    color: #fff !important;
+    font-size: 28px;
+    display: inline-block;
+}
 
         button:focus {
             outline: none !important;
@@ -73,6 +99,7 @@
 
         .card-carousel p {
             font-size: 19px !important;
+            margin: 10px;
         }
 
         .post-img {
@@ -118,6 +145,7 @@
                                         <img src="{{ asset('images/camberwell.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
+                                    <a href="{{ url('camberwell') }}" class="link-overlay"></a>
                                     <div class="post-content">
                                         <p class="post-description mb-0">
                                             <span class="post-date">Camberwell</span>
@@ -132,6 +160,7 @@
                                         <img src="{{ asset('images/herene-hill.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
+                                    <a href="{{ url('herne-hill') }}" class="link-overlay"></a>
                                     <div class="post-content">
                                         <p class="post-description mb-0">
                                             <span class="post-date">Herne Hill</span>
@@ -146,6 +175,7 @@
                                         <img src="{{ asset('images/denmark-hill.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
+                                    <a href="{{ url('denmark-hill') }}" class="link-overlay"></a>
                                     <div class="post-content">
                                         <p class="post-description mb-0">
                                             <span class="post-date">Denmark Hill</span>
@@ -160,6 +190,7 @@
                                         <img src="{{ asset('images/dulwich.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
+                                    <a href="{{ url('dulwich') }}" class="link-overlay"></a>
                                     <div class="post-content">
                                         <p class="post-description mb-0">
                                             <span class="post-date">Dulwich</span>
@@ -174,6 +205,7 @@
                                         <img src="{{ asset('images/brixton.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
+                                    <a href="{{ url('brixton') }}" class="link-overlay"></a>
                                     <div class="post-content">
                                         <p class="post-description mb-0">
                                             <span class="post-date">Brixton</span>
@@ -188,6 +220,7 @@
                                         <img src="{{ asset('images/peckham.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
+                                    <a href="{{ url('peckham') }}" class="link-overlay"></a>
                                     <div class="post-content">
                                         <p class="post-description mb-0">
                                             <span class="post-date">Peckham</span>
@@ -202,6 +235,7 @@
                                         <img src="{{ asset('images/stockwell.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
+                                    <a href="{{ url('stockwell') }}" class="link-overlay"></a>
                                     <div class="post-content">
                                         <p class="post-description mb-0">
                                             <span class="post-date">Stockwell</span>
@@ -209,13 +243,12 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="owl-item cloned">
                                 <div class="post-slide">
                                     <div class="post-img">
                                         <img src="{{ asset('images/waterloo.png' ) }}" alt="">
-                                        <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
+                                    <a href="{{ url('waterloo') }}" class="link-overlay"></a> <!-- Add this line -->
                                     <div class="post-content">
                                         <p class="post-description mb-0">
                                             <span class="post-date">Waterloo</span>
@@ -223,13 +256,14 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <div class="owl-item cloned">
                                 <div class="post-slide">
                                     <div class="post-img">
                                         <img src="{{ asset('images/loughborough.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
+                                    <a href="{{ url('loughborough-junction') }}" class="link-overlay"></a>
                                     <div class="post-content">
                                         <p class="post-description mb-0">
                                             <span class="post-date">Loughborough Junction</span>

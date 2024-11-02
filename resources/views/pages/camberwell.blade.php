@@ -1,6 +1,5 @@
 @include('includes.header')
 <link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
-<link rel="stylesheet" href="{{ asset('css//newhome.css') }}">
 <!--<header class="header-area home-banner">
     <img src="{{ asset('images/banner/about.jpg') }}" alt="banner" />
 </header>-->

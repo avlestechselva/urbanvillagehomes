@@ -473,23 +473,27 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-5 text-center pt-5 pt-lg-0">
-                        <div class="consultation-image">
-                            <img src="{{ asset('images/logo.jpg') }}" alt="Urban Village Logo">
+                        <div class="consultation-video">
+                            <video width="100%" controls>
+                                <source src="{{ asset('videos/sellers2.mp4') }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
+                    
                 </div>
             </div>
 
             <!-- Thank you for choosing Urban Village -->
-            <div class="reviews-section container-fluid our-community Brilliant mt-5 choosing-Urban" style="background-color: #C6BEC433;">
-                <h2>Thank you for choosing Urban Village</h2>
-                <div class="reviews-container pt-2 pt-lg-4 row d-flex justify-content-center row">
-                    <div class="col-6" style="display: contents;">
-                        <iframe width="100%" height="591" class=" set-phone-height" src="https://player.vimeo.com/video/328369211" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-                    </div>
-
+            <div class="reviews-container pt-2 pt-lg-4 row d-flex justify-content-center">
+                <div class="col-6" style="display: contents;">
+                    <video width="100%" height="591" class="set-phone-height" controls>
+                        <source src="{{ asset('videos/sellers.mp4') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
+            
 
 
             @include('partials.property-market', ['posts' => $posts])
