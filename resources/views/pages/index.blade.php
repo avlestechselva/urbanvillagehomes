@@ -39,6 +39,25 @@
     box-sizing: border-box; /* Ensures padding is considered in width calculation */
 }
 
+.work-with-us-content ul {
+        list-style: none; /* Remove default list style */
+        padding-left: 0; /* Remove default padding */
+        margin: 0; /* Remove extra margin */
+    }
+
+    .work-with-us-content ul li {
+        font-weight: normal; /* Set normal font weight */
+        display: flex; /* Flex for aligning image and text */
+        align-items: center;
+        margin-bottom: 10px; /* Add space between each bullet point */
+    }
+
+    .work-with-us-content ul img {
+        margin-right: 10px; /* Add space between image and text */
+        width: 24px; /* Adjust image size if needed */
+        height: auto;
+    }
+
 .work-with-us-content {
     height: 350px;
     flex: 0 0 95%; /* Take exactly 50% of the width */
@@ -341,22 +360,10 @@
                     <p>We don’t just work for you, we work with you. Partner with our team of experts to benefit from:
                     </p>
                     <ul>
-                        <ul class="d-flex mb-0">
-                            <img src="{{ asset('images/about-us/logo.png') }}" alt="">
-                            <li>Unrivalled market knowledge and local expertise</li>
-                        </ul>
-                        <ul class="d-flex mb-0">
-                            <img src="{{ asset('images/about-us/logo.png') }}" alt="">
-                            <li>Free professional photoshoot to showcase your property</li>
-                        </ul>
-                        <ul class="d-flex mb-0">
-                            <img src="{{ asset('images/about-us/logo.png') }}" alt="">
-                            <li>Exceptional, dedicated customer service</li>
-                        </ul>
-                        <ul class="d-flex mb-0">
-                            <img src="{{ asset('images/about-us/logo.png') }}" alt="">
-                            <li>Coverage on all major property websites</li>
-                        </ul>
+                        <li><img src="{{ asset('images/about-us/logo.png') }}" alt="">Unrivalled market knowledge and local expertise</li>
+                        <li><img src="{{ asset('images/about-us/logo.png') }}" alt="">Free professional photoshoot to showcase your property</li>
+                        <li><img src="{{ asset('images/about-us/logo.png') }}" alt="">Exceptional, dedicated customer service</li>
+                        <li><img src="{{ asset('images/about-us/logo.png') }}" alt="">Coverage on all major property websites</li>
                     </ul>
                 </div>
             </div>
@@ -370,22 +377,6 @@
         </div>
     </div>
 </section>
-
-<!-- <div class="work-with-us-section">
-    <div class="work-with-us-content">
-        <h2>Why work with us?</h2>
-        <p>We don’t just work for you, we work with you. Partner with our team of experts to benefit from:</p>
-        <ul>
-            <li>Unrivalled market knowledge and local expertise</li>
-            <li>Free professional photoshoot to showcase your property</li>
-            <li>Exceptional, dedicated customer service</li>
-            <li>Coverage on all major property websites</li>
-        </ul>
-    </div>
-    <div class="work-with-us-image">
-        <img src="your-image-path.jpg" alt="Team Image">
-    </div>
-</div> -->
 
 
 <!-- Reviews Section -->

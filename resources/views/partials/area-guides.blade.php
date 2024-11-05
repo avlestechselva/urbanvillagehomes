@@ -187,7 +187,7 @@
                             <div class="owl-item cloned">
                                 <div class="post-slide">
                                     <div class="post-img">
-                                        <img src="{{ asset('images/dulwich.png' ) }}" alt="">
+                                        <img src="{{ asset('images/dulwich-min.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
                                     <a href="{{ url('dulwich') }}" class="link-overlay"></a>
@@ -202,7 +202,7 @@
                             <div class="owl-item cloned">
                                 <div class="post-slide">
                                     <div class="post-img">
-                                        <img src="{{ asset('images/brixton.png' ) }}" alt="">
+                                        <img src="{{ asset('images/brixton-min.png' ) }}" alt="">
                                         <!-- <a href="asdf" class=""><i class="fa fa-link"></i></a> -->
                                     </div>
                                     <a href="{{ url('brixton') }}" class="link-overlay"></a>

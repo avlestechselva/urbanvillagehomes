@@ -425,8 +425,9 @@
                     </div> -->
                             <div class="col-12 col-lg-6  d-flex justify-content-lg-center pt-lg-3">
                                 <div class="accommodation home-accommodation">
-                                    <video id="myVideo" poster="{{ asset('images/about-us/logo_poster.jpg') }}" width="100%" height="">
-                                        <source src="We love estate agency - Estate Agency In London.mp4" type="video/mp4">
+                                    <video width="100%" height="546" controls loop muted style="display: block;auto;" poster="{{ asset('images/about-us/logo_poster.jpg') }}">
+                                        <source src="{{ asset('videos/Landlords_UV.mp4') }}" type="video/mp4">
+                                        Your browser does not support the video tag.
                                     </video>
                                 </div>
                             </div>
@@ -508,7 +509,7 @@
                 <div class="reviews-container pt-2 pt-lg-4 row d-flex justify-content-center row">
                     <div class="col-6" style="display: contents;">
                         <video width="75%" height="546" controls loop muted style="display: block; margin: 20px auto;" poster="{{ asset('images/about-us/logo_poster.jpg') }}">
-                            <source src="{{ asset('videos/landlord.mp4') }}" type="video/mp4">
+                            <source src="{{ asset('videos/sellers2.mp4') }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>

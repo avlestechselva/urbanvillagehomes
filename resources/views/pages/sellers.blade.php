@@ -475,7 +475,7 @@
                     <div class="col-12 col-lg-5 text-center pt-5 pt-lg-0">
                         <div class="consultation-video">
                             <video width="100%" controls>
-                                <source src="{{ asset('videos/sellers2.mp4') }}" type="video/mp4">
+                                <source src="{{ asset('videos/landlord.mp4') }}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -484,13 +484,17 @@
                 </div>
             </div>
 
-            <!-- Thank you for choosing Urban Village -->
-            <div class="reviews-container pt-2 pt-lg-4 row d-flex justify-content-center">
-                <div class="col-6" style="display: contents;">
-                    <video width="100%" height="591" class="set-phone-height" controls>
-                        <source src="{{ asset('videos/sellers.mp4') }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+             <!-- Thank you for choosing Urban Village -->
+             <div class="reviews-section container-fluid our-community Brilliant mt-5 choosing-Urban" style="background-color: #C6BEC433;">
+                <h2>Thank you for choosing Urban Village</h2>
+                <div class="reviews-container pt-2 pt-lg-4 row d-flex justify-content-center row">
+                    <div class="col-6" style="display: contents;">
+                        <video width="80%" height="591" class="set-phone-height" controls>
+                            <source src="{{ asset('videos/sellers.mp4') }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
                 </div>
             </div>
             

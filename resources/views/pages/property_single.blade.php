@@ -1,15 +1,15 @@
 @include('includes.header')
-<!--<div class="home">
-    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('images/cover.jpg') }}" data-speed="0.8"></div>
-</div>-->
-
+<link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
+<link rel="stylesheet" href="{{ asset('css/page_header.css') }}">
+<link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
 <div class="listing_container">
 
    
     <div class="container">
         <div class="row" >
             <div class="col">
-                <div class="col" style="margin-top: 55px;">
+                <div class="col" style="margin-top: 155px;">
                     <div class="section_title_container">
                         <div class="property_info">
                             <div class="tag_price-2 listing_price-2">£ @if($property->rent) {{ number_format($property->rent).'/'.$property->rentFrequency }} @else {{ number_format($property->price) }} @endif</div>
