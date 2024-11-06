@@ -11,6 +11,7 @@ use Rodenastyle\StreamParser\StreamParser;
 use Illuminate\Support\Facades\Storage;
 use App\Property;
 use App\Resource;
+use Illuminate\Support\Facades\Log;
 
 class JupixController extends Controller
 {
@@ -167,10 +168,16 @@ class JupixController extends Controller
                             Resource::destroy($resource['id']);
                             Storage::delete('public\\'.$resource['path']);
 
-                            //Download image from url and upload to server
+                            try {
+                               //Download image from url and upload to server
                             $content = file_get_contents($property_image['image']);
                             $name = substr($property_image['image'], strrpos($property_image['image'], '/') + 1);
                             Storage::put('public\\properties\\'.$property_array['propertyID'].'\\images\\'.$name, $content);
+                            } catch (\Exception $e) {
+                                Log::error('Error downloading image: ' . $e->getMessage());
+                            }
+
+                            
 
                             //Collect data and update to DB
                             $new_resource = new Resource;
@@ -186,22 +193,32 @@ class JupixController extends Controller
                         }
                     }else {
                         //New Record
-                        //Download image from url and upload to server
-                        $content = file_get_contents($property_image['image']);
-                        $name = substr($property_image['image'], strrpos($property_image['image'], '/') + 1);
-                        Storage::put('public\\properties\\'.$property_array['propertyID'].'\\images\\'.$name, $content);
+                        try {
+                            //Download image from url and upload to server
+                            
+                            $content = file_get_contents($property_image['image']);
+                            $name = substr($property_image['image'], strrpos($property_image['image'], '/') + 1);
+                            Storage::put('public\\properties\\'.$property_array['propertyID'].'\\images\\'.$name, $content);
+                        
 
-                        //Collect data and save to DB
-                        $new_resource = new Resource;
-                        $new_resource->propertyID = $property_array['propertyID'];
-                        $new_resource->modified = $property_image['modified'];
-                        $new_resource->url = $property_image['image'];
-                        $new_resource->type = 'image';
-                        $new_resource->path = 'properties\\'.$property_array['propertyID'].'\\images\\'.$name;
-                        $new_resource->sort_order = ($k+1);
-                        $new_resource->created_at = session('now_date');
-                        $new_resource->updated_at = session('now_date');
-                        $new_resource->save();
+                            //Collect data and save to DB
+                            $new_resource = new Resource;
+                            $new_resource->propertyID = $property_array['propertyID'];
+                            $new_resource->modified = $property_image['modified'];
+                            $new_resource->url = $property_image['image'];
+                            $new_resource->type = 'image';
+                            $new_resource->path = 'properties\\'.$property_array['propertyID'].'\\images\\'.$name;
+                            $new_resource->sort_order = ($k+1);
+                            $new_resource->created_at = session('now_date');
+                            $new_resource->updated_at = session('now_date');
+                            $new_resource->save();
+                        } catch (\Exception $e) {
+                            Log::error('Error downloading image: ' . $e->getMessage());
+                        }
+                        
+                        
+
+                        
                     }
                 }
 
@@ -252,10 +269,16 @@ class JupixController extends Controller
                             Resource::destroy($resource['id']);
                             Storage::delete('public\\'.$resource['path']);
 
-                            //Download floorplan from url and upload to server
+                            try {
+                                //Download floorplan from url and upload to server
                             $content = file_get_contents($property_floorplan['floorplan']);
                             $name = substr($property_floorplan['floorplan'], strrpos($property_floorplan['floorplan'], '/') + 1);
                             Storage::put('public\\properties\\'.$property_array['propertyID'].'\\floorplans\\'.$name, $content);
+                            } catch (\Exception $e) {
+                                Log::error('Error downloading image: ' . $e->getMessage());
+                            }
+
+                            
 
                             //Collect data and update to DB
                             $new_resource = new Resource;
@@ -271,10 +294,16 @@ class JupixController extends Controller
                         }
                     }else {
                         //New Record
-                        //Download floorplan from url and upload to server
+
+                        try {
+                             //Download floorplan from url and upload to server
                         $content = file_get_contents($property_floorplan['floorplan']);
                         $name = substr($property_floorplan['floorplan'], strrpos($property_floorplan['floorplan'], '/') + 1);
                         Storage::put('public\\properties\\'.$property_array['propertyID'].'\\floorplans\\'.$name, $content);
+                        } catch (\Exception $e) {
+                            Log::error('Error downloading image: ' . $e->getMessage());
+                        }
+                       
 
                         //Collect data and save to DB
                         $new_resource = new Resource;
@@ -337,10 +366,16 @@ class JupixController extends Controller
                             Resource::destroy($resource['id']);
                             Storage::delete('public\\'.$resource['path']);
 
-                            //Download epcGraph from url and upload to server
+                            try {
+                                //Download epcGraph from url and upload to server
                             $content = file_get_contents($property_epcGraph['epcGraph']);
                             $name = substr($property_epcGraph['epcGraph'], strrpos($property_epcGraph['epcGraph'], '/') + 1);
                             Storage::put('public\\properties\\'.$property_array['propertyID'].'\\epcGraphs\\'.$name, $content);
+                            } catch (\Exception $e) {
+                                Log::error('Error downloading image: ' . $e->getMessage());
+                            }
+
+                            
 
                             //Collect data and update to DB
                             $new_resource = new Resource;
@@ -356,10 +391,15 @@ class JupixController extends Controller
                         }
                     }else {
                         //New Record
-                        //Download epcGraph from url and upload to server
+                        try {
+                           //Download epcGraph from url and upload to server
                         $content = file_get_contents($property_epcGraph['epcGraph']);
                         $name = substr($property_epcGraph['epcGraph'], strrpos($property_epcGraph['epcGraph'], '/') + 1);
                         Storage::put('public\\properties\\'.$property_array['propertyID'].'\\epcGraphs\\'.$name, $content);
+                        } catch (\Exception $e) {
+                            Log::error('Error downloading image: ' . $e->getMessage());
+                        }
+                        
 
                         //Collect data and save to DB
                         $new_resource = new Resource;
@@ -422,10 +462,16 @@ class JupixController extends Controller
                             Resource::destroy($resource['id']);
                             Storage::delete('public\\'.$resource['path']);
 
-                            //Download brochure from url and upload to server
+                            try {
+                                //Download brochure from url and upload to server
                             $content = file_get_contents($property_brochure['brochure']);
                             $name = substr($property_brochure['brochure'], strrpos($property_brochure['brochure'], '/') + 1);
                             Storage::put('public\\properties\\'.$property_array['propertyID'].'\\brochures\\'.$name, $content);
+                            } catch (\Exception $e) {
+                                Log::error('Error downloading image: ' . $e->getMessage());
+                            }
+
+                           
 
                             //Collect data and update to DB
                             $new_resource = new Resource;
@@ -440,11 +486,18 @@ class JupixController extends Controller
                             $new_resource->save();
                         }
                     }else {
+
                         //New Record
-                        //Download brochure from url and upload to server
+
+                        try {
+                            //Download brochure from url and upload to server
                         $content = file_get_contents($property_brochure['brochure']);
                         $name = substr($property_brochure['brochure'], strrpos($property_brochure['brochure'], '/') + 1);
                         Storage::put('public\\properties\\'.$property_array['propertyID'].'\\brochures\\'.$name, $content);
+                        } catch (\Exception $e) {
+                            Log::error('Error downloading image: ' . $e->getMessage());
+                        }
+                        
 
                         //Collect data and save to DB
                         $new_resource = new Resource;

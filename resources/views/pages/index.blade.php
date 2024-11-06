@@ -379,8 +379,11 @@
 </section>
 
 
+
+@include('partials.reviews')
+
 <!-- Reviews Section -->
-<div class="reviews-section container-fluid customers-say">
+{{-- <div class="reviews-section container-fluid customers-say">
     <h2>See what our customers say</h2>
     <div class="reviews-container pt-2 pt-lg-4">
         <div class="review-card main-review">
@@ -447,7 +450,7 @@
         <div data-v-90132dd2="" class="ruk-icon-arrow-right-thin-1-01 green-chevron"> <img
                 src="{{ asset('images/icons/green-chevron.png') }}"></div>
     </div>
-</div>
+</div> --}}
 <br />
 
 <!-- “The level of service is brilliant.”-->
