@@ -45,7 +45,7 @@ class JupixRetrieve extends Command
      */
     public function handle()
     {
-        try {
+        
             $now_date = date('Y-m-d H:i:s');
             session(['now_date' => $now_date]);
 
@@ -698,24 +698,7 @@ class JupixRetrieve extends Command
 
         Log::info('--- END of JupixRetrieve' );
 
-        }catch(exception $e){
-            //Telegram Update
-            $now_date = date('Y-m-d H:i:s');
-
-            //Success order telegram notification
-            $text = '*JUPIX API UPDATE!*'.chr(10).chr(10).
-                'Status: FAILED'.chr(10).
-                'Date: '.$now_date.chr(10).
-                'Exception: '.$e->getMessage().chr(10);
-
-            $data = [
-                'parse_mode' => 'Markdown',
-                'chat_id' => '-340968060',
-                'text' => $text
-            ];
-
-            //$telegram_response = file_get_contents(env('COM_TELEGRAM')."/sendMessage?" . http_build_query($data) );
-        }
+        
 
         /*Telegram Update*/
         $now_date = date('Y-m-d H:i:s');
