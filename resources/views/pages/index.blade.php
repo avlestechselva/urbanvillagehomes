@@ -135,7 +135,7 @@
                     <a href="{{ url('property/tenants') }}">Properties for rent</a>
                 </div>
                 <div class="all-properties d-flex justify-content-center align-items-center">
-                    <a href="{{ url('book-a-valuation') }}">Book a valuation</a>
+                    <a href="javascript:void( window.open( 'https://form.jotform.com/243284776248064', 'blank', 'scrollbars=yes, toolbar=no, width=700, height=500' ) ) "> Form </a>
                 </div>
             </div>
             <!-- <form class="w-100 d-flex flex-column flex-lg-row pt-4">

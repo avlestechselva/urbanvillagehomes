@@ -113,7 +113,8 @@
 
 <!-- Contact -->
 <div class="form-container">
-    <form method="POST" action="{{ route('property.valuation.submit') }}" class="property-valuation-form">
+    <script type="text/javascript" src="https://form.jotform.com/jsform/243285002399054"></script>
+    {{-- <form method="POST" action="{{ route('property.valuation.submit') }}" class="property-valuation-form">
         @csrf
         <div>
             <label for="valuationType">Valuation Type:</label><br>
@@ -153,7 +154,7 @@
         </div>
 
         <button type="submit" class="submit-btn">Submit</button>
-    </form>
+    </form> --}}
 </div>
 
 @include('includes.footer')

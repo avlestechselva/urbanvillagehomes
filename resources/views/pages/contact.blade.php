@@ -54,7 +54,8 @@
                     </div>
 				</div>
                 <div class="col-lg-8 contact_col">
-                    <div class="contact_form_container">
+                    <script type="text/javascript" src="https://form.jotform.com/jsform/243284560536358"></script>
+                    {{-- <div class="contact_form_container">
                         <form action="{{url('send-contact-request')}}" class="contact_form text-center" method="post" id="contact_form">
                             {{csrf_field()}}
                             <div class="row">
@@ -103,7 +104,7 @@
 
                             <button class="contact_button" disabled id="sendNewSms" >send message</button>
                         </form>
-                    </div>
+                    </div> --}}
                 </div>
 			</div>
 		</div>
