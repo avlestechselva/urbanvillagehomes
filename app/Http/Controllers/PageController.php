@@ -31,11 +31,11 @@ class PageController extends Controller
             // ->where('featuredProperty', 1)
             ->whereNotIn('availability', $withdrawn)
             ->orderBy('price', 'DESC');
-            
+
 
         //search query
         $search = str_replace('+', ' ', $request->query('search', ''));
-        //search 
+        //search
         if (!empty($search)) {
             $properties = $properties->where(function ($query) use ($search) {
                 $query
@@ -56,6 +56,16 @@ class PageController extends Controller
         $properties->when(request()->query('rent') != 1 && request()->query('buy') == 1, function ($query) {
             $query->where('price', '>', 0);
         });
+
+        $properties->when(request()->query('min_amount'), function ($query) {
+            $query->where('price', '>', request()->query('min_amount'))->orWhere('rent', '>', request()->query('min_amount'));
+        });
+
+        $properties->when(request()->query('max_amount'), function ($query) {
+            $query->where('price', '<', request()->query('max_amount'))->orWhere('rent', '<', request()->query('max_amount'));
+        });
+
+
         if (isset($request->property_per_page)) {
             $properties = $properties->paginate($request->property_per_page);
         } else {
@@ -409,7 +419,7 @@ class PageController extends Controller
         if (isset($request->include_current)) {
             $properties = $properties->whereNotIn('availability', $include_current);
         }
-        
+
         $properties = $properties->where('status', 1)
             ->whereNotIn('availability', $withdrawn)
             ->get();
@@ -471,7 +481,7 @@ class PageController extends Controller
 
         //search query
         $search = str_replace('+', ' ', $request->query('search', ''));
-        //search 
+        //search
         if (!empty($search)) {
             $properties_final = $properties_final->where(function ($query) use ($search) {
                 $query
@@ -649,7 +659,7 @@ class PageController extends Controller
             'pages.book_a_valuation',
             [
                 'page_title'    => 'About us',
-               
+
             ]
         );
     }

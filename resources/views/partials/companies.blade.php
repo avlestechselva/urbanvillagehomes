@@ -31,10 +31,7 @@
                 <div class="item"><a href="" target="_blank"><img src="{{ asset('images/logo/ctsi.png') }}" class="img-responsive"></a></div>
                 <div class="item"><a href="" target="_blank"><img src="{{ asset('images/logo/ombustman.png') }}" class="img-responsive"></a></div>
                 
-        
-                <div class="item"><a href="" target="_blank"><img src="{{ asset('images/logo/safeagent-colour.svg') }}" class="img-responsive"></a></div>
-                
-                <div class="item"><a href="" target="_blank"><img src="{{ asset('images/logo/tsi-colour.svg') }}" class="img-responsive"></a></div>
+                {{-- <div class="item"><a href="" target="_blank"><img src="{{ asset('images/logo/tsi-colour.svg') }}" class="img-responsive"></a></div> --}}
                 
             </div>
         </div>

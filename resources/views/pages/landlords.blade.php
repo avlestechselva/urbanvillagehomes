@@ -491,7 +491,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="https://urbanvillagehomes.com/wp-content/uploads/Landlord-fees-schedule-V3.4-187.pdf" style="text-decoration: none;">
+                <a href="{{ asset('pdf/Landlord-fees-schedule-V3.4.pdf') }}" style="text-decoration: none;">
                     <div class="Service-options">
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="text-white">Service options and charges</p>
