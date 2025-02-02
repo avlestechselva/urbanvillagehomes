@@ -123,7 +123,7 @@
                         <div class="col-lg-6">
                             <div class="listing_features" style="margin-top: 0px !important;">
                                 <h3>Description</h3>
-                                <p style="text-align: justify;">{!! $property->mainSummary !!}</p>
+                                <p style="text-align: justify; color:black;">{!! $property->mainSummary !!}</p>
                             </div>
                         </div>
                         <div class="col-lg-3">
@@ -132,7 +132,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <br/>
-                                        <p><b>Urban Village Homes Limited</b><br/>
+                                        <p style="color:black;"><b>Urban Village Homes Limited</b><br/>
 
                                             121 Denmark Hill<br/>
                                             Camberwell<br/>

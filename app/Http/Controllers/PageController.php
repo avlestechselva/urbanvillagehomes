@@ -15,6 +15,17 @@ use DateTime;
 
 class PageController extends Controller
 {
+    public function get_thankyou_contact(Request $request)
+    {
+        return view(
+            'pages.thankyou_contact',
+            [
+                
+            ]
+        );
+
+    }
+
     public function show_home(Request $request)
     {
         $posts = Post::where('status', 'PUBLISHED')
@@ -30,7 +41,7 @@ class PageController extends Controller
             ->where('status', 1)
             // ->where('featuredProperty', 1)
             ->whereNotIn('availability', $withdrawn)
-            ->orderBy('price', 'DESC');
+            ->orderBy('dateLastModified', 'DESC');
 
 
         //search query
@@ -243,12 +254,13 @@ class PageController extends Controller
         );
     }
 
+
     public function get_single_property_jupix(Request $request)
     {
+        $property_id = $request->get('profileID');
+
         $css_files  = array('about', 'single', 'single_responsive');
         $js_files   = array('single', 'slider');
-
-        $property_id = $request->profileID;
 
         //latest featured properties
         $property = Property::where('status', 1)
@@ -295,9 +307,18 @@ class PageController extends Controller
                 $brochures[] = base64_encode($resource['path']);
             }
         }
+        $propertyimages = [];
+        $propertyimagesraw = json_decode($property['images'], true);
 
-        $property['images'] = $images;
+        foreach ($propertyimagesraw as &$item) {
 
+            if (isset($item['image'])) {
+                $propertyimages[] = $item['image'];
+            }
+        }
+
+
+        $property['images'] = $propertyimages;
         $property['floorplans'] = $floorplans;
         $property['epcGraphs'] = $epcGraphs;
         $property['brochures'] = $brochures;
@@ -327,7 +348,7 @@ class PageController extends Controller
                 ->first();
             $property['rentFrequency'] = $rent_type['frequency_type'];
         }
-
+        //dd($property['images']);
         return view(
             'pages.property_single',
             [
@@ -338,6 +359,103 @@ class PageController extends Controller
             ]
         );
     }
+
+
+    // public function get_single_property_jupix(Request $request)
+    // {
+    //     $css_files  = array('about', 'single', 'single_responsive');
+    //     $js_files   = array('single', 'slider');
+
+    //     $property_id = $request->profileID;
+
+    //     //latest featured properties
+    //     $property = Property::where('status', 1)
+    //         ->where('propertyID', $property_id)
+    //         ->firstOrFail();
+
+    //     //Create slug and assign to the property
+    //     if (!isset($property['displayAddress'])) {
+    //         if (isset($property['address2'])) {
+    //             $property['displayAddress'] = $property['address2'];
+    //         } elseif (isset($property['propertyFeature1'])) {
+    //             $property['displayAddress'] = $property['propertyFeature1'];
+    //         }
+    //     }
+
+    //     // get virtual tour link if available
+    //     if (isset($property['virtualTours'])) {
+    //         $property['virtualTours'] = json_decode($property['virtualTours']);
+    //     }
+
+    //     // get external links if available
+    //     if (isset($property['externalLinks'])) {
+    //         $property['externalLinks'] = json_decode($property['externalLinks']);
+    //     }
+
+    //     //get available resources of a property and set
+    //     $resources = Resource::where('propertyID', $property['propertyID'])->orderBy('sort_order')->get();
+    //     //dd($resources);exit;
+    //     $first_image = 0;
+    //     $images = array();
+    //     $floorplans = array();
+    //     $epcGraphs = array();
+    //     $brochures = array();
+
+    //     foreach ($resources as $l => $resource) {
+    //         //echo $resource['type']. ' - ' . $resource['path'].'<br/>';
+    //         if ($resource['type'] == 'image') {
+    //             $images[] = $resource['path'];
+    //         } elseif ($resource['type'] == 'floorplan') {
+    //             $floorplans[] = base64_encode($resource['path']);
+    //         } elseif ($resource['type'] == 'epcGraph') {
+    //             $epcGraphs[] = base64_encode($resource['path']);
+    //         } elseif ($resource['type'] == 'brochure') {
+    //             $brochures[] = base64_encode($resource['path']);
+    //         }
+    //     }
+
+    //     $property['images'] = $images;
+
+    //     $property['floorplans'] = $floorplans;
+    //     $property['epcGraphs'] = $epcGraphs;
+    //     $property['brochures'] = $brochures;
+
+    //     //get property type
+    //     $resource_type = PropertyType::select('type')
+    //         ->where('group_id', $property['propertyType'])
+    //         ->where('department', $property['department'])
+    //         ->first();
+    //     $property['propertyType'] = $resource_type['type'];
+
+    //     //get property style
+    //     $resource_style = ResidentialPropertyStyle::select('style_name')->where('style_id', $property['propertyStyle'])->first();
+    //     $property['propertyStyle'] = $resource_style['style_name'];
+
+    //     //get property availability
+    //     $resource_type = PropertyAvailability::select('name')
+    //         ->where('group_id', $property['availability'])
+    //         ->where('department', $property['department'])
+    //         ->first();
+    //     $property['availability'] = $resource_type['name'];
+
+    //     //get property availability
+    //     if (isset($property['rentFrequency'])) {
+    //         $rent_type = RentFrequency::select('frequency_type')
+    //             ->where('id', $property['rentFrequency'])
+    //             ->first();
+    //         $property['rentFrequency'] = $rent_type['frequency_type'];
+    //     }
+
+    //     return view(
+    //         'pages.property_single',
+    //         [
+    //             'page_title'    => $property['displayAddress'],
+    //             'css_files'     => $css_files,
+    //             'js_files'      => $js_files,
+    //             'property'      => $property
+    //         ]
+    //     );
+    // }
 
     public function show_properties(Request $request)
     {

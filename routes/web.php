@@ -80,3 +80,5 @@ Route::get('retrieve','JupixController@retrive_data');
 Route::group(['prefix' => 'uvh-back-office'], function () {
     Voyager::routes();
 });
+
+Route::get('thankyoucontact','PageController@get_thankyou_contact');
