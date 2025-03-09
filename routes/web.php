@@ -82,3 +82,4 @@ Route::group(['prefix' => 'uvh-back-office'], function () {
 });
 
 Route::get('thankyoucontact','PageController@get_thankyou_contact');
+Route::get('thankyouvaluation','PageController@get_thankyou_valuation');

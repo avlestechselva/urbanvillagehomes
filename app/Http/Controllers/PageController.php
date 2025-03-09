@@ -26,6 +26,17 @@ class PageController extends Controller
 
     }
 
+    public function get_thankyou_valuation(Request $request)
+    {
+        return view(
+            'pages.thankyou_valuation',
+            [
+                
+            ]
+        );
+
+    }
+
     public function show_home(Request $request)
     {
         $posts = Post::where('status', 'PUBLISHED')
