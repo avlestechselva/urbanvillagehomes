@@ -99,6 +99,18 @@
                             </div>
                         </div>
                     </a>
+                    <a href="#tab_contact">
+                        <div class="tab">
+                            <div class="tab_content d-flex flex-xl-row flex-column align-items-center justify-content-center">
+                            <a href="https://api.whatsapp.com/send?text={{ urlencode(url('property/'.$property->propertyID.'/'.$property->slug)) }}" 
+                                target="_blank" 
+                                style="text-decoration: none; display: flex; align-items: center;">
+                                 <img src="{{ asset('images/icons/whatsapp_01.png') }}" width="24" height="24" alt="Share on WhatsApp">
+                                 <span style="margin-left: 5px; color: green; font-weight: bold;">Share</span>
+                             </a>
+                            </div>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- About -->

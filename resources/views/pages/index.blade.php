@@ -234,7 +234,19 @@
                         </select>
                     </div>
 
-
+                    <div class="form-group d-flex align-items-center justify-content-evenly p-2">
+                        <select class="my-select mb-0 h-100 border-0 p-0" data-container="body" name="availability">
+                            <option value=""{{ (request()->query('availability') == ''?'selected':'')}}>Availability</option>
+                            <option value="On Hold" {{ (request()->query('availability') == 'On Hold'?'selected':'')}}>On Hold</option>
+                            <option value="For Sale" {{ (request()->query('availability') == 'For Sale'?'selected':'')}}>For Sale</option>
+                            <option value="To Let" {{ (request()->query('availability') == 'To Let'?'selected':'')}}>To Let</option>
+                            <option value="Under Offer" {{ (request()->query('availability') == 'Under Offer'?'selected':'')}}>Under Offer</option>
+                            <option value="Sold STC" {{ (request()->query('availability') == 'Sold STC'?'selected':'')}}>Sold STC</option>
+                            <option value="Sold" {{ (request()->query('availability') == 'Sold'?'selected':'')}}>Sold</option>
+                            
+                            <option value="References Pending" {{ (request()->query('availability') == 'References Pending'?'selected':'')}}>References Pending</option>
+                        </select>
+                    </div>
 
                     <button class="btn text-white d-flex align-items-center justify-content-center" type="submit">
                         @include('icons.search-icon') Search</button>

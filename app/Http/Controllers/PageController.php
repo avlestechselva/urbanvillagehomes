@@ -48,11 +48,39 @@ class PageController extends Controller
         $withdrawn = array(6, 7);
 
         //latest featured properties
-        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyBathrooms', 'displayPropertyType', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability', 'images','address3','addressStreet')
-            ->where('status', 1)
-            // ->where('featuredProperty', 1)
-            ->whereNotIn('availability', $withdrawn)
-            ->orderBy('dateLastModified', 'DESC');
+        $properties = Property::select(
+            'properties.id', 
+            'properties.propertyID', 
+            'properties.department', 
+            'properties.displayAddress', 
+            'properties.propertyBedrooms', 
+            'properties.propertyBathrooms', 
+            'properties.displayPropertyType', 
+            'properties.propertyType', 
+            'properties.propertyStyle', 
+            'properties.price', 
+            'properties.rent', 
+            'properties.rentFrequency', 
+            'properties.availability', 
+            'properties.images', 
+            'properties.address3', 
+            'properties.addressStreet',
+            'property_availabilities.name as availability_name' // Fetch availability name
+        )
+        ->leftJoin('property_availabilities', function ($join) {
+            $join->on('properties.availability', '=', 'property_availabilities.group_id')
+                 ->on('properties.department', '=', 'property_availabilities.department');
+        })
+        ->where('properties.status', 1)
+        ->whereNotIn('properties.availability', [6, 7])
+        ->orderBy('properties.dateLastModified', 'DESC');
+    
+    // Apply availability filtering based on name
+    $availabilityFilter = request()->query('availability');
+    if (!empty($availabilityFilter)) {
+        $properties->where('property_availabilities.name', $availabilityFilter);
+    }
+    
 
 
         //search query
@@ -86,7 +114,6 @@ class PageController extends Controller
         $properties->when(request()->query('max_amount'), function ($query) {
             $query->where('price', '<', request()->query('max_amount'))->orWhere('rent', '<', request()->query('max_amount'));
         });
-
 
         if (isset($request->property_per_page)) {
             $properties = $properties->paginate($request->property_per_page);
