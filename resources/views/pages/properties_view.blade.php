@@ -2,10 +2,21 @@
 
 <link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
 <link rel="stylesheet" href="{{ asset('css/page_header.css') }}">
-<link rel="stylesheet" href="{{ asset('css//newhome.css') }}">
+<link rel="stylesheet" href="{{ asset('css/newhome.css') }}">
 <!--<header class="header-area home-banner">
     <img src="{{ asset('images/banner/buyers.jpg') }}" alt="banner" />
 </header>-->
+
+<style>
+    .form-group select {
+        font-size: 19px;
+        color: #9D979B;
+    }
+
+    .form-group select:focus-visible {
+        outline: none;
+    }
+</style>
 <div aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a></li>
@@ -31,7 +42,7 @@
                     <a href="{{ url('book-a-valuation') }}">Book a valuation</a>
                 </div>
             </div>
-            <form class="w-100 d-flex flex-column flex-lg-row pt-4" id="searchForm" method="GET" action="">
+            <form class="w-100 d-flex flex-column pt-4" id="searchForm" method="GET" action="">
                 <div class="enter-location">
                     <label for="exampleInput" class="form-label">Enter a location</label>
                     <input class="form-control me-2 mb-0" type="search"
@@ -49,10 +60,47 @@
                             {{ request()->query('buy') == 1 ? 'checked' : '' }} />
                         <label for="buy" class="d-flex align-items-center mb-0">Buy</label>
                     </div>
+                    <div class="form-group d-flex align-items-center justify-content-evenly p-2">
+                        <select class="my-select mb-0 h-100 border-0 p-0" data-container="body" name="min_amount">
+                            <option value="" {{ (request()->query('min_amount') == ''?'selected':'')}}>No Min</option>
+                            <option value="100000" {{ (request()->query('min_amount') == '100000'?'selected':'')}}>£100,000</option>
+                            <option value="250000" {{ (request()->query('min_amount') == '250000'?'selected':'')}}>£250,000</option>
+                            <option value="500000" {{ (request()->query('min_amount') == '500000'?'selected':'')}}>£500,000</option>
+                            <option value="750000" {{ (request()->query('min_amount') == '750000'?'selected':'')}}>£750,000</option>
+                            <option value="1000000" {{ (request()->query('min_amount') == '1000000'?'selected':'')}}>£1,000,000</option>
+                            <option value="2500000" {{ (request()->query('min_amount') == '2500000'?'selected':'')}}>£2,500,000</option>
+                            <option value="5000000" {{ (request()->query('min_amount') == '5000000'?'selected':'')}}>£5,000,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group d-flex align-items-center justify-content-evenly p-2">
+                        <select class="my-select mb-0 h-100 border-0 p-0" data-container="body" name="max_amount">
+                            <option value=""{{ (request()->query('max_amount') == ''?'selected':'')}}>No Max</option>
+                            <option value="250000" {{ (request()->query('max_amount') == '250000'?'selected':'')}}>£250,000</option>
+                            <option value="500000" {{ (request()->query('max_amount') == '500000'?'selected':'')}}>£500,000</option>
+                            <option value="750000" {{ (request()->query('max_amount') == '750000'?'selected':'')}}>£750,000</option>
+                            <option value="1000000" {{ (request()->query('max_amount') == '1000000'?'selected':'')}}>£1,000,000</option>
+                            <option value="2500000" {{ (request()->query('max_amount') == '2500000'?'selected':'')}}>£2,500,000</option>
+                            <option value="5000000" {{ (request()->query('max_amount') == '5000000'?'selected':'')}}>£5,000,000</option>
+                            <option value="10000000" {{ (request()->query('max_amount') == '10000000'?'selected':'')}}>£10,000,000</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group d-flex align-items-center justify-content-evenly p-2">
+                        <select class="my-select mb-0 h-100 border-0 p-0" data-container="body" name="availability">
+                            <option value=""{{ (request()->query('availability') == ''?'selected':'')}}>Availability</option>
+                            <option value="On Hold" {{ (request()->query('availability') == 'On Hold'?'selected':'')}}>On Hold</option>
+                            <option value="For Sale" {{ (request()->query('availability') == 'For Sale'?'selected':'')}}>For Sale</option>
+                            <option value="To Let" {{ (request()->query('availability') == 'To Let'?'selected':'')}}>To Let</option>
+                            <option value="Under Offer" {{ (request()->query('availability') == 'Under Offer'?'selected':'')}}>Under Offer</option>
+                            <option value="Sold STC" {{ (request()->query('availability') == 'Sold STC'?'selected':'')}}>Sold STC</option>
+                            <option value="Sold" {{ (request()->query('availability') == 'Sold'?'selected':'')}}>Sold</option>
+                            <option value="References Pending" {{ (request()->query('availability') == 'References Pending'?'selected':'')}}>References Pending</option>
+                        </select>
+                    </div>
+            
+                    <button class="btn text-white d-flex align-items-center justify-content-center" type="submit">
+                        @include('icons.search-icon') Search</button>
                 </div>
-
-                <button class="btn text-white d-flex align-items-center justify-content-center" type="submit">
-                    @include('icons.search-icon') Search</button>
             </form>
         </div>
     </nav>

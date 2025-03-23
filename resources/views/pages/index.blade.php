@@ -2,8 +2,7 @@
 
 <link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
 <link rel="stylesheet" href="{{ asset('css/page_header.css') }}">
-<link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
-<link rel="stylesheet" href="{{ asset('css//newhome.css') }}">
+<link rel="stylesheet" href="{{ asset('css/newhome.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> -->
 
