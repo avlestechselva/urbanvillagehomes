@@ -38,181 +38,181 @@ class PageController extends Controller
     }
 
     public function show_home(Request $request)
-    {
-        $posts = Post::where('status', 'PUBLISHED')
-            ->orderBy('created_at', 'desc')
-            ->take(3)
-            ->get();
+{
+    $posts = Post::where('status', 'PUBLISHED')
+        ->orderBy('created_at', 'desc')
+        ->take(3)
+        ->get();
 
-        //set withdrawn id
-        $withdrawn = array(6, 7);
+    //set withdrawn id
+    $withdrawn = array(6, 7);
 
-        //latest featured properties
-        $properties = Property::select(
-            'properties.id', 
-            'properties.propertyID', 
-            'properties.department', 
-            'properties.displayAddress', 
-            'properties.propertyBedrooms', 
-            'properties.propertyBathrooms', 
-            'properties.displayPropertyType', 
-            'properties.propertyType', 
-            'properties.propertyStyle', 
-            'properties.price', 
-            'properties.rent', 
-            'properties.rentFrequency', 
-            'properties.availability', 
-            'properties.images', 
-            'properties.address3', 
-            'properties.addressStreet',
-            'property_availabilities.name as availability_name' // Fetch availability name
-        )
-        ->leftJoin('property_availabilities', function ($join) {
-            $join->on('properties.availability', '=', 'property_availabilities.group_id')
-                 ->on('properties.department', '=', 'property_availabilities.department');
-        })
-        ->where('properties.status', 1)
-        ->whereNotIn('properties.availability', [6, 7])
-        ->orderBy('properties.dateLastModified', 'DESC');
+    //latest featured properties
+    $properties = Property::select(
+        'properties.id', 
+        'properties.propertyID', 
+        'properties.department', 
+        'properties.displayAddress', 
+        'properties.propertyBedrooms', 
+        'properties.propertyBathrooms', 
+        'properties.displayPropertyType', 
+        'properties.propertyType', 
+        'properties.propertyStyle', 
+        'properties.price', 
+        'properties.rent', 
+        'properties.rentFrequency', 
+        'properties.availability', 
+        'properties.images', 
+        'properties.address3', 
+        'properties.addressStreet',
+        'property_availabilities.name as availability_name' // Fetch availability name
+    )
+    ->leftJoin('property_availabilities', function ($join) {
+        $join->on('properties.availability', '=', 'property_availabilities.group_id')
+             ->on('properties.department', '=', 'property_availabilities.department');
+    })
+    ->where('properties.status', 1)
+    ->whereNotIn('properties.availability', [6, 7]);
     
+    // Create a raw DB expression to handle ordering by the highest price
+    // This ensures both rent and price are considered for proper sorting
+    $properties = $properties->orderByRaw('CASE 
+        WHEN properties.rent > 0 THEN properties.rent 
+        ELSE properties.price 
+        END DESC');
+
     // Apply availability filtering based on name
     $availabilityFilter = request()->query('availability');
     if (!empty($availabilityFilter)) {
         $properties->where('property_availabilities.name', $availabilityFilter);
     }
-    
 
+    //search query
+    $search = str_replace('+', ' ', $request->query('search', ''));
+    //search
+    if (!empty($search)) {
+        $properties = $properties->where(function ($query) use ($search) {
+            $query
+                ->where('displayAddress', 'LIKE', "%{$search}%")
+                ->orWhere('addressName', 'LIKE', "%{$search}%")
+                ->orWhere('address2', 'LIKE', "%{$search}%")
+                ->orWhere('address3', 'LIKE', "%{$search}%")
+                ->orWhere('address4', 'LIKE', "%{$search}%")
+                ->orWhere('addressPostcode', 'LIKE', "%{$search}%")
+                ->orWhere('addressStreet', 'LIKE', "%{$search}%")
+                ->orWhere('addressNumber', 'LIKE', "%{$search}%");
+        });
+    }
+    // First handle the type (buy/rent) filters
+    $properties->when(request()->query('rent') == 1 && request()->query('buy') != 1, function ($query) {
+        $query->where('rent', '>', 0);
+    });
+    $properties->when(request()->query('rent') != 1 && request()->query('buy') == 1, function ($query) {
+        $query->where('price', '>', 0);
+    });
 
-        //search query
-        $search = str_replace('+', ' ', $request->query('search', ''));
-        //search
-        if (!empty($search)) {
-            $properties = $properties->where(function ($query) use ($search) {
-                $query
-                    ->where('displayAddress', 'LIKE', "%{$search}%")
-                    ->orWhere('addressName', 'LIKE', "%{$search}%")
-                    ->orWhere('address2', 'LIKE', "%{$search}%")
-                    ->orWhere('address3', 'LIKE', "%{$search}%")
-                    ->orWhere('address4', 'LIKE', "%{$search}%")
-                    ->orWhere('addressPostcode', 'LIKE', "%{$search}%")
-                    ->orWhere('addressStreet', 'LIKE', "%{$search}%")
-                    ->orWhere('addressNumber', 'LIKE', "%{$search}%");
+    // Then handle price filters, respecting the type selection
+    $properties->when(request()->query('min_amount'), function ($query) use ($request) {
+        if ($request->query('rent') == 1 && $request->query('buy') != 1) {
+            // Only rent properties
+            $query->where('rent', '>', $request->query('min_amount'));
+        } elseif ($request->query('rent') != 1 && $request->query('buy') == 1) {
+            // Only buy properties
+            $query->where('price', '>', $request->query('min_amount'));
+        } else {
+            // Both or neither selected
+            $query->where(function($q) use ($request) {
+                $q->where('price', '>', $request->query('min_amount'))
+                ->orWhere('rent', '>', $request->query('min_amount'));
             });
         }
-        // First handle the type (buy/rent) filters
-        $properties->when(request()->query('rent') == 1 && request()->query('buy') != 1, function ($query) {
-            $query->where('rent', '>', 0);
-        });
-        $properties->when(request()->query('rent') != 1 && request()->query('buy') == 1, function ($query) {
-            $query->where('price', '>', 0);
-        });
+    });
 
-        // Then handle price filters, respecting the type selection
-        $properties->when(request()->query('min_amount'), function ($query) use ($request) {
-            if ($request->query('rent') == 1 && $request->query('buy') != 1) {
-                // Only rent properties
-                $query->where('rent', '>', $request->query('min_amount'));
-            } elseif ($request->query('rent') != 1 && $request->query('buy') == 1) {
-                // Only buy properties
-                $query->where('price', '>', $request->query('min_amount'));
-            } else {
-                // Both or neither selected
-                $query->where(function($q) use ($request) {
-                    $q->where('price', '>', $request->query('min_amount'))
-                    ->orWhere('rent', '>', $request->query('min_amount'));
-                });
-            }
-        });
-
-        $properties->when(request()->query('max_amount'), function ($query) use ($request) {
-            if ($request->query('rent') == 1 && $request->query('buy') != 1) {
-                // Only rent properties
-                $query->where('rent', '<', $request->query('max_amount'));
-            } elseif ($request->query('rent') != 1 && $request->query('buy') == 1) {
-                // Only buy properties
-                $query->where('price', '<', $request->query('max_amount'));
-            } else {
-                // Both or neither selected
-                $query->where(function($q) use ($request) {
-                    $q->where('price', '<', $request->query('max_amount'))
-                    ->orWhere('rent', '<', $request->query('max_amount'));
-                });
-            }
-        });
-
-        if (isset($request->property_per_page)) {
-            $properties = $properties->paginate($request->property_per_page);
+    $properties->when(request()->query('max_amount'), function ($query) use ($request) {
+        if ($request->query('rent') == 1 && $request->query('buy') != 1) {
+            // Only rent properties
+            $query->where('rent', '<', $request->query('max_amount'));
+        } elseif ($request->query('rent') != 1 && $request->query('buy') == 1) {
+            // Only buy properties
+            $query->where('price', '<', $request->query('max_amount'));
         } else {
-            $properties = $properties->paginate(6);
+            // Both or neither selected
+            $query->where(function($q) use ($request) {
+                $q->where('price', '<', $request->query('max_amount'))
+                ->orWhere('rent', '<', $request->query('max_amount'));
+            });
         }
+    });
 
-        //add the one image to the property array
-        foreach ($properties as $k => $property) {
-            //Create slug and assign to the property
-            $slug_text = '';
-            if (isset($property['displayAddress'])) {
-                $slug_text = $property['displayAddress'];
-            } elseif (isset($property['address2'])) {
-                $slug_text = $property['address2'];
-                $property['displayAddress'] = $property['address2'];
-            } elseif (isset($property['propertyFeature1'])) {
-                $slug_text = $property['propertyFeature1'];
-                $property['displayAddress'] = $property['propertyFeature1'];
-            }
-            $slug = str_slug($slug_text);
-            $properties[$k]['slug'] = $slug;
-
-            //get available resources of a property and set
-            $resource = Resource::where('propertyID', $property['propertyID'])
-                ->where('type', 'image')
-                ->orderBy('sort_order')
-                ->first();
-
-            $jsonString = $properties[$k]['images'];
-            $imagesArray = json_decode($jsonString, true);
-
-            $properties[$k]['image'] = $imagesArray[0]['image'];
-
-
-
-            //get property type
-            $resource_type = PropertyType::select('type')
-                ->where('group_id', $property['propertyType'])
-                ->where('department', $property['department'])
-                ->first();
-            $properties[$k]['propertyType'] = $resource_type['type'];
-
-            //get property style
-            $resource_style = ResidentialPropertyStyle::select('style_name')->where('style_id', $property['propertyStyle'])->first();
-            $properties[$k]['propertyStyle'] = $resource_style['style_name'];
-
-            //get property availability
-            $resource_type = PropertyAvailability::select('name')
-                ->where('group_id', $property['availability'])
-                ->where('department', $property['department'])
-                ->first();
-            $properties[$k]['availability'] = $resource_type['name'];
-
-            //get property availability
-            if (isset($property['rentFrequency'])) {
-                $rent_type = RentFrequency::select('frequency_type')
-                    ->where('id', $property['rentFrequency'])
-                    ->first();
-                $properties[$k]['rentFrequency'] = $rent_type['frequency_type'];
-            }
-        }
-
-        //dd($properties);
-
-        return view(
-            'pages.index',
-            [
-                'page_title'    => 'Estate Agents and Letting Agents in Camberwell, Brixton, SE5',
-                'posts'         => $posts,
-                'properties'    => $properties
-            ]
-        );
+    if (isset($request->property_per_page)) {
+        $properties = $properties->paginate($request->property_per_page);
+    } else {
+        $properties = $properties->paginate(6);
     }
+
+    //add the one image to the property array
+    foreach ($properties as $k => $property) {
+        //Create slug and assign to the property
+        $slug_text = '';
+        if (isset($property['displayAddress'])) {
+            $slug_text = $property['displayAddress'];
+        } elseif (isset($property['address2'])) {
+            $slug_text = $property['address2'];
+            $property['displayAddress'] = $property['address2'];
+        } elseif (isset($property['propertyFeature1'])) {
+            $slug_text = $property['propertyFeature1'];
+            $property['displayAddress'] = $property['propertyFeature1'];
+        }
+        $slug = str_slug($slug_text);
+        $properties[$k]['slug'] = $slug;
+
+        //get available resources of a property and set
+        $resource = Resource::where('propertyID', $property['propertyID'])
+            ->where('type', 'image')
+            ->orderBy('sort_order')
+            ->first();
+
+        $jsonString = $properties[$k]['images'];
+        $imagesArray = json_decode($jsonString, true);
+
+        $properties[$k]['image'] = $imagesArray[0]['image'];
+
+        //get property type
+        $resource_type = PropertyType::select('type')
+            ->where('group_id', $property['propertyType'])
+            ->where('department', $property['department'])
+            ->first();
+        $properties[$k]['propertyType'] = $resource_type['type'];
+
+        //get property style
+        $resource_style = ResidentialPropertyStyle::select('style_name')->where('style_id', $property['propertyStyle'])->first();
+        $properties[$k]['propertyStyle'] = $resource_style['style_name'];
+
+        //get property availability
+        $resource_type = PropertyAvailability::select('name')
+            ->where('group_id', $property['availability'])
+            ->where('department', $property['department'])
+            ->first();
+        $properties[$k]['availability'] = $resource_type['name'];
+
+        //get property availability
+        if (isset($property['rentFrequency'])) {
+            $rent_type = RentFrequency::select('frequency_type')
+                ->where('id', $property['rentFrequency'])
+                ->first();
+            $properties[$k]['rentFrequency'] = $rent_type['frequency_type'];
+        }
+    }
+
+    return view(
+        'pages.index',
+        [
+            'page_title'    => 'Estate Agents and Letting Agents in Camberwell, Brixton, SE5',
+            'posts'         => $posts,
+            'properties'    => $properties
+        ]
+    );
+}
 
     public function get_single_property($property_id, $slug)
     {
@@ -724,8 +724,12 @@ class PageController extends Controller
             $properties = $properties->orderBy('id', 'ASC');
         }
     } else {
-        // Default ordering
-        $properties = $properties->orderBy('properties.dateLastModified', 'DESC');
+        // Default ordering - change to price descending
+        // Use CASE to handle both rent and price properties
+        $properties = $properties->orderByRaw('CASE 
+            WHEN properties.rent > 0 THEN properties.rent 
+            ELSE properties.price 
+            END DESC');
     }
 
     // Paginate the results

@@ -134,6 +134,71 @@
     }
 </style>
 
+<script>
+    // Filter availability options based on Buy/Rent selection
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get reference to checkboxes and availability dropdown
+      const rentCheckbox = document.getElementById('html');
+      const buyCheckbox = document.getElementById('buy');
+      const availabilitySelect = document.querySelector('select[name="availability"]');
+      
+      // Save original options to restore them when needed
+      const originalOptions = Array.from(availabilitySelect.options).map(opt => {
+        return {
+          value: opt.value,
+          text: opt.text,
+          selected: opt.selected
+        };
+      });
+      
+      // Function to filter options based on selection
+      function filterOptions() {
+        // Reset to original options first
+        availabilitySelect.innerHTML = '';
+        originalOptions.forEach(opt => {
+          const option = new Option(opt.text, opt.value, opt.selected, opt.selected);
+          availabilitySelect.add(option);
+        });
+        
+        // If rent is selected but buy isn't
+        if (rentCheckbox.checked && !buyCheckbox.checked) {
+            debugger;
+          // Keep only rent-related options
+          for (let i = availabilitySelect.options.length - 1; i >= 0; i--) {
+            const option = availabilitySelect.options[i];
+            if (option.value !== '' && 
+                option.value !== 'Let' && 
+                option.value !== 'To Let' && 
+                option.value !== 'Let Agreed' ) {
+              availabilitySelect.remove(i);
+            }
+          }
+        } 
+        // If buy is selected but rent isn't
+        else if (buyCheckbox.checked && !rentCheckbox.checked) {
+          // Keep only buy-related options
+          for (let i = availabilitySelect.options.length - 1; i >= 0; i--) {
+            const option = availabilitySelect.options[i];
+            if (option.value !== '' && 
+                option.value !== 'For Sale' && 
+                option.value !== 'Sold' && 
+                option.value !== 'Sold STC') {
+              availabilitySelect.remove(i);
+            }
+          }
+        }
+        // Both or neither selected - show all options
+      }
+      
+      // Add event listeners to checkboxes
+      rentCheckbox.addEventListener('change', filterOptions);
+      buyCheckbox.addEventListener('change', filterOptions);
+      
+      // Run once on page load to set initial state
+      filterOptions();
+    });
+    </script>
+
 <div id="video_model" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
@@ -236,14 +301,12 @@
                     <div class="form-group d-flex align-items-center justify-content-evenly p-2">
                         <select class="my-select mb-0 h-100 border-0 p-0" data-container="body" name="availability">
                             <option value=""{{ (request()->query('availability') == ''?'selected':'')}}>Availability</option>
-                            <option value="On Hold" {{ (request()->query('availability') == 'On Hold'?'selected':'')}}>On Hold</option>
-                            <option value="For Sale" {{ (request()->query('availability') == 'For Sale'?'selected':'')}}>For Sale</option>
+                            <option value="Let" {{ (request()->query('availability') == 'Let'?'selected':'')}}>Let</option>
                             <option value="To Let" {{ (request()->query('availability') == 'To Let'?'selected':'')}}>To Let</option>
-                            <option value="Under Offer" {{ (request()->query('availability') == 'Under Offer'?'selected':'')}}>Under Offer</option>
+                            <option value="Let Agreed" {{ (request()->query('availability') == 'Let Agreed'?'selected':'')}}>Let Agreed</option>
+                            <option value="For Sale" {{ (request()->query('availability') == 'For Sale'?'selected':'')}}>For Sale</option>
                             <option value="Sold STC" {{ (request()->query('availability') == 'Sold STC'?'selected':'')}}>Sold STC</option>
                             <option value="Sold" {{ (request()->query('availability') == 'Sold'?'selected':'')}}>Sold</option>
-                            
-                            <option value="References Pending" {{ (request()->query('availability') == 'References Pending'?'selected':'')}}>References Pending</option>
                         </select>
                     </div>
 
