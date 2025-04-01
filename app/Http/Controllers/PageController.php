@@ -521,281 +521,296 @@ class PageController extends Controller
     // }
 
     public function show_properties(Request $request)
-    {
-        $css_files  = array('about', 'listings', 'listings_responsive');
-        $js_files   = array('listings', 'property_search');
+{
+    $css_files  = array('about', 'listings', 'listings_responsive');
+    $js_files   = array('listings', 'property_search');
 
-        //set withdrawn id
-        $withdrawn = array(6, 7);
-        //set sol/ sold stc/ let/ let agreed id
-        $include_current = array(4, 5);
+    //set withdrawn id
+    $withdrawn = array(6, 7);
+    //set sol/ sold stc/ let/ let agreed id
+    $include_current = array(4, 5);
 
-        //select option values
-        $prices = array(500, 1000, 2000, 5000, 10000, 25000, 50000, 60000, 70000, 80000, 90000, 100000, 120000, 140000, 160000, 180000, 200000, 250000, 300000, 350000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1250000, 1500000, 1750000, 2000000, 2500000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000, 9000000, 10000000);
-        $property_types = array('Houses', 'Flats / Apartments', 'Bungalows', 'Other');
-        $per_page = array(12, 21, 42);
-        $orders = array(
-            array('display' => 'Price Descending', 'value' => 'price+desc'),
-            array('display' => 'Price Ascending', 'value' => 'price+asc'),
-            array('display' => 'Newest Listed', 'value' => 'newest'),
-            array('display' => 'Oldest Listed', 'value' => 'oldest')
-        );
+    //select option values
+    $prices = array(500, 1000, 2000, 5000, 10000, 25000, 50000, 60000, 70000, 80000, 90000, 100000, 120000, 140000, 160000, 180000, 200000, 250000, 300000, 350000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000, 1250000, 1500000, 1750000, 2000000, 2500000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000, 9000000, 10000000);
+    $property_types = array('Houses', 'Flats / Apartments', 'Bungalows', 'Other');
+    $per_page = array(12, 21, 42);
+    $orders = array(
+        array('display' => 'Price Descending', 'value' => 'price+desc'),
+        array('display' => 'Price Ascending', 'value' => 'price+asc'),
+        array('display' => 'Newest Listed', 'value' => 'newest'),
+        array('display' => 'Oldest Listed', 'value' => 'oldest')
+    );
 
-        //Call properties
-        $properties = Property::select(
-            'properties.id', 
-            'properties.propertyID', 
-            'properties.department', 
-            'properties.displayAddress', 
-            'properties.propertyBedrooms', 
-            'properties.propertyBathrooms', 
-            'properties.displayPropertyType', 
-            'properties.propertyType', 
-            'properties.propertyStyle', 
-            'properties.price', 
-            'properties.rent', 
-            'properties.rentFrequency', 
-            'properties.availability', 
-            'properties.images', 
-            'properties.address3', 
-            'properties.addressStreet',
-            'properties.address2',
-            'properties.address4',
-            'properties.addressPostcode',
-            'properties.addressName',
-            'properties.addressNumber'
-        )->where('status', 1)
-        ->whereNotIn('availability', $withdrawn);
+    //Call properties
+    $properties = Property::select(
+        'properties.id', 
+        'properties.propertyID', 
+        'properties.department', 
+        'properties.displayAddress', 
+        'properties.propertyBedrooms', 
+        'properties.propertyBathrooms', 
+        'properties.displayPropertyType', 
+        'properties.propertyType', 
+        'properties.propertyStyle', 
+        'properties.price', 
+        'properties.rent', 
+        'properties.rentFrequency', 
+        'properties.availability', 
+        'properties.images', 
+        'properties.address3', 
+        'properties.addressStreet',
+        'properties.address2',
+        'properties.address4',
+        'properties.addressPostcode',
+        'properties.addressName',
+        'properties.addressNumber'
+    )->where('status', 1)
+    ->whereNotIn('availability', $withdrawn);
 
-        if (isset($request->property_type)) {
-            $properties = $properties->where('propertyType', $request->property_type);
+    if (isset($request->property_type)) {
+        $properties = $properties->where('propertyType', $request->property_type);
+    }
+
+    if (isset($request->bedroom_min)) {
+        $properties = $properties->where('propertyBedrooms', '>=', $request->bedroom_min + 0);
+    }
+
+    // Set department based on url_type or residence parameter and set preselection flags
+    $preselect_buy = false;
+    $preselect_rent = false;
+    
+    if (isset($request->residence) && $request->residence == 'Lettings') {
+        $properties = $properties->where('department', 'Lettings');
+        $url_type = 'Lettings';
+        $url_type_caps = strtoupper($url_type);
+        $preselect_rent = true;
+        $prices = array(500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000);
+    } elseif (isset($request->residence) && $request->residence == 'Sales') {
+        $properties = $properties->where('department', 'Sales');
+        $url_type = 'Sales';
+        $url_type_caps = strtoupper($url_type);
+        $preselect_buy = true;
+    } elseif (isset($request->url_type) && $request->url_type == 'tenants') {
+        $properties = $properties->where('department', 'Lettings');
+        $url_type = 'Lettings';
+        $url_type_caps = strtoupper($url_type);
+        $preselect_rent = true;  // This sets rent checkbox to be checked
+        $prices = array(500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000);
+    } elseif (isset($request->url_type) && $request->url_type == 'buyers') {
+        $properties = $properties->where('department', 'Sales');
+        $url_type = 'Sales';
+        $url_type_caps = strtoupper($url_type);
+        $preselect_buy = true;   // This sets buy checkbox to be checked
+    } else {
+        $properties = $properties->where('department', 'Sales');
+        $url_type = 'Sales';
+        $url_type_caps = strtoupper($url_type);
+    }
+
+    // Apply availability filtering
+    $availabilityFilter = request()->query('availability');
+    if (!empty($availabilityFilter)) {
+        $properties->leftJoin('property_availabilities', function ($join) {
+            $join->on('properties.availability', '=', 'property_availabilities.group_id')
+                ->on('properties.department', '=', 'property_availabilities.department');
+        })
+        ->where('property_availabilities.name', $availabilityFilter);
+    }
+
+    // Search query for location
+    $search = str_replace('+', ' ', $request->query('search', ''));
+    if (!empty($search)) {
+        $properties = $properties->where(function ($query) use ($search) {
+            $query
+                ->where('displayAddress', 'LIKE', "%{$search}%")
+                ->orWhere('addressName', 'LIKE', "%{$search}%")
+                ->orWhere('address2', 'LIKE', "%{$search}%")
+                ->orWhere('address3', 'LIKE', "%{$search}%")
+                ->orWhere('address4', 'LIKE', "%{$search}%")
+                ->orWhere('addressPostcode', 'LIKE', "%{$search}%")
+                ->orWhere('addressStreet', 'LIKE', "%{$search}%")
+                ->orWhere('addressNumber', 'LIKE', "%{$search}%");
+        });
+    }
+
+    // Override preselection with explicit query parameters if they exist
+    if (request()->has('rent') || request()->has('buy')) {
+        $preselect_rent = request()->query('rent') == 1;
+        $preselect_buy = request()->query('buy') == 1;
+    }
+
+    // Handle rent/buy checkbox filters
+    if ($preselect_rent && !$preselect_buy) {
+        // Only rent properties
+        $properties->where('rent', '>', 0);
+        
+        // Apply min/max prices to rent
+        if (request()->query('min_amount')) {
+            $properties->where('rent', '>=', request()->query('min_amount'));
         }
-
-        if (isset($request->bedroom_min)) {
-            $properties = $properties->where('propertyBedrooms', '>=', $request->bedroom_min + 0);
+        
+        if (request()->query('max_amount')) {
+            $properties->where('rent', '<=', request()->query('max_amount'));
         }
-
-        // Set department based on url_type or residence parameter
-        if (isset($request->residence) && $request->residence == 'Lettings') {
-            $properties = $properties->where('department', 'Lettings');
-            $url_type = 'Lettings';
-            $url_type_caps = strtoupper($url_type);
-            $prices = array(500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000);
-        } elseif (isset($request->residence) && $request->residence == 'Sales') {
-            $properties = $properties->where('department', 'Sales');
-            $url_type = 'Sales';
-            $url_type_caps = strtoupper($url_type);
-        } elseif (isset($request->url_type) && $request->url_type == 'tenants') {
-            $properties = $properties->where('department', 'Lettings');
-            $url_type = 'Lettings';
-            $url_type_caps = strtoupper($url_type);
-            $prices = array(500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000);
-        } elseif (isset($request->url_type) && $request->url_type == 'buyers') {
-            $properties = $properties->where('department', 'Sales');
-            $url_type = 'Sales';
-            $url_type_caps = strtoupper($url_type);
-        } else {
-            $properties = $properties->where('department', 'Sales');
-            $url_type = 'Sales';
-            $url_type_caps = strtoupper($url_type);
+    } 
+    elseif (!$preselect_rent && $preselect_buy) {
+        // Only buy properties
+        $properties->where('price', '>', 0);
+        
+        // Apply min/max prices to price
+        if (request()->query('min_amount')) {
+            $properties->where('price', '>=', request()->query('min_amount'));
         }
-
-        // Apply availability filtering
-        $availabilityFilter = request()->query('availability');
-        if (!empty($availabilityFilter)) {
-            $properties->leftJoin('property_availabilities', function ($join) {
-                $join->on('properties.availability', '=', 'property_availabilities.group_id')
-                    ->on('properties.department', '=', 'property_availabilities.department');
-            })
-            ->where('property_availabilities.name', $availabilityFilter);
+        
+        if (request()->query('max_amount')) {
+            $properties->where('price', '<=', request()->query('max_amount'));
         }
-
-        // Search query for location
-        $search = str_replace('+', ' ', $request->query('search', ''));
-        if (!empty($search)) {
-            $properties = $properties->where(function ($query) use ($search) {
-                $query
-                    ->where('displayAddress', 'LIKE', "%{$search}%")
-                    ->orWhere('addressName', 'LIKE', "%{$search}%")
-                    ->orWhere('address2', 'LIKE', "%{$search}%")
-                    ->orWhere('address3', 'LIKE', "%{$search}%")
-                    ->orWhere('address4', 'LIKE', "%{$search}%")
-                    ->orWhere('addressPostcode', 'LIKE', "%{$search}%")
-                    ->orWhere('addressStreet', 'LIKE', "%{$search}%")
-                    ->orWhere('addressNumber', 'LIKE', "%{$search}%");
+    }
+    else {
+        // Both or neither selected - apply price filters with OR condition
+        if (request()->query('min_amount')) {
+            $properties->where(function($q) {
+                $q->where('price', '>=', request()->query('min_amount'))
+                ->orWhere('rent', '>=', request()->query('min_amount'));
             });
         }
-
-        // Handle rent/buy checkbox filters
-        if (request()->query('rent') == 1 && request()->query('buy') != 1) {
-            // Only rent properties
-            $properties->where('rent', '>', 0);
-            
-            // Apply min/max prices to rent
-            if (request()->query('min_amount')) {
-                $properties->where('rent', '>=', request()->query('min_amount'));
-            }
-            
-            if (request()->query('max_amount')) {
-                $properties->where('rent', '<=', request()->query('max_amount'));
-            }
-        } 
-        elseif (request()->query('rent') != 1 && request()->query('buy') == 1) {
-            // Only buy properties
-            $properties->where('price', '>', 0);
-            
-            // Apply min/max prices to price
-            if (request()->query('min_amount')) {
-                $properties->where('price', '>=', request()->query('min_amount'));
-            }
-            
-            if (request()->query('max_amount')) {
-                $properties->where('price', '<=', request()->query('max_amount'));
-            }
+        
+        if (request()->query('max_amount')) {
+            $properties->where(function($q) {
+                $q->where('price', '<=', request()->query('max_amount'))
+                ->orWhere('rent', '<=', request()->query('max_amount'));
+            });
         }
-        else {
-            // Both or neither selected - apply price filters with OR condition
-            if (request()->query('min_amount')) {
-                $properties->where(function($q) {
-                    $q->where('price', '>=', request()->query('min_amount'))
-                    ->orWhere('rent', '>=', request()->query('min_amount'));
-                });
-            }
-            
-            if (request()->query('max_amount')) {
-                $properties->where(function($q) {
-                    $q->where('price', '<=', request()->query('max_amount'))
-                    ->orWhere('rent', '<=', request()->query('max_amount'));
-                });
-            }
-        }
-
-        // Normal price filters from original code
-        if (isset($request->price_min) && !request()->query('min_amount')) {
-            if ($url_type == 'Sales' || $url_type == 'buyers') {
-                $properties = $properties->where('price', '>=', $request->price_min + 0);
-            } else {
-                $properties = $properties->where('rent', '>=', $request->price_min + 0);
-            }
-        }
-
-        if (isset($request->price_max) && !request()->query('max_amount')) {
-            if ($url_type == 'Sales' || $url_type == 'buyers') {
-                $properties = $properties->where('price', '<=', $request->price_max + 0);
-            } else {
-                $properties = $properties->where('rent', '<=', $request->price_max + 0);
-            }
-        }
-
-        if (isset($request->include_current)) {
-            $properties = $properties->whereNotIn('availability', $include_current);
-        }
-
-        // Apply sorting
-        if (isset($request->order_by)) {
-            if ($request->order_by == 'price+desc') {
-                if ($url_type == 'Sales' || $url_type == 'buyers') {
-                    $properties = $properties->orderBy('price', 'DESC');
-                } else {
-                    $properties = $properties->orderBy('rent', 'DESC');
-                }
-            } elseif ($request->order_by == 'price+asc') {
-                if ($url_type == 'Sales' || $url_type == 'buyers') {
-                    $properties = $properties->orderBy('price', 'ASC');
-                } else {
-                    $properties = $properties->orderBy('rent', 'ASC');
-                }
-            } elseif ($request->order_by == 'newest') {
-                $properties = $properties->orderBy('id', 'DESC');
-            } elseif ($request->order_by == 'oldest') {
-                $properties = $properties->orderBy('id', 'ASC');
-            }
-        } else {
-            // Default ordering
-            $properties = $properties->orderBy('properties.dateLastModified', 'DESC');
-        }
-
-        // Paginate the results
-        if (isset($request->property_per_page)) {
-            $properties_final = $properties->paginate($request->property_per_page);
-        } else {
-            $properties_final = $properties->paginate(18);
-        }
-
-        // Process each property
-        foreach ($properties_final as $k => $property) {
-            // Create slug and assign to the property
-            if (isset($property['displayAddress'])) {
-                $slug_text = $property['displayAddress'];
-            } elseif (isset($property['address2'])) {
-                $slug_text = $property['address2'];
-                $property['displayAddress'] = $property['address2'];
-            } elseif (isset($property['propertyFeature1'])) {
-                $slug_text = $property['propertyFeature1'];
-                $property['displayAddress'] = $property['propertyFeature1'];
-            }
-            $slug = str_slug($slug_text);
-            $properties_final[$k]['slug'] = $slug;
-
-            // Get image
-            $jsonString = $properties_final[$k]['images'];
-            $imagesArray = json_decode($jsonString, true);
-            $properties_final[$k]['image'] = $imagesArray[0]['image'];
-
-            // Get property type
-            $resource_type = PropertyType::select('type')
-                ->where('group_id', $property['propertyType'])
-                ->where('department', $property['department'])
-                ->first();
-            $properties_final[$k]['propertyType'] = $resource_type['type'];
-
-            // Get property style
-            $resource_style = ResidentialPropertyStyle::select('style_name')
-                ->where('style_id', $property['propertyStyle'])
-                ->first();
-            $properties_final[$k]['propertyStyle'] = $resource_style['style_name'];
-
-            // Get property availability
-            $resource_type = PropertyAvailability::select('name')
-                ->where('group_id', $property['availability'])
-                ->where('department', $property['department'])
-                ->first();
-            $properties_final[$k]['availability'] = $resource_type['name'];
-
-            // Get property rent frequency
-            if (isset($property['rentFrequency'])) {
-                $rent_type = RentFrequency::select('frequency_type')
-                    ->where('id', $property['rentFrequency'])
-                    ->first();
-                $properties_final[$k]['rentFrequency'] = $rent_type['frequency_type'];
-            }
-        }
-
-        return view(
-            'pages.properties_view',
-            [
-                'page_title'    => $url_type_caps,
-                'css_files'     => $css_files,
-                'js_files'      => $js_files,
-                'url_type'      => $url_type,
-                'url_type_caps' => $url_type_caps,
-                'properties'    => $properties_final,
-                'prices'        => $prices,
-                'property_types' => $property_types,
-                'per_page'      => $per_page,
-                'orders'        => $orders,
-                'location_selected'      => $request['location'],
-                'price_min_selected'     => $request['price_min'],
-                'price_max_selected'     => $request['price_max'],
-                'property_type_selected' => $request['property_type'],
-                'residence_selected'     => $request['residence'],
-                'bedroom_min_selected'   => $request['bedroom_min'],
-                'property_per_page_selected' => $request['property_per_page'],
-                'order_by_selected'      => $request['order_by'],
-                'include_current'        => $request['include_current'],
-            ]
-        );
     }
+
+    // Normal price filters from original code
+    if (isset($request->price_min) && !request()->query('min_amount')) {
+        if ($url_type == 'Sales' || $url_type == 'buyers') {
+            $properties = $properties->where('price', '>=', $request->price_min + 0);
+        } else {
+            $properties = $properties->where('rent', '>=', $request->price_min + 0);
+        }
+    }
+
+    if (isset($request->price_max) && !request()->query('max_amount')) {
+        if ($url_type == 'Sales' || $url_type == 'buyers') {
+            $properties = $properties->where('price', '<=', $request->price_max + 0);
+        } else {
+            $properties = $properties->where('rent', '<=', $request->price_max + 0);
+        }
+    }
+
+    if (isset($request->include_current)) {
+        $properties = $properties->whereNotIn('availability', $include_current);
+    }
+
+    // Apply sorting
+    if (isset($request->order_by)) {
+        if ($request->order_by == 'price+desc') {
+            if ($url_type == 'Sales' || $url_type == 'buyers') {
+                $properties = $properties->orderBy('price', 'DESC');
+            } else {
+                $properties = $properties->orderBy('rent', 'DESC');
+            }
+        } elseif ($request->order_by == 'price+asc') {
+            if ($url_type == 'Sales' || $url_type == 'buyers') {
+                $properties = $properties->orderBy('price', 'ASC');
+            } else {
+                $properties = $properties->orderBy('rent', 'ASC');
+            }
+        } elseif ($request->order_by == 'newest') {
+            $properties = $properties->orderBy('id', 'DESC');
+        } elseif ($request->order_by == 'oldest') {
+            $properties = $properties->orderBy('id', 'ASC');
+        }
+    } else {
+        // Default ordering
+        $properties = $properties->orderBy('properties.dateLastModified', 'DESC');
+    }
+
+    // Paginate the results
+    if (isset($request->property_per_page)) {
+        $properties_final = $properties->paginate($request->property_per_page);
+    } else {
+        $properties_final = $properties->paginate(18);
+    }
+
+    // Process each property
+    foreach ($properties_final as $k => $property) {
+        // Create slug and assign to the property
+        if (isset($property['displayAddress'])) {
+            $slug_text = $property['displayAddress'];
+        } elseif (isset($property['address2'])) {
+            $slug_text = $property['address2'];
+            $property['displayAddress'] = $property['address2'];
+        } elseif (isset($property['propertyFeature1'])) {
+            $slug_text = $property['propertyFeature1'];
+            $property['displayAddress'] = $property['propertyFeature1'];
+        }
+        $slug = str_slug($slug_text);
+        $properties_final[$k]['slug'] = $slug;
+
+        // Get image
+        $jsonString = $properties_final[$k]['images'];
+        $imagesArray = json_decode($jsonString, true);
+        $properties_final[$k]['image'] = $imagesArray[0]['image'];
+
+        // Get property type
+        $resource_type = PropertyType::select('type')
+            ->where('group_id', $property['propertyType'])
+            ->where('department', $property['department'])
+            ->first();
+        $properties_final[$k]['propertyType'] = $resource_type['type'];
+
+        // Get property style
+        $resource_style = ResidentialPropertyStyle::select('style_name')
+            ->where('style_id', $property['propertyStyle'])
+            ->first();
+        $properties_final[$k]['propertyStyle'] = $resource_style['style_name'];
+
+        // Get property availability
+        $resource_type = PropertyAvailability::select('name')
+            ->where('group_id', $property['availability'])
+            ->where('department', $property['department'])
+            ->first();
+        $properties_final[$k]['availability'] = $resource_type['name'];
+
+        // Get property rent frequency
+        if (isset($property['rentFrequency'])) {
+            $rent_type = RentFrequency::select('frequency_type')
+                ->where('id', $property['rentFrequency'])
+                ->first();
+            $properties_final[$k]['rentFrequency'] = $rent_type['frequency_type'];
+        }
+    }
+
+    return view(
+        'pages.properties_view',
+        [
+            'page_title'    => $url_type_caps,
+            'css_files'     => $css_files,
+            'js_files'      => $js_files,
+            'url_type'      => $url_type,
+            'url_type_caps' => $url_type_caps,
+            'properties'    => $properties_final,
+            'prices'        => $prices,
+            'property_types' => $property_types,
+            'per_page'      => $per_page,
+            'orders'        => $orders,
+            'location_selected'      => $request['location'],
+            'price_min_selected'     => $request['price_min'],
+            'price_max_selected'     => $request['price_max'],
+            'property_type_selected' => $request['property_type'],
+            'residence_selected'     => $request['residence'],
+            'bedroom_min_selected'   => $request['bedroom_min'],
+            'property_per_page_selected' => $request['property_per_page'],
+            'order_by_selected'      => $request['order_by'],
+            'include_current'        => $request['include_current'],
+            'preselect_buy'          => $preselect_buy,
+            'preselect_rent'         => $preselect_rent,
+        ]
+    );
+}
 
     public function life_magazines(Request $request)
     {

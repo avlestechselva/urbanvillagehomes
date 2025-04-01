@@ -51,13 +51,11 @@
                 </div>
                 <div class="d-flex" style="gap: 10px;">
                     <div class="form-group d-flex align-items-center justify-content-evenly mb-0">
-                        <input type="checkbox" id="html" name="rent" value="1"
-                            {{ request()->query('rent') == 1 ? 'checked' : '' }} />
+                        <input type="checkbox" id="html" name="rent" value="1" {{ $preselect_rent ? 'checked' : '' }} />
                         <label for="html" class="d-flex align-items-center mb-0">Rent</label>
                     </div>
                     <div class="form-group d-flex align-items-center justify-content-evenly">
-                        <input type="checkbox" id="buy" name="buy" value="1"
-                            {{ request()->query('buy') == 1 ? 'checked' : '' }} />
+                        <input type="checkbox" id="buy" name="buy" value="1" {{ $preselect_buy ? 'checked' : '' }} />
                         <label for="buy" class="d-flex align-items-center mb-0">Buy</label>
                     </div>
                     <div class="form-group d-flex align-items-center justify-content-evenly p-2">
