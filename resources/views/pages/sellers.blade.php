@@ -347,7 +347,7 @@
                                             </div>
                                             <div class="post-content">
                                                 <p class="post-description mb-0">
-                                                    <span class="post-date">{{ $property->displayAddress ? str_limit($property->displayAddress, 25, '...') : str_limit($property->address3.','.$property->addressStreet, 25, '...') }}</span>
+                                                    <span class="post-date">{{ $property->displayAddress ? str_limit($property->displayAddress, 25, '...') : str_limit($property->addressPostcode.','.$property->addressStreet, 25, '...') }}</span>
                                                 </p>
                                                 
                                             </div>

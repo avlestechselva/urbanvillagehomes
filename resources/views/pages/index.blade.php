@@ -368,7 +368,7 @@
                                                         @endif
                                                     </b>
                                                     <br>
-                                                    {!! str_limit($property->addressStreet . ', ' . $property->address3, $limit = 25, $end = '...') ?? '&nbsp;' !!}
+                                                    {!! str_limit($property->addressStreet . ', ' . $property->addressPostcode, $limit = 25, $end = '...') ?? '&nbsp;' !!}
                                                 </p>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <p class="">
@@ -516,7 +516,7 @@
                     </br>Whether you want to sell, let, buy or rent – we’re here to support you at every step.
                 </p>
                 <div class="d-flex justify-content-center pt-4 pt-lg-5">
-                    <a href="#" class="book-now text-white d-flex justify-content-center align-items-center">MEET
+                    <a href="/meet-the-team" class="book-now text-white d-flex justify-content-center align-items-center">MEET
                         THE TEAM</a>
                 </div>
             </div>

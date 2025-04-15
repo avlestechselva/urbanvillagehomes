@@ -64,6 +64,7 @@ class PageController extends Controller
         'properties.availability', 
         'properties.images', 
         'properties.address3', 
+        'properties.addressPostcode',
         'properties.addressStreet',
         'property_availabilities.name as availability_name' // Fetch availability name
     )
@@ -1700,7 +1701,7 @@ class PageController extends Controller
     {
         $withdrawn = array(5);
 
-        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyBathrooms', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability', 'images', 'displayPropertyType','addressName','address3','addressStreet')
+        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyBathrooms', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability', 'images', 'displayPropertyType','addressName','address3','addressStreet','addressPostcode')
             ->where('status', 1)
             // ->where('featuredProperty', 1)
             ->whereNotIn('availability', $withdrawn)
@@ -1799,12 +1800,13 @@ class PageController extends Controller
 
     public function show_landlords()
     {
-        $withdrawn = array('Lettings');
+        $withdrawn = array('Sales');
 
-        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyBathrooms', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability', 'images', 'displayPropertyType')
+        $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyBathrooms', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability', 'images', 'displayPropertyType','addressPostcode')
             ->where('status', 1)
             // ->where('featuredProperty', 1)
-            ->whereNotIn('department', $withdrawn)
+            ->whereIn('department', $withdrawn)
+            ->whereIn('availability', array(5)) // sold
             ->orderBy('price', 'DESC')
             ->take(6)
             ->get();
