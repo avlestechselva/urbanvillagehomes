@@ -266,7 +266,14 @@ opacity: 1;
 .listing_price {
     position: absolute;
     left: 50%; /* Move element to the center */
-    transform: translateX(-50%); /* Adjust position to truly cente
+    transform: translateX(-50%); /* Adjust position to truly center */
+    background-color: #992785;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 1;
 }
 
 .valuation p {
@@ -373,65 +380,85 @@ opacity: 1;
         line-height: normal;
     }
     
-.search-bar .form-group{
-    width: 100%;
-}
-.search-bar .form-control::placeholder{
-    font: normal normal normal 16px Outfit;
-}
-.search-bar .Properties-for-sale {
-    margin-top: -25px;
-    gap: 5px;
-}
-.search-bar .all-properties a{
-    text-decoration: none;
-    font-size: 12px !important;
-    font-weight: 400;
-}
-#html + label, #buy + label{
-    font-size: 16px;
-}
-.search-bar button{
-    width: 100%;
-}
-#buy + label {
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-    width: auto;
-    display: flex;
-    left: 10px;
-}
-.Why-work-with-us {
-    padding: 50px 20px 0px 20px;
-}
-.body-component p{
-    padding: 0;
-}
-.work-with-us-section {
-    padding: 30px !important;
-}
-#html:checked + label::after {
-    left: -37px;
-    top: -7px;
-}
-#buy + label::before {
-    content: '';
-    position: absolute;
-    left: -55px;
-    left: 10;
-    width: 36px;
-    height: 36px;
-    border: 1px solid #992785;
-    border-radius: 10px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-#buy:checked + label::after {
-    left: -47px;
-    top: -7px;
-}
+    .search-bar .form-group{
+        width: 100%;
+    }
+    .search-bar .form-control::placeholder{
+        font: normal normal normal 16px Outfit;
+    }
+    .search-bar .Properties-for-sale {
+        margin-top: -25px;
+        gap: 5px;
+        flex-direction: column;
+    }
+    .search-bar .all-properties{
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .search-bar .all-properties a{
+        text-decoration: none;
+        font-size: 12px !important;
+        font-weight: 400;
+    }
+    #html + label, #buy + label{
+        font-size: 16px;
+    }
+    .search-bar button{
+        width: 100%;
+    }
+    #buy + label {
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        width: auto;
+        display: flex;
+        left: 10px;
+    }
+    .Why-work-with-us {
+        padding: 50px 20px 0px 20px;
+    }
+    .body-component p{
+        padding: 0;
+    }
+    .work-with-us-section {
+        padding: 30px !important;
+    }
+    #html:checked + label::after {
+        left: -37px;
+        top: -7px;
+    }
+    #buy + label::before {
+        content: '';
+        position: absolute;
+        left: -55px;
+        left: 10;
+        width: 36px;
+        height: 36px;
+        border: 1px solid #992785;
+        border-radius: 10px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+    #buy:checked + label::after {
+        left: -47px;
+        top: -7px;
+    }
     
+    /* Responsive property listing */
+    .listing {
+        margin-bottom: 20px;
+    }
+    
+    .listing_image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    
+    .sold-cards p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
 }
 
 

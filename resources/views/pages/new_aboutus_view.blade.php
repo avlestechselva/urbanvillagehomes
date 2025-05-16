@@ -174,7 +174,7 @@
 
     <!-- Our work in the community -->
     <div class="reviews-section container-fluid our-community">
-        <h2>Our work in the community</h2>
+        <h2>Real customer feedback</h2>
         <div class="reviews-container pt-2 pt-lg-4 row d-flex justify-content-center row">
            <div class="col-6" style="display: contents;">
            <iframe width="100%" height="591" class=" set-phone-height" src="https://player.vimeo.com/video/328369211"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

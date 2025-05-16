@@ -15,15 +15,15 @@
                             <div class="tag_price-2 listing_price-2">£ @if($property->rent) {{ number_format($property->rent).'/'.$property->rentFrequency }} @else {{ number_format($property->price) }} @endif</div>
                             <div class="listing_location align-items-start justify-content-start">
                                 <div class="row">
-                                    <div class="col-md-2">
-                                        <img src="{{ asset('images/icon_4_large.png') }}" alt="">
+                                    <div class="col-sm-2 col-3 mb-2 mb-sm-0">
+                                        <img src="{{ asset('images/icon_4_large.png') }}" alt="" class="img-fluid">
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-sm-7 col-9 mb-2 mb-sm-0">
                                         <a class="pro-title" href="{{ url('property/'.$property->propertyID.'/'.$property->slug) }}">{{ $property->displayAddress }}</a>
                                         <p class="pro-desc">{{ $property->propertyBedrooms }} Bedroom, {{ $property->propertyStyle }}</p>
                                     </div>
-                                    <div class="col-md-2">
-                                        <span style="border-radius: 4px; background: #a4bd17; padding: 10px; color: white;">{{ $property->availability }}</span>
+                                    <div class="col-sm-3 col-12 text-sm-right text-left">
+                                        <span style="border-radius: 4px; background: #a4bd17; padding: 8px 12px; color: white; display: inline-block; margin-bottom: 10px; font-size: 14px;">{{ $property->availability }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                 <div class="listing_tabs d-flex flex-row align-items-start justify-content-between flex-wrap">
 
                     <!-- Tab -->
-                    <div class="tab">
+                    <div class="tab mb-2">
                         <div class="tab_content d-flex flex-xl-row flex-column align-items-center justify-content-center">
                             <div class="tab_icon"><img src="{{ asset('images/house.svg') }}" class="svg" alt="house icon"></div>
                             <span>{{ $property->availability }}</span>
@@ -61,7 +61,7 @@
                     </div>
 
                     <!-- Tab -->
-                    <a href="#tab_features">
+                    <a href="#tab_features" class="mb-2">
                         <div class="tab">
                             <div class="tab_content d-flex flex-xl-row flex-column align-items-center justify-content-center">
                                 <div class="tab_icon"><img src="{{ asset('images/houses.svg') }}" class="svg" alt=""></div>
@@ -71,7 +71,7 @@
                     </a>
 
                     <!-- Tab -->
-                    <a href="#tab_resources">
+                    <a href="#tab_resources" class="mb-2">
                         <div class="tab">
                             <div class="tab_content d-flex flex-xl-row flex-column align-items-center justify-content-center">
                                 <div class="tab_icon"><img src="{{ asset('images/contract.svg') }}" class="svg" alt=""></div>
@@ -81,7 +81,7 @@
                     </a>
 
                     <!-- Tab -->
-                    <a href="#tab_location">
+                    <a href="#tab_location" class="mb-2">
                         <div class="tab">
                             <div class="tab_content d-flex flex-xl-row flex-column align-items-center justify-content-center">
                                 <div class="tab_icon"><img src="{{ asset('images/location.svg') }}" class="svg" alt=""></div>
@@ -91,7 +91,7 @@
                     </a>
 
                     <!-- Tab -->
-                    <a href="#tab_contact">
+                    <a href="#tab_contact" class="mb-2">
                         <div class="tab">
                             <div class="tab_content d-flex flex-xl-row flex-column align-items-center justify-content-center">
                                 <div class="tab_icon"><img src="{{ asset('images/directions.svg') }}" class="svg" alt="Contact icon"></div>
@@ -99,18 +99,32 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#tab_contact">
+                    <a href="#tab_contact" class="mb-2 whatsapp-share">
                         <div class="tab">
                             <div class="tab_content d-flex flex-xl-row flex-column align-items-center justify-content-center">
                             <a href="https://api.whatsapp.com/send?text={{ urlencode(url('property/'.$property->propertyID.'/'.$property->slug)) }}" 
                                 target="_blank" 
-                                style="text-decoration: none; display: flex; align-items: center;">
-                                 <img src="{{ asset('images/icons/whatsapp_01.png') }}" width="24" height="24" alt="Share on WhatsApp">
-                                 <span style="margin-left: 5px; color: green; font-weight: bold;">Share</span>
+                                style="text-decoration: none; display: flex; align-items: center; padding: 5px;">
+                                 <img src="{{ asset('images/icons/whatsapp_01.png') }}" width="24" height="24" alt="Share on WhatsApp" style="margin-right: 5px;">
+                                 <span style="color: green; font-weight: bold;">Share</span>
                              </a>
                             </div>
                         </div>
                     </a>
+                    <style>
+                        @media (max-width: 576px) {
+                            .listing_tabs {
+                                justify-content: center !important;
+                            }
+                            .listing_tabs .tab {
+                                margin: 5px;
+                                min-width: 120px;
+                            }
+                            .whatsapp-share .tab {
+                                min-width: 90px;
+                            }
+                        }
+                    </style>
                 </div>
 
                 <!-- About -->
@@ -132,17 +146,17 @@
                                 </div>
                             </div>
                         </div>-->
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-md-12 mb-4">
                             <div class="listing_features" style="margin-top: 0px !important;">
                                 <h3>Description</h3>
                                 <p style="text-align: justify; color:black;">{!! $property->mainSummary !!}</p>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 col-md-6 mb-4">
                             <div class="listing_features" style="margin-top: 0px !important;">
                                 <h3>Contact Agent</h3>
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                    <div class="col-12">
                                         <br/>
                                         <p style="color:black;"><b>Urban Village Homes Limited</b><br/>
 
@@ -158,11 +172,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3" id="tab_features">
+                        <div class="col-lg-3 col-md-6" id="tab_features">
                             <div class="listing_features" style="margin-top: 0px !important;">
                                 <h3>Property at A Glance</h3>
                                 <div class="row">
-                                    <div class="col-lg-13">
+                                    <div class="col-12">
                                         <ul>
                                             <li>{!! $property->propertyFeature1 !!}</li>
                                             <li>{!! $property->propertyFeature2 !!}</li>
@@ -209,8 +223,8 @@
                                 <div class="col-xl-4 col-md-6">
                                     <a target="_blank" href="{{url('view-resource/'.$epcGraph)}}">
                                         <div class="service">
-                                            <div class="service_title_container d-flex flex-row align-items-center justify-content-start">
-                                                <div class="service_icon d-flex flex-column align-items-start justify-content-center">
+                                            <div class="service_title_container d-flex flex-row align-items-center justify-content-start flex-wrap">
+                                                <div class="service_icon d-flex flex-column align-items-start justify-content-center mb-2 mb-sm-0">
                                                     <i class="fa fa-bar-chart"></i>
                                                 </div>
                                                 <div class="service_title"><h3>EPC</h3></div>
@@ -228,8 +242,8 @@
                                 <div class="col-xl-4 col-md-6">
                                     <a target="_blank" href="{{url('view-resource/'.$floorplan)}}">
                                         <div class="service">
-                                            <div class="service_title_container d-flex flex-row align-items-center justify-content-start">
-                                                <div class="service_icon d-flex flex-column align-items-start justify-content-center">
+                                            <div class="service_title_container d-flex flex-row align-items-center justify-content-start flex-wrap">
+                                                <div class="service_icon d-flex flex-column align-items-start justify-content-center mb-2 mb-sm-0">
                                                     <i class="fa fa-newspaper-o"></i>
                                                 </div>
                                                 <div class="service_title"><h3>Floor Plan</h3></div>
@@ -247,8 +261,8 @@
                                 <div class="col-xl-4 col-md-6">
                                     <a target="_blank" href="{{url('view-resource/'.$brochure)}}">
                                         <div class="service">
-                                            <div class="service_title_container d-flex flex-row align-items-center justify-content-start">
-                                                <div class="service_icon d-flex flex-column align-items-start justify-content-center">
+                                            <div class="service_title_container d-flex flex-row align-items-center justify-content-start flex-wrap">
+                                                <div class="service_icon d-flex flex-column align-items-start justify-content-center mb-2 mb-sm-0">
                                                     <i class="fa fa-book"></i>
                                                 </div>
                                                 <div class="service_title"><h3>Additional Media</h3></div>
@@ -267,8 +281,8 @@
                                     <div class="col-xl-4 col-md-6">
                                         <a target="_blank" href="{{ $externalLinks->url }}">
                                             <div class="service">
-                                                <div class="service_title_container d-flex flex-row align-items-center justify-content-start">
-                                                    <div class="service_icon d-flex flex-column align-items-start justify-content-center">
+                                                <div class="service_title_container d-flex flex-row align-items-center justify-content-start flex-wrap">
+                                                    <div class="service_icon d-flex flex-column align-items-start justify-content-center mb-2 mb-sm-0">
                                                         <i class="fa fa-external-link-square"></i>
                                                     </div>
                                                     <div class="service_title"><h3>{{ $externalLinks->description }}</h3></div>
@@ -314,19 +328,19 @@
                                 <div class="col-lg-6 contact_col">
                                     <div class="contact_form_container">
                                         <div class="row">
-                                            <div class="col-lg-12" style="text-align: left !important;">
+                                            <div class="col-lg-12 col-md-12 mb-3" style="text-align: left !important;">
                                                 <label>Name</label>
                                                 <input type="text" class="contact_input" name="name" placeholder="Full Name" required="required">
                                             </div>
-                                            <div class="col-lg-12" style="text-align: left !important;">
+                                            <div class="col-lg-12 col-md-12 mb-3" style="text-align: left !important;">
                                                 <label>Email</label>
                                                 <input type="email" class="contact_input" name="email" placeholder="Your e-mail" required="required">
                                             </div>
-                                            <div class="col-lg-12" style="text-align: left !important;">
+                                            <div class="col-lg-12 col-md-12 mb-3" style="text-align: left !important;">
                                                 <label>Phone</label>
                                                 <input type="text" class="contact_input" name="phone" placeholder="Phone number" required="required">
                                             </div>
-                                            <div class="col-lg-12" style="text-align: left !important;">
+                                            <div class="col-lg-12 col-md-12 mb-3" style="text-align: left !important;">
                                                 <label>Address</label>
                                                 <input type="text" class="contact_input" name="address" placeholder="Address" required="required">
                                             </div>
@@ -351,17 +365,17 @@
                                             </div>
                                         @endif
                                         <div class="row">
-                                            <div class="col-lg-12" style="text-align: left !important;">
+                                            <div class="col-lg-12 col-md-12 mb-3" style="text-align: left !important;">
                                                 <label>Requested Preferred Times</label>
                                                 <input type="text" class="contact_input" name="preferr_date" value="" id="datetimepicker"/>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-lg-12" style="text-align: left !important;">
+                                            <div class="col-lg-12 col-md-12 mb-3" style="text-align: left !important;">
                                                 <label>Message</label>
                                                 <textarea class="contact_textarea contact_input" name="body_text" placeholder="Message" required="required"></textarea>
-                                                <div style="float: left !important;">
-                                                    <div class="col-lg-12">
+                                                <div style="float: left !important; width: 100%;">
+                                                    <div class="col-lg-12 mt-3">
                                                         <label class="chk-container">By submitting this form you agree to the terms of our <a href="{{ url('privacy-policy') }}">Privacy Policy</a>
                                                             <input type="checkbox" id="checkme" name="privacy" value="terms">
                                                             <span class="checkmark"></span>

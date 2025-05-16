@@ -95,14 +95,14 @@
 <div class="container search-bar mt-3 mt-lg-5">
     <nav class="navbar navbar-light p-0">
         <div class="container-fluid p-0">
-            <div class="Properties-for-sale d-flex justify-content-center align-items-center w-100">
-                <div class="all-properties d-flex justify-content-center align-items-center">
+            <div class="Properties-for-sale d-flex justify-content-center align-items-center w-100 flex-wrap">
+                <div class="all-properties d-flex justify-content-center align-items-center mb-2 mb-md-0">
                     <a href="{{ url('property/buyers') }}">Properties for sale</a>
                 </div>
-                <div class="all-properties d-flex justify-content-center align-items-center">
+                <div class="all-properties d-flex justify-content-center align-items-center mb-2 mb-md-0">
                     <a href="{{ url('property/tenants') }}">Properties for rent</a>
                 </div>
-                <div class="all-properties d-flex justify-content-center align-items-center">
+                <div class="all-properties d-flex justify-content-center align-items-center mb-2 mb-md-0">
                     <a href="{{ url('book-a-valuation') }}">Book a valuation</a>
                 </div>
             </div>
@@ -113,54 +113,58 @@
                         placeholder="Search for street, postcode or area" aria-label="Search" name="search"
                         value="{{ request()->query('search') ?? '' }}">
                 </div>
-                <div class="d-flex" style="gap: 10px;">
-                    <div class="form-group d-flex align-items-center justify-content-evenly mb-0">
-                        <input type="checkbox" id="html" name="rent" value="1" {{ $preselect_rent ? 'checked' : '' }} />
-                        <label for="html" class="d-flex align-items-center mb-0">Rent</label>
+                <div class="d-flex flex-column flex-md-row" style="gap: 10px;">
+                    <div class="d-flex mb-2 mb-md-0" style="gap: 10px;">
+                        <div class="form-group d-flex align-items-center justify-content-evenly mb-0">
+                            <input type="checkbox" id="html" name="rent" value="1" {{ $preselect_rent ? 'checked' : '' }} />
+                            <label for="html" class="d-flex align-items-center mb-0">Rent</label>
+                        </div>
+                        <div class="form-group d-flex align-items-center justify-content-evenly">
+                            <input type="checkbox" id="buy" name="buy" value="1" {{ $preselect_buy ? 'checked' : '' }} />
+                            <label for="buy" class="d-flex align-items-center mb-0">Buy</label>
+                        </div>
                     </div>
-                    <div class="form-group d-flex align-items-center justify-content-evenly">
-                        <input type="checkbox" id="buy" name="buy" value="1" {{ $preselect_buy ? 'checked' : '' }} />
-                        <label for="buy" class="d-flex align-items-center mb-0">Buy</label>
+                    <div class="d-flex flex-column flex-md-row" style="gap: 10px;">
+                        <div class="form-group d-flex align-items-center justify-content-evenly p-2 mb-2 mb-md-0 w-100">
+                            <select class="my-select mb-0 h-100 border-0 p-0 w-100" data-container="body" name="min_amount">
+                                <option value="" {{ (request()->query('min_amount') == ''?'selected':'')}}>No Min</option>
+                                <option value="100000" {{ (request()->query('min_amount') == '100000'?'selected':'')}}>£100,000</option>
+                                <option value="250000" {{ (request()->query('min_amount') == '250000'?'selected':'')}}>£250,000</option>
+                                <option value="500000" {{ (request()->query('min_amount') == '500000'?'selected':'')}}>£500,000</option>
+                                <option value="750000" {{ (request()->query('min_amount') == '750000'?'selected':'')}}>£750,000</option>
+                                <option value="1000000" {{ (request()->query('min_amount') == '1000000'?'selected':'')}}>£1,000,000</option>
+                                <option value="2500000" {{ (request()->query('min_amount') == '2500000'?'selected':'')}}>£2,500,000</option>
+                                <option value="5000000" {{ (request()->query('min_amount') == '5000000'?'selected':'')}}>£5,000,000</option>
+                            </select>
+                        </div>
+                        <div class="form-group d-flex align-items-center justify-content-evenly p-2 mb-2 mb-md-0 w-100">
+                            <select class="my-select mb-0 h-100 border-0 p-0 w-100" data-container="body" name="max_amount">
+                                <option value=""{{ (request()->query('max_amount') == ''?'selected':'')}}>No Max</option>
+                                <option value="250000" {{ (request()->query('max_amount') == '250000'?'selected':'')}}>£250,000</option>
+                                <option value="500000" {{ (request()->query('max_amount') == '500000'?'selected':'')}}>£500,000</option>
+                                <option value="750000" {{ (request()->query('max_amount') == '750000'?'selected':'')}}>£750,000</option>
+                                <option value="1000000" {{ (request()->query('max_amount') == '1000000'?'selected':'')}}>£1,000,000</option>
+                                <option value="2500000" {{ (request()->query('max_amount') == '2500000'?'selected':'')}}>£2,500,000</option>
+                                <option value="5000000" {{ (request()->query('max_amount') == '5000000'?'selected':'')}}>£5,000,000</option>
+                                <option value="10000000" {{ (request()->query('max_amount') == '10000000'?'selected':'')}}>£10,000,000</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group d-flex align-items-center justify-content-evenly p-2">
-                        <select class="my-select mb-0 h-100 border-0 p-0" data-container="body" name="min_amount">
-                            <option value="" {{ (request()->query('min_amount') == ''?'selected':'')}}>No Min</option>
-                            <option value="100000" {{ (request()->query('min_amount') == '100000'?'selected':'')}}>£100,000</option>
-                            <option value="250000" {{ (request()->query('min_amount') == '250000'?'selected':'')}}>£250,000</option>
-                            <option value="500000" {{ (request()->query('min_amount') == '500000'?'selected':'')}}>£500,000</option>
-                            <option value="750000" {{ (request()->query('min_amount') == '750000'?'selected':'')}}>£750,000</option>
-                            <option value="1000000" {{ (request()->query('min_amount') == '1000000'?'selected':'')}}>£1,000,000</option>
-                            <option value="2500000" {{ (request()->query('min_amount') == '2500000'?'selected':'')}}>£2,500,000</option>
-                            <option value="5000000" {{ (request()->query('min_amount') == '5000000'?'selected':'')}}>£5,000,000</option>
-                        </select>
+                    <div class="d-flex flex-column flex-md-row" style="gap: 10px;">
+                        <div class="form-group d-flex align-items-center justify-content-evenly p-2 mb-2 mb-md-0 w-100">
+                            <select class="my-select mb-0 h-100 border-0 p-0 w-100" data-container="body" name="availability">
+                                <option value=""{{ (request()->query('availability') == ''?'selected':'')}}>Availability</option>
+                                <option value="Let" {{ (request()->query('availability') == 'Let'?'selected':'')}}>Let</option>
+                                <option value="To Let" {{ (request()->query('availability') == 'To Let'?'selected':'')}}>To Let</option>
+                                <option value="Let Agreed" {{ (request()->query('availability') == 'Let Agreed'?'selected':'')}}>Let Agreed</option>
+                                <option value="For Sale" {{ (request()->query('availability') == 'For Sale'?'selected':'')}}>For Sale</option>
+                                <option value="Sold STC" {{ (request()->query('availability') == 'Sold STC'?'selected':'')}}>Sold STC</option>
+                                <option value="Sold" {{ (request()->query('availability') == 'Sold'?'selected':'')}}>Sold</option>
+                            </select>
+                        </div>
+                        <button class="btn text-white d-flex align-items-center justify-content-center mb-2 mb-md-0 w-100" type="submit">
+                            @include('icons.search-icon') Search</button>
                     </div>
-                    <div class="form-group d-flex align-items-center justify-content-evenly p-2">
-                        <select class="my-select mb-0 h-100 border-0 p-0" data-container="body" name="max_amount">
-                            <option value=""{{ (request()->query('max_amount') == ''?'selected':'')}}>No Max</option>
-                            <option value="250000" {{ (request()->query('max_amount') == '250000'?'selected':'')}}>£250,000</option>
-                            <option value="500000" {{ (request()->query('max_amount') == '500000'?'selected':'')}}>£500,000</option>
-                            <option value="750000" {{ (request()->query('max_amount') == '750000'?'selected':'')}}>£750,000</option>
-                            <option value="1000000" {{ (request()->query('max_amount') == '1000000'?'selected':'')}}>£1,000,000</option>
-                            <option value="2500000" {{ (request()->query('max_amount') == '2500000'?'selected':'')}}>£2,500,000</option>
-                            <option value="5000000" {{ (request()->query('max_amount') == '5000000'?'selected':'')}}>£5,000,000</option>
-                            <option value="10000000" {{ (request()->query('max_amount') == '10000000'?'selected':'')}}>£10,000,000</option>
-                        </select>
-                    </div>
-            
-                    <div class="form-group d-flex align-items-center justify-content-evenly p-2">
-                        <select class="my-select mb-0 h-100 border-0 p-0" data-container="body" name="availability">
-                            <option value=""{{ (request()->query('availability') == ''?'selected':'')}}>Availability</option>
-                            <option value="Let" {{ (request()->query('availability') == 'Let'?'selected':'')}}>Let</option>
-                            <option value="To Let" {{ (request()->query('availability') == 'To Let'?'selected':'')}}>To Let</option>
-                            <option value="Let Agreed" {{ (request()->query('availability') == 'Let Agreed'?'selected':'')}}>Let Agreed</option>
-                            <option value="For Sale" {{ (request()->query('availability') == 'For Sale'?'selected':'')}}>For Sale</option>
-                            <option value="Sold STC" {{ (request()->query('availability') == 'Sold STC'?'selected':'')}}>Sold STC</option>
-                            <option value="Sold" {{ (request()->query('availability') == 'Sold'?'selected':'')}}>Sold</option>
-                        </select>
-                    </div>
-            
-                    <button class="btn text-white d-flex align-items-center justify-content-center" type="submit">
-                        @include('icons.search-icon') Search</button>
                 </div>
             </form>
         </div>
@@ -178,16 +182,14 @@
                     <p>Showing {{ $properties->count() }} records out of {{ $properties->total() }}</p>
                 </div>
                 @foreach ($properties as $k => $property)
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                         <div class="listing">
                             <div class="listing_image">
                                 <div class="listing_image_container">
                                     <a href="{{ url('property/' . $property->propertyID . '/' . $property->slug) }}">
                                         <img src="{{ $property->image }}"
-                                            alt="Urban Village Home - {{ $property->displayAddress }}">
+                                            alt="Urban Village Home - {{ $property->displayAddress }}" class="img-fluid">
                                     </a>
-
-
                                 </div>
                                 <div class="tags d-flex flex-row align-items-start justify-content-start flex-wrap">
                                     {{-- <div class="tag tag_house"><a href="{{ url('property/'.$property->propertyID.'/'.$property->slug) }}">{{ $property->availability }}</a>
@@ -195,7 +197,6 @@
                                     <!--<div class="tag tag_sale"><a href="listings.html">for sale</a></div>-->
                                 </div>
                                 <div class="tag_price listing_price">{{ $property->availability }}</div>
-
                             </div>
 
                             <div class="listing_content">
@@ -213,8 +214,8 @@
                                                     <br>
                                                     {{ str_limit($property->displayAddress, $limit = 25, $end = '...') }}
                                                 </p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <p class="">
+                                                <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                                    <p class="mb-2 mb-md-0">
                                                         {{ $property->propertyStyle }}
                                                     </p>
                                                     <div class="d-flex justify-content-between" style="gap: 9px;">
@@ -278,7 +279,6 @@
                                                                 </g>
                                                             </svg></div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                             <!-- <p class="pro-desc">{{ $property->propertyBedrooms }} Bedroom, {{ $property->propertyStyle }}</p> -->
@@ -297,7 +297,7 @@
             <div class="text-center move_up_top-2">
                 <br />
                 <p class="text-center">There are no properties listed for your search criteria</p><br />
-                <h4 class="text-center"  style="font-size: 1.5rem;font-weight: 500;">Please click <a href="{{ url('property/' . $url_type) }}">here</a> to see all
+                <h4 class="text-center" style="font-size: 1.5rem;font-weight: 500;">Please click <a href="{{ url('property/' . $url_type) }}">here</a> to see all
                     our properties for sale or refine your search criteria.</h4>
             </div>
         @endif
