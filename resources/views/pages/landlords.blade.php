@@ -471,7 +471,7 @@
                         <h3>Premium Managed</h3>
                         <p>From the moment your tenants move in, we look after everything — from rental collection to property maintenance.</p>
                         <p>With our fully managed service, landlords get complete peace of mind that their tenants are looked after, their property is kept in good condition, and everything is taken care of, with an experienced property manager on hand and a network of trusted trade people.</p>
-                        <p><strong>15% including VAT for our standard 12-month tenancy. No automatic renewal fees charged, which is a unique benefit with Urban Village. We also add free rental warranty and legal protection cover for the first 12 months for rent collection and managed landlords.</strong></p>
+                        <p><strong>15% including VAT for our standard 12-month tenancy. No automatic renewal fees charged, which is a unique benefit with Urban Village. </strong></p>
 
 
                         <div class="service-buttons">
