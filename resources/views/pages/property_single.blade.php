@@ -3,15 +3,22 @@
 <link rel="stylesheet" href="{{ asset('css/page_header.css') }}">
 <link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+@media only screen and (max-width: 576px) {
+    .property-top-spacing {
+        margin-top: 85px !important;
+    }
+}
+</style>
 <div class="listing_container">
 
    
     <div class="container">
         <div class="row" >
             <div class="col">
-                <div class="col" style="margin-top: 155px;">
+                <div class="col property-top-spacing" style="margin-top: 55px;">
                     <div class="section_title_container">
-                        <div class="property_info">
+                        <div class="property_info property_info_mobile">
                             <div class="tag_price-2 listing_price-2">£ @if($property->rent) {{ number_format($property->rent).'/'.$property->rentFrequency }} @else {{ number_format($property->price) }} @endif</div>
                             <div class="listing_location align-items-start justify-content-start">
                                 <div class="row">
@@ -431,6 +438,12 @@
           left: 0;
           width: 100%;
           height: 100%;
+        }
+        
+        @media (max-width: 576px) {
+            .property_info_mobile {
+                margin-top: -40px !important;
+            }
         }
     </style>
     <script type="text/javascript">
