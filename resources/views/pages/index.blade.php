@@ -7,35 +7,394 @@
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> -->
 
 <style>
-    /* Css for form dropdown */
-    .form-group select {
-        font-size: 19px;
-        color: #9D979B;
+    /* Modern CSS Variables for Search Bar */
+    :root {
+        --primary-color: #992785;
+        --secondary-color: #E00069;
+        --accent-color: #AFB700;
+        --success-color: #C4D442;
+        
+        --primary-gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        --accent-gradient: linear-gradient(135deg, var(--accent-color) 0%, var(--success-color) 100%);
+        --glass-bg: rgba(255, 255, 255, 0.95);
+        --glass-border: rgba(153, 39, 133, 0.2);
+        
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+        --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.1);
+        --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+        
+        --border-radius: 12px;
+        --border-radius-sm: 8px;
+        --transition-smooth: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        --transition-fast: all 0.2s ease;
     }
 
+    /* Enhanced form dropdown */
+    .form-group select {
+        font-size: 18px;
+        color: #64748b;
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        border: 2px solid transparent;
+        border-radius: var(--border-radius-sm);
+        transition: var(--transition-fast);
+        padding: 12px;
+    }
+
+    .form-group select:focus,
     .form-group select:focus-visible {
         outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(153, 39, 133, 0.1);
+        transform: translateY(-2px);
     }
 
-    /* End Css for form dropdown */
-    .book-now {
-        background-color: #c4d442;
-        /* Button background color */
-        padding: 10px 20px;
-        border-radius: 50px;
+    /* Enhanced search bar container */
+    .search-bar .navbar {
+        background: rgba(198, 190, 196, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-md);
+        transition: var(--transition-fast);
+    }
+
+    .search-bar .navbar:hover {
+        box-shadow: var(--shadow-hover);
+    }
+
+    /* Enhanced property navigation buttons */
+    .search-bar .Properties-for-sale {
+        margin-top: -25px;
+        gap: 20px;
+    }
+
+    .search-bar .all-properties {
+        text-decoration: none;
+        min-width: 200px;
+        height: 48px;
+        background: var(--primary-gradient);
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-smooth);
+        box-shadow: var(--shadow-sm);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .search-bar .all-properties::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .search-bar .all-properties:hover::before {
+        left: 100%;
+    }
+
+    .search-bar .all-properties:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .search-bar .all-properties a {
+        text-decoration: none;
         font-size: 16px;
+        font-weight: 600;
+        color: #FFFFFF;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Enhanced form layout */
+    .search-bar form {
+        gap: 16px;
+        margin: 25px;
+        padding: 5px 0;
+    }
+
+    .search-bar .enter-location {
+        margin-top: -40px;
+        width: 100%;
+    }
+
+    .search-bar .enter-location label {
+        text-align: left;
+        font: normal normal 600 20px/1.4 'Outfit', sans-serif;
+        color: var(--primary-color);
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    /* Enhanced form controls */
+    .search-bar .form-control {
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        border: 2px solid var(--glass-border);
+        border-radius: var(--border-radius-sm);
+        height: 56px;
+        font-size: 16px;
+        padding: 12px 16px;
+        transition: var(--transition-fast);
+    }
+
+    .search-bar .form-control:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(153, 39, 133, 0.1);
+        transform: translateY(-2px);
+        background: #ffffff;
+    }
+
+    .search-bar .form-control::placeholder {
+        font: normal normal normal 16px 'Outfit', sans-serif;
+        color: #9ca3af;
+    }
+
+    /* Enhanced search button */
+    .search-bar button {
+        min-width: 200px;
+        height: 56px;
+        background: var(--accent-gradient);
+        border: none;
+        border-radius: var(--border-radius-sm);
+        gap: 12px;
+        font-size: 18px;
+        font-weight: 600;
+        color: white;
+        transition: var(--transition-smooth);
+        box-shadow: var(--shadow-sm);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .search-bar button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .search-bar button:hover::before {
+        left: 100%;
+    }
+
+    .search-bar button:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .search-bar button:active {
+        transform: translateY(-1px);
+    }
+
+    /* Enhanced form groups (checkboxes and selects) */
+    .search-bar .form-group {
+        min-width: 140px;
+        height: 56px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        border: 2px solid var(--glass-border);
+        border-radius: var(--border-radius-sm);
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+        transition: var(--transition-fast);
+        position: relative;
+    }
+
+    .search-bar .form-group:hover {
+        border-color: var(--primary-color);
+        transform: translateY(-1px);
+    }
+
+    .form-group label {
+        font-size: 16px;
+        color: #64748b;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    /* Enhanced custom checkboxes */
+    #html, #buy {
+        display: none;
+    }
+
+    #html + label,
+    #buy + label {
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        transition: var(--transition-fast);
+    }
+
+    #html + label::before,
+    #buy + label::before {
+        content: '';
+        position: absolute;
+        left: -35px;
+        width: 24px;
+        height: 24px;
+        border: 2px solid var(--primary-color);
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.95);
+        transition: var(--transition-fast);
+    }
+
+    #html:checked + label::before,
+    #buy:checked + label::before {
+        background: var(--primary-gradient);
+        border-color: var(--primary-color);
+        transform: scale(1.1);
+    }
+
+    #html:checked + label::after,
+    #buy:checked + label::after {
+        content: '✓';
+        position: absolute;
+        left: -31px;
+        top: 1px;
+        color: white;
+        font-size: 14px;
         font-weight: bold;
+    }
+
+    #html + label:hover::before,
+    #buy + label:hover::before {
+        border-color: var(--secondary-color);
+        transform: scale(1.05);
+    }
+
+    /* Enhanced book-now button */
+    .book-now {
+        background: var(--accent-gradient);
+        padding: 12px 24px;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: 600;
         text-align: center;
         text-decoration: none;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: var(--transition-smooth);
+        box-shadow: var(--shadow-sm);
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
     }
 
+    .book-now::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .book-now:hover::before {
+        left: 100%;
+    }
+
+    .book-now:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    /* Loading state for search button */
+    .search-bar button.loading {
+        pointer-events: none;
+        opacity: 0.7;
+    }
+
+    .search-bar button.loading::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        margin: auto;
+        border: 2px solid transparent;
+        border-top-color: #ffffff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Enhanced dropdown animations */
+    .search-bar select option {
+        padding: 8px 12px;
+        background: white;
+        color: #374151;
+    }
+
+    /* Focus ring for accessibility */
+    .search-bar *:focus {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+    }
+
+    /* Responsive enhancements */
+    @media screen and (max-width: 768px) {
+        .search-bar .form-group {
+            width: 100%;
+            min-width: auto;
+        }
+        
+        .search-bar .all-properties {
+            width: 100%;
+            min-width: auto;
+            margin-bottom: 8px;
+        }
+        
+        .search-bar button {
+            width: 100%;
+            min-width: auto;
+        }
+        
+        .search-bar .Properties-for-sale {
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        #html + label::before,
+        #buy + label::before {
+            left: -30px;
+        }
+        
+        #html:checked + label::after,
+        #buy:checked + label::after {
+            left: -26px;
+        }
+    }
+
+    /* Existing styles that should remain */
     .d-flex.justify-content-center {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
 
     .work-with-us-section {
         display: flex;
@@ -47,51 +406,37 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin: 20px 0;
         width: 100%;
-        /* Ensures the section takes full available width */
         box-sizing: border-box;
-        /* Ensures padding is considered in width calculation */
     }
 
     .work-with-us-content ul {
         list-style: none;
-        /* Remove default list style */
         padding-left: 0;
-        /* Remove default padding */
         margin: 0;
-        /* Remove extra margin */
     }
 
     .work-with-us-content ul li {
         font-weight: normal;
-        /* Set normal font weight */
         display: flex;
-        /* Flex for aligning image and text */
         align-items: center;
         margin-bottom: 10px;
-        /* Add space between each bullet point */
     }
 
     .work-with-us-content ul img {
         margin-right: 10px;
-        /* Add space between image and text */
         width: 24px;
-        /* Adjust image size if needed */
         height: auto;
     }
 
     .work-with-us-content {
         height: 350px;
         flex: 0 0 95%;
-        /* Take exactly 50% of the width */
         padding-right: 20px;
-        /* Adjust space between content and image */
         box-sizing: border-box;
-        /* Ensures padding is considered in width calculation */
     }
 
     .work-with-us-image {
         flex: 0 0 50%;
-        /* Take exactly 50% of the width */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -99,24 +444,16 @@
 
     .work-with-us-image img {
         width: 100%;
-        /* Ensure the image takes the full width of its container */
         height: auto;
-        /* Maintain aspect ratio */
         border-radius: 10px;
     }
-
 
     .profile-card img {
         width: 100%;
-        /* Let the image take the full width available in its container */
         height: auto;
-        /* Maintain aspect ratio */
         border-radius: 10px;
         object-fit: cover;
-        /* Ensure the image fits nicely without stretching */
     }
-
-
 
     .quote-text {
         text-align: center;
@@ -135,69 +472,219 @@
 </style>
 
 <script>
-    // Filter availability options based on Buy/Rent selection
+    // Enhanced filter functionality with modern features
     document.addEventListener('DOMContentLoaded', function() {
-      // Get reference to checkboxes and availability dropdown
-      const rentCheckbox = document.getElementById('html');
-      const buyCheckbox = document.getElementById('buy');
-      const availabilitySelect = document.querySelector('select[name="availability"]');
-      
-      // Save original options to restore them when needed
-      const originalOptions = Array.from(availabilitySelect.options).map(opt => {
-        return {
-          value: opt.value,
-          text: opt.text,
-          selected: opt.selected
-        };
-      });
-      
-      // Function to filter options based on selection
-      function filterOptions() {
-        // Reset to original options first
-        availabilitySelect.innerHTML = '';
-        originalOptions.forEach(opt => {
-          const option = new Option(opt.text, opt.value, opt.selected, opt.selected);
-          availabilitySelect.add(option);
+        const rentCheckbox = document.getElementById('html');
+        const buyCheckbox = document.getElementById('buy');
+        const availabilitySelect = document.querySelector('select[name="availability"]');
+        
+        // Save original options
+        const originalOptions = Array.from(availabilitySelect.options).map(opt => {
+            return {
+                value: opt.value,
+                text: opt.text,
+                selected: opt.selected
+            };
         });
         
-        // If rent is selected but buy isn't
-        if (rentCheckbox.checked && !buyCheckbox.checked) {
-            debugger;
-          // Keep only rent-related options
-          for (let i = availabilitySelect.options.length - 1; i >= 0; i--) {
-            const option = availabilitySelect.options[i];
-            if (option.value !== '' && 
-                option.value !== 'Let' && 
-                option.value !== 'To Let' && 
-                option.value !== 'Let Agreed' ) {
-              availabilitySelect.remove(i);
-            }
-          }
-        } 
-        // If buy is selected but rent isn't
-        else if (buyCheckbox.checked && !rentCheckbox.checked) {
-          // Keep only buy-related options
-          for (let i = availabilitySelect.options.length - 1; i >= 0; i--) {
-            const option = availabilitySelect.options[i];
-            if (option.value !== '' && 
-                option.value !== 'For Sale' && 
-                option.value !== 'Sold' && 
-                option.value !== 'Sold STC') {
-              availabilitySelect.remove(i);
-            }
-          }
+        // Enhanced filter function with smooth animations
+        function filterOptions() {
+            // Add loading animation
+            availabilitySelect.style.opacity = '0.5';
+            availabilitySelect.style.transform = 'scale(0.98)';
+            
+            setTimeout(() => {
+                // Reset to original options first
+                availabilitySelect.innerHTML = '';
+                originalOptions.forEach(opt => {
+                    const option = new Option(opt.text, opt.value, opt.selected, opt.selected);
+                    availabilitySelect.add(option);
+                });
+                
+                // Filter logic remains the same
+                if (rentCheckbox.checked && !buyCheckbox.checked) {
+                    for (let i = availabilitySelect.options.length - 1; i >= 0; i--) {
+                        const option = availabilitySelect.options[i];
+                        if (option.value !== '' && 
+                            option.value !== 'Let' && 
+                            option.value !== 'To Let' && 
+                            option.value !== 'Let Agreed') {
+                            availabilitySelect.remove(i);
+                        }
+                    }
+                } else if (buyCheckbox.checked && !rentCheckbox.checked) {
+                    for (let i = availabilitySelect.options.length - 1; i >= 0; i--) {
+                        const option = availabilitySelect.options[i];
+                        if (option.value !== '' && 
+                            option.value !== 'For Sale' && 
+                            option.value !== 'Sold' && 
+                            option.value !== 'Sold STC') {
+                            availabilitySelect.remove(i);
+                        }
+                    }
+                }
+                
+                // Restore animation
+                availabilitySelect.style.opacity = '1';
+                availabilitySelect.style.transform = 'scale(1)';
+            }, 150);
         }
-        // Both or neither selected - show all options
-      }
-      
-      // Add event listeners to checkboxes
-      rentCheckbox.addEventListener('change', filterOptions);
-      buyCheckbox.addEventListener('change', filterOptions);
-      
-      // Run once on page load to set initial state
-      filterOptions();
+        
+        // Enhanced checkbox event listeners
+        function addCheckboxListeners() {
+            [rentCheckbox, buyCheckbox].forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    // Add visual feedback
+                    const parentGroup = this.parentElement;
+                    parentGroup.style.transform = 'scale(1.05)';
+                    parentGroup.style.borderColor = 'var(--primary-color)';
+                    
+                    setTimeout(() => {
+                        parentGroup.style.transform = 'scale(1)';
+                        parentGroup.style.borderColor = '';
+                    }, 200);
+                    
+                    filterOptions();
+                });
+
+                // Add hover effects
+                checkbox.addEventListener('mouseenter', function() {
+                    this.parentElement.style.borderColor = 'var(--secondary-color)';
+                });
+
+                checkbox.addEventListener('mouseleave', function() {
+                    if (!this.checked) {
+                        this.parentElement.style.borderColor = '';
+                    }
+                });
+            });
+        }
+        
+        // Enhanced search form functionality
+        const searchForm = document.getElementById('searchForm');
+        if (searchForm) {
+            searchForm.addEventListener('submit', function(e) {
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalText = submitButton.innerHTML;
+                
+                // Add loading state
+                submitButton.classList.add('loading');
+                submitButton.innerHTML = '🔄 Searching...';
+                submitButton.disabled = true;
+                
+                // For demo purposes - remove this timeout in production
+                setTimeout(() => {
+                    submitButton.classList.remove('loading');
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                }, 2000);
+            });
+        }
+
+        // Enhanced form input animations
+        const formInputs = document.querySelectorAll('.form-control, .form-group select');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+            });
+
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Add ripple effect to buttons
+        function addRippleEffect(element) {
+            element.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        }
+
+        // Add ripple effects to buttons
+        document.querySelectorAll('.search-bar button, .all-properties, .book-now').forEach(addRippleEffect);
+
+        // Initialize functionality
+        addCheckboxListeners();
+        filterOptions();
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Enhanced accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.target.tagName === 'INPUT' && e.target.type === 'checkbox') {
+                e.target.click();
+            }
+        });
+
+        // Auto-save search preferences (optional)
+        function saveSearchPreferences() {
+            const preferences = {
+                rent: rentCheckbox.checked,
+                buy: buyCheckbox.checked,
+                search: document.querySelector('input[name="search"]').value
+            };
+            // Note: Using sessionStorage for demo - remove if not needed
+            try {
+                sessionStorage.setItem('searchPrefs', JSON.stringify(preferences));
+            } catch (e) {
+                // Handle storage not available
+            }
+        }
+
+        // Save preferences on change
+        [rentCheckbox, buyCheckbox].forEach(checkbox => {
+            checkbox.addEventListener('change', saveSearchPreferences);
+        });
+
+        // Smooth scroll to results (if needed)
+        const resultsSection = document.querySelector('.featured');
+        if (resultsSection && searchForm) {
+            searchForm.addEventListener('submit', function() {
+                setTimeout(() => {
+                    resultsSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 100);
+            });
+        }
     });
-    </script>
+</script>
 
 <div id="video_model" class="modal">
     <!-- Modal content -->
