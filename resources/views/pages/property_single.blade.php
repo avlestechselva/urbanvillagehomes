@@ -1,471 +1,959 @@
 @include('includes.header')
 <link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
 <link rel="stylesheet" href="{{ asset('css/page_header.css') }}">
-<link rel="stylesheet" href="{{ asset('css/new_aboutus.css') }}">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-@media only screen and (max-width: 576px) {
-    .property-top-spacing {
-        margin-top: 85px !important;
+/* Modern CSS Variables */
+:root {
+    --primary-color: #982585;      /* Dark Magenta */
+    --primary-hover: #9A2386;     /* Slightly different Dark Magenta */
+    --success-color: #404040;     /* Onyx for success/accent */
+    --text-primary: #000000;      /* Black for primary text */
+    --text-secondary: #404040;    /* Onyx for secondary text */
+    --text-light: #666666;        /* Lighter gray from black variations */
+    --border-color: #e5e7eb;      /* Keep light border */
+    --bg-light: #f9fafb;          /* Keep light background */
+    --bg-white: #ffffff;          /* Keep white background */
+    --shadow-sm: 0 1px 2px 0 rgba(152, 37, 133, 0.05);    /* Magenta tint */
+    --shadow-md: 0 4px 6px -1px rgba(152, 37, 133, 0.1), 0 2px 4px -1px rgba(152, 37, 133, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(152, 37, 133, 0.1), 0 4px 6px -2px rgba(152, 37, 133, 0.05);
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.property-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Section */
+.property-header {
+    background: linear-gradient(135deg, var(--bg-white) 0%, #f8fafc 100%);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.property-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+}
+
+.property-main-info {
+    max-width: 800px;
+}
+
+.property-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.property-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.property-icon-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.availability-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    background: var(--success-color);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+}
+
+.property-price {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-color), #982585);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.property-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    text-decoration: none;
+    line-height: 1.3;
+    transition: color 0.2s ease;
+}
+
+.property-title:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.property-details {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.detail-item i {
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.detail-separator {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+/* Image Gallery */
+.image-gallery {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 24px;
+}
+
+.gallery-main img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.gallery-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.gallery-controls:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.gallery-prev {
+    left: 16px;
+}
+
+.gallery-next {
+    right: 16px;
+}
+
+.gallery-dots {
+    padding: 16px;
+    text-align: center;
+    background: var(--bg-light);
+}
+
+.gallery-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--border-color);
+    border: none;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.gallery-dot.active,
+.gallery-dot:hover {
+    background: var(--primary-color);
+}
+
+/* Navigation Tabs */
+.property-nav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-item {
+    flex: 1;
+    min-width: 120px;
+    max-width: 180px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-link:hover {
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Content Sections */
+.content-section {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.description-text {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* Contact Info */
+.contact-info {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 0.9rem;
+}
+
+.contact-info strong {
+    color: var(--text-primary);
+}
+
+/* Property Features */
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.features-list li:last-child {
+    border-bottom: none;
+}
+
+.features-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+/* Resources Grid */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.resource-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+}
+
+.resource-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    text-decoration: none;
+    border-color: var(--primary-color);
+}
+
+.resource-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.resource-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.resource-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.resource-description {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* Virtual Tour */
+.virtual-tour {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+}
+
+.embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-md);
+}
+
+/* Contact Form */
+.contact-form-section {
+    background: var(--bg-light);
+    padding: 48px 0;
+    margin-top: 48px;
+}
+
+.form-container {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+}
+
+.form-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: var(--bg-white);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: start;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-top: 4px;
+}
+
+.checkbox-container label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.submit-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.submit-btn:enabled:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.submit-btn:disabled {
+    background: var(--text-light);
+    cursor: not-allowed;
+}
+
+/* Map */
+.map-container {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    margin-top: 24px;
+}
+
+.map-container iframe {
+    border-radius: var(--radius-lg);
+}
+
+/* Alert */
+.alert-success {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .property-container {
+        padding: 0 16px;
+    }
+    
+    .property-header {
+        padding: 20px;
+    }
+    
+    .property-price {
+        font-size: 1.75rem;
+    }
+    
+    .property-title {
+        font-size: 1.25rem;
+    }
+    
+    .property-nav {
+        justify-content: center;
+    }
+    
+    .nav-item {
+        flex: 0 0 calc(50% - 4px);
+        min-width: auto;
+    }
+    
+    .content-section {
+        padding: 20px;
+    }
+    
+    .form-container {
+        padding: 24px;
+    }
+    
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .property-header {
+        margin-top: 85px;
+    }
+    
+    .nav-item {
+        flex: 1;
+        min-width: 100px;
+    }
+    
+    .gallery-main img {
+        height: 250px;
     }
 }
 </style>
-<div class="listing_container">
 
-   
-    <div class="container">
-        <div class="row" >
-            <div class="col">
-                <div class="col property-top-spacing" style="margin-top: 55px;">
-                    <div class="section_title_container">
-                        <div class="property_info property_info_mobile">
-                            <div class="tag_price-2 listing_price-2">£ @if($property->rent) {{ number_format($property->rent).'/'.$property->rentFrequency }} @else {{ number_format($property->price) }} @endif</div>
-                            <div class="listing_location align-items-start justify-content-start">
-                                <div class="row">
-                                    <div class="col-sm-2 col-3 mb-2 mb-sm-0">
-                                        <img src="{{ asset('images/icon_4_large.png') }}" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="col-sm-7 col-9 mb-2 mb-sm-0">
-                                        <a class="pro-title" href="{{ url('property/'.$property->propertyID.'/'.$property->slug) }}">{{ $property->displayAddress }}</a>
-                                        <p class="pro-desc">{{ $property->propertyBedrooms }} Bedroom, {{ $property->propertyStyle }}</p>
-                                    </div>
-                                    <div class="col-sm-3 col-12 text-sm-right text-left">
-                                        <span style="border-radius: 4px; background: #a4bd17; padding: 8px 12px; color: white; display: inline-block; margin-bottom: 10px; font-size: 14px;">{{ $property->availability }}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div> 
-                <!-- Image -->
-                <div class="listing_image">
-                    @foreach($property->images AS $k => $image)
-                        <div class="mySlides">
-                            <div class="numbertext">{{ $k+1 }} / {{ count($property->images) }}</div>
-                            <img src="{{ $image }}" style="width:100%" alt="Urban Village Home - {{ $property->displayAddress }}  : Image {{ $k+1 }}">
-                            <div class="text">UVH - {{ $property->displayAddress }} : {{ $k+1 }}</div>
-                        </div>
-                    @endforeach
-
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    <br/>
-
-                    <div style="margin-top:20px;text-align:center">
-                        @foreach($property->images AS $k => $image)
-                            <span class="dot" onclick="currentSlide({{ $k+1 }})"></span>
-                        @endforeach
+<div class="property-container">
+    <!-- Property Header -->
+    <div class="property-header">
+        <div class="header-content">
+            <div class="property-main-info">
+                <div class="property-meta">
+                    <span class="availability-badge">{{ $property->availability }}</span>
+                    <div class="property-icon">
+                        <img src="{{ asset('images/icon_4_large.png') }}" alt="Property Icon" class="property-icon-img">
                     </div>
                 </div>
-                <!-- Tabs -->
-                <div class="listing_tabs d-flex flex-row align-items-start justify-content-between flex-wrap">
-
-                    <!-- Tab -->
-                    <div class="tab mb-2">
-                        <div class="tab_content d-flex flex-xl-row flex-column align-items-center justify-content-center">
-                            <div class="tab_icon"><img src="{{ asset('images/house.svg') }}" class="svg" alt="house icon"></div>
-                            <span>{{ $property->availability }}</span>
-                        </div>
-                    </div>
-
-                    <!-- Tab -->
-                    <a href="#tab_features" class="mb-2">
-                        <div class="tab">
-                            <div class="tab_content d-flex flex-xl-row flex-column align-items-center justify-content-center">
-                                <div class="tab_icon"><img src="{{ asset('images/houses.svg') }}" class="svg" alt=""></div>
-                                <span>features</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Tab -->
-                    <a href="#tab_resources" class="mb-2">
-                        <div class="tab">
-                            <div class="tab_content d-flex flex-xl-row flex-column align-items-center justify-content-center">
-                                <div class="tab_icon"><img src="{{ asset('images/contract.svg') }}" class="svg" alt=""></div>
-                                <span>documents &amp; Floor Plan</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Tab -->
-                    <a href="#tab_location" class="mb-2">
-                        <div class="tab">
-                            <div class="tab_content d-flex flex-xl-row flex-column align-items-center justify-content-center">
-                                <div class="tab_icon"><img src="{{ asset('images/location.svg') }}" class="svg" alt=""></div>
-                                <span>location</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Tab -->
-                    <a href="#tab_contact" class="mb-2">
-                        <div class="tab">
-                            <div class="tab_content d-flex flex-xl-row flex-column align-items-center justify-content-center">
-                                <div class="tab_icon"><img src="{{ asset('images/directions.svg') }}" class="svg" alt="Contact icon"></div>
-                                <span>Arrange a viewing</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#tab_contact" class="mb-2 whatsapp-share">
-                        <div class="tab">
-                            <div class="tab_content d-flex flex-xl-row flex-column align-items-center justify-content-center">
-                            <a href="https://api.whatsapp.com/send?text={{ urlencode(url('property/'.$property->propertyID.'/'.$property->slug)) }}" 
-                                target="_blank" 
-                                style="text-decoration: none; display: flex; align-items: center; padding: 5px;">
-                                 <img src="{{ asset('images/icons/whatsapp_01.png') }}" width="24" height="24" alt="Share on WhatsApp" style="margin-right: 5px;">
-                                 <span style="color: green; font-weight: bold;">Share</span>
-                             </a>
-                            </div>
-                        </div>
-                    </a>
-                    <style>
-                        @media (max-width: 576px) {
-                            .listing_tabs {
-                                justify-content: center !important;
-                            }
-                            .listing_tabs .tab {
-                                margin: 5px;
-                                min-width: 120px;
-                            }
-                            .whatsapp-share .tab {
-                                min-width: 90px;
-                            }
-                        }
-                    </style>
+                <div class="property-price">
+                    £@if($property->rent) {{ number_format($property->rent).'/'.$property->rentFrequency }} @else {{ number_format($property->price) }} @endif
                 </div>
-
-                <!-- About -->
-                <div class="about">
-                    <div class="row">
-                        <!--<div class="col-lg-7">
-                            <div class="property_info">
-                                <div class="tag_price-2 listing_price-2">£ @if($property->rent) {{ number_format($property->rent).'/'.$property->rentFrequency }} @else {{ number_format($property->price) }} @endif</div>
-                                <div class="listing_location align-items-start justify-content-start">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <img src="{{ asset('images/icon_4_large.png') }}" alt="">
-                                        </div>
-                                        <div class="col-md-10">
-                                            <a class="pro-title" href="{{ url('property/'.$property->propertyID.'/'.$property->slug) }}">{{ $property->displayAddress }}</a>
-                                            <p class="pro-desc">{{ $property->propertyBedrooms }} Bedroom, {{ $property->propertyStyle }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="listing_features" style="margin-top: 0px !important;">
-                                <h3>Description</h3>
-                                <p style="text-align: justify; color:black;">{!! $property->mainSummary !!}</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="listing_features" style="margin-top: 0px !important;">
-                                <h3>Contact Agent</h3>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <br/>
-                                        <p style="color:black;"><b>Urban Village Homes Limited</b><br/>
-
-                                            121 Denmark Hill<br/>
-                                            Camberwell<br/>
-                                            London<br/>
-                                            SE5 8EN<br/>
-                                            United Kingdom<br/>
-                                            Tel: 020 3519 9121<br/>
-                                            info@urbanvillagehomes.com
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6" id="tab_features">
-                            <div class="listing_features" style="margin-top: 0px !important;">
-                                <h3>Property at A Glance</h3>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <ul>
-                                            <li>{!! $property->propertyFeature1 !!}</li>
-                                            <li>{!! $property->propertyFeature2 !!}</li>
-                                            <li>{!! $property->propertyFeature3 !!}</li>
-                                            <li>{!! $property->propertyFeature4 !!}</li>
-                                            <li>{!! $property->propertyFeature5 !!}</li>
-                                            <li>{!! $property->propertyFeature6 !!}</li>
-                                            <li>{!! $property->propertyFeature7 !!}</li>
-                                            <li>{!! $property->propertyFeature8 !!}</li>
-                                            <li>{!! $property->propertyFeature9 !!}</li>
-                                            <li>{!! $property->propertyFeature10 !!}</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @if(!empty($property['virtualTours']))
-                    <div class="row mb-4 mt-2">
-                        <div class="col-md-12 mb-2">
-                            <h3>Property Virtual Tour</h3>
-                        </div>
-                       @foreach($property['virtualTours'] AS $k => $virtualTours)
-                            <div class="col-md-12">
-                                <div class='embed-container'>
-                                    <iframe src='{{ $virtualTours->virtualTour }}' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen>
-                                    </iframe>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    @endif
-                </div>
-
-                <div class="services" id="tab_resources">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-12 col-md-12" style="margin-top:-45px; ">
-                                <div class="listing_title"><h3>EPC, Floorplans & Others</h3></div>
-                                <br/><br/>
-                            </div>
-                            <!-- EPC -->
-                            @foreach($property->epcGraphs AS $k => $epcGraph)
-                                <div class="col-xl-4 col-md-6">
-                                    <a target="_blank" href="{{url('view-resource/'.$epcGraph)}}">
-                                        <div class="service">
-                                            <div class="service_title_container d-flex flex-row align-items-center justify-content-start flex-wrap">
-                                                <div class="service_icon d-flex flex-column align-items-start justify-content-center mb-2 mb-sm-0">
-                                                    <i class="fa fa-bar-chart"></i>
-                                                </div>
-                                                <div class="service_title"><h3>EPC</h3></div>
-                                            </div>
-                                            <div class="service_text">
-                                                <p>Energy Performance Certificate</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endforeach
-
-                            <!-- Floor Plan -->
-                            @foreach($property->floorplans AS $k => $floorplan)
-                                <div class="col-xl-4 col-md-6">
-                                    <a target="_blank" href="{{url('view-resource/'.$floorplan)}}">
-                                        <div class="service">
-                                            <div class="service_title_container d-flex flex-row align-items-center justify-content-start flex-wrap">
-                                                <div class="service_icon d-flex flex-column align-items-start justify-content-center mb-2 mb-sm-0">
-                                                    <i class="fa fa-newspaper-o"></i>
-                                                </div>
-                                                <div class="service_title"><h3>Floor Plan</h3></div>
-                                            </div>
-                                            <div class="service_text">
-                                                <p>{{ $property->displayAddress }}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endforeach
-
-                            <!-- Broucher PDF -->
-                            @foreach($property->brochures AS $k => $brochure)
-                                <div class="col-xl-4 col-md-6">
-                                    <a target="_blank" href="{{url('view-resource/'.$brochure)}}">
-                                        <div class="service">
-                                            <div class="service_title_container d-flex flex-row align-items-center justify-content-start flex-wrap">
-                                                <div class="service_icon d-flex flex-column align-items-start justify-content-center mb-2 mb-sm-0">
-                                                    <i class="fa fa-book"></i>
-                                                </div>
-                                                <div class="service_title"><h3>Additional Media</h3></div>
-                                            </div>
-                                            <div class="service_text">
-                                                <p>Brochure No {{ $k+1 }}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endforeach
-
-                            <!-- External Links -->
-                            @if(!empty($property['externalLinks']))
-                                @foreach($property['externalLinks'] AS $k => $externalLinks)
-                                    <div class="col-xl-4 col-md-6">
-                                        <a target="_blank" href="{{ $externalLinks->url }}">
-                                            <div class="service">
-                                                <div class="service_title_container d-flex flex-row align-items-center justify-content-start flex-wrap">
-                                                    <div class="service_icon d-flex flex-column align-items-start justify-content-center mb-2 mb-sm-0">
-                                                        <i class="fa fa-external-link-square"></i>
-                                                    </div>
-                                                    <div class="service_title"><h3>{{ $externalLinks->description }}</h3></div>
-                                                </div>
-                                                <div class="service_text">
-                                                    <p>External Link {{ $k+1 }}</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endforeach
-                            @endif
-                        </div>
-                    </div>
+                <a href="{{ url('property/'.$property->propertyID.'/'.$property->slug) }}" class="property-title">
+                    {{ $property->displayAddress }}
+                </a>
+                <div class="property-details">
+                    <span class="detail-item">
+                        <i class="fa fa-bed"></i>
+                        {{ $property->propertyBedrooms }} Bedrooms
+                    </span>
+                    <span class="detail-separator">•</span>
+                    <span class="detail-item">
+                        <i class="fa fa-home"></i>
+                        {{ $property->propertyStyle }}
+                    </span>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="image-gallery position-relative">
+        @foreach($property->images AS $k => $image)
+            <div class="mySlides" style="display: {{ $k == 0 ? 'block' : 'none' }}">
+                <div class="gallery-main">
+                    <img src="{{ $image }}" alt="Urban Village Home - {{ $property->displayAddress }} : Image {{ $k+1 }}">
+                </div>
+            </div>
+        @endforeach
+        
+        @if(count($property->images) > 1)
+            <button class="gallery-controls gallery-prev" onclick="plusSlides(-1)">❮</button>
+            <button class="gallery-controls gallery-next" onclick="plusSlides(1)">❯</button>
+        @endif
+        
+        @if(count($property->images) > 1)
+            <div class="gallery-dots">
+                @foreach($property->images AS $k => $image)
+                    <button class="gallery-dot {{ $k == 0 ? 'active' : '' }}" onclick="currentSlide({{ $k+1 }})"></button>
+                @endforeach
+            </div>
+        @endif
+    </div>
+
+    <!-- Navigation -->
+    <div class="property-nav">
+        <div class="nav-item">
+            <div class="nav-link">
+                <img src="{{ asset('images/house.svg') }}" class="nav-icon" alt="">
+                <span>{{ $property->availability }}</span>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="#features" class="nav-link">
+                <img src="{{ asset('images/houses.svg') }}" class="nav-icon" alt="">
+                <span>Features</span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="#resources" class="nav-link">
+                <img src="{{ asset('images/contract.svg') }}" class="nav-icon" alt="">
+                <span>Documents</span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="#location" class="nav-link">
+                <img src="{{ asset('images/location.svg') }}" class="nav-icon" alt="">
+                <span>Location</span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="#contact" class="nav-link">
+                <img src="{{ asset('images/directions.svg') }}" class="nav-icon" alt="">
+                <span>Contact</span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="https://api.whatsapp.com/send?text={{ urlencode(url('property/'.$property->propertyID.'/'.$property->slug)) }}" 
+               target="_blank" class="nav-link" style="background: #25d366; color: white;">
+                <img src="{{ asset('images/icons/whatsapp_01.png') }}" width="20" height="20" alt="">
+                <span>Share</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="row">
+        <!-- Description -->
+        <div class="col-lg-6 mb-4">
+            <div class="content-section">
+                <h3 class="section-title">Description</h3>
+                <div class="description-text">{!! $property->mainSummary !!}</div>
+            </div>
+        </div>
+
+        <!-- Contact Agent -->
+        <div class="col-lg-3 mb-4">
+            <div class="content-section">
+                <h3 class="section-title">Contact Agent</h3>
+                <div class="contact-info">
+                    <strong>Urban Village Homes Limited</strong><br>
+                    121 Denmark Hill<br>
+                    Camberwell<br>
+                    London<br>
+                    SE5 8EN<br>
+                    United Kingdom<br>
+                    Tel: 020 3519 9121<br>
+                    info@urbanvillagehomes.com
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="col-lg-3 mb-4" id="features">
+            <div class="content-section">
+                <h3 class="section-title">Property Features</h3>
+                <ul class="features-list">
+                    @if($property->propertyFeature1)<li>{!! $property->propertyFeature1 !!}</li>@endif
+                    @if($property->propertyFeature2)<li>{!! $property->propertyFeature2 !!}</li>@endif
+                    @if($property->propertyFeature3)<li>{!! $property->propertyFeature3 !!}</li>@endif
+                    @if($property->propertyFeature4)<li>{!! $property->propertyFeature4 !!}</li>@endif
+                    @if($property->propertyFeature5)<li>{!! $property->propertyFeature5 !!}</li>@endif
+                    @if($property->propertyFeature6)<li>{!! $property->propertyFeature6 !!}</li>@endif
+                    @if($property->propertyFeature7)<li>{!! $property->propertyFeature7 !!}</li>@endif
+                    @if($property->propertyFeature8)<li>{!! $property->propertyFeature8 !!}</li>@endif
+                    @if($property->propertyFeature9)<li>{!! $property->propertyFeature9 !!}</li>@endif
+                    @if($property->propertyFeature10)<li>{!! $property->propertyFeature10 !!}</li>@endif
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Virtual Tour -->
+    @if(!empty($property['virtualTours']))
+        <div class="virtual-tour">
+            <h3 class="section-title">Property Virtual Tour</h3>
+            @foreach($property['virtualTours'] AS $k => $virtualTours)
+                <div class="embed-container">
+                    <iframe src="{{ $virtualTours->virtualTour }}" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                </div>
+            @endforeach
+        </div>
+    @endif
+
+    <!-- Resources Section -->
+    <div class="content-section" id="resources">
+        <h3 class="section-title">Documents & Resources</h3>
+        <div class="resources-grid">
+            <!-- EPC -->
+            @foreach($property->epcGraphs AS $k => $epcGraph)
+                <a href="{{url('view-resource/'.$epcGraph)}}" target="_blank" class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fa fa-bar-chart"></i>
+                        </div>
+                        <div>
+                            <h4 class="resource-title">EPC Certificate</h4>
+                            <p class="resource-description">Energy Performance Certificate</p>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+
+            <!-- Floor Plans -->
+            @foreach($property->floorplans AS $k => $floorplan)
+                <a href="{{url('view-resource/'.$floorplan)}}" target="_blank" class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fa fa-newspaper-o"></i>
+                        </div>
+                        <div>
+                            <h4 class="resource-title">Floor Plan</h4>
+                            <p class="resource-description">{{ $property->displayAddress }}</p>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+
+            <!-- Brochures -->
+            @foreach($property->brochures AS $k => $brochure)
+                <a href="{{url('view-resource/'.$brochure)}}" target="_blank" class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fa fa-book"></i>
+                        </div>
+                        <div>
+                            <h4 class="resource-title">Property Brochure</h4>
+                            <p class="resource-description">Brochure No {{ $k+1 }}</p>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+
+            <!-- External Links -->
+            @if(!empty($property['externalLinks']))
+                @foreach($property['externalLinks'] AS $k => $externalLinks)
+                    <a href="{{ $externalLinks->url }}" target="_blank" class="resource-card">
+                        <div class="resource-header">
+                            <div class="resource-icon">
+                                <i class="fa fa-external-link-square"></i>
+                            </div>
+                            <div>
+                                <h4 class="resource-title">{{ $externalLinks->description }}</h4>
+                                <p class="resource-description">External Link {{ $k+1 }}</p>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+            @endif
         </div>
     </div>
 </div>
+
+<!-- Contact Form -->
 @if(!($property->availability == "Sold"))
-    <div class="contact">
-        <div class="container" id="tab_contact">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section_title_container">
-                        <br/><br/>
-                        <h1 class="main-title">Viewing / Valuation Request</h1>
-                        <p class="empty-pr">&nbsp;</p>
-                        <div class="header_title_border"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row contact_row">
-                <!-- Contact - About -->
-                <div class="col-lg-12 contact_col">
-                    <div class="contact_form_container">
-                        <!-- Contact - About -->
-                        <form action="{{url('send-valuation-request')}}" method="post" class="contact_form text-center" id="contact_form">
-                            {{csrf_field()}}
-                            <input type="hidden" name="property_id" value="{{ $property->propertyID }}"/>
-                            <input type="hidden" name="display_address" value="{{ $property->displayAddress }}"/>
-                            <div class="row">
-                                <div class="col-lg-6 contact_col">
-                                    <div class="contact_form_container">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 mb-3" style="text-align: left !important;">
-                                                <label>Name</label>
-                                                <input type="text" class="contact_input" name="name" placeholder="Full Name" required="required">
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 mb-3" style="text-align: left !important;">
-                                                <label>Email</label>
-                                                <input type="email" class="contact_input" name="email" placeholder="Your e-mail" required="required">
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 mb-3" style="text-align: left !important;">
-                                                <label>Phone</label>
-                                                <input type="text" class="contact_input" name="phone" placeholder="Phone number" required="required">
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 mb-3" style="text-align: left !important;">
-                                                <label>Address</label>
-                                                <input type="text" class="contact_input" name="address" placeholder="Address" required="required">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Contact - Info -->
-                                <div class="col-lg-6 contact_col">
-                                    <div class="contact_form_container">
-                                        @if(session('flash_success'))
-                                            <div class="row">
-
-                                                <div class="col-sm-12 col-md-12 col-xl-12">
-                                                    <div class="alert alert-success icons-alert">
-                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                            <i class="icofont icofont-close-line-circled"></i>
-                                                        </button>
-                                                        <p><i class="fa fa-check-circle"></i> <strong>Success!!</strong>{!!   session('flash_success') !!}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 mb-3" style="text-align: left !important;">
-                                                <label>Requested Preferred Times</label>
-                                                <input type="text" class="contact_input" name="preferr_date" value="" id="datetimepicker"/>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 mb-3" style="text-align: left !important;">
-                                                <label>Message</label>
-                                                <textarea class="contact_textarea contact_input" name="body_text" placeholder="Message" required="required"></textarea>
-                                                <div style="float: left !important; width: 100%;">
-                                                    <div class="col-lg-12 mt-3">
-                                                        <label class="chk-container">By submitting this form you agree to the terms of our <a href="{{ url('privacy-policy') }}">Privacy Policy</a>
-                                                            <input type="checkbox" id="checkme" name="privacy" value="terms">
-                                                            <span class="checkmark"></span>
-                                                        </label>
-                                                        <label class="chk-container"> I would like to receive new events, invites and newsletters by email, from Urban Village Homes.</a>
-                                                            <input type="checkbox" id="checkme" name="marketing" value="marketing">
-                                                            <span class="checkmark"></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="contact_form_container pull-right">
-                                                    <button disabled id="sendNewSms" class="btn btn-primary contact_button-2">Submit</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+    <div class="contact-form-section" id="contact">
+        <div class="property-container">
+            <div class="form-container">
+                <h2 class="form-title">Arrange a Viewing</h2>
+                
+                <form action="{{url('send-valuation-request')}}" method="post" id="contact_form">
+                    {{csrf_field()}}
+                    <input type="hidden" name="property_id" value="{{ $property->propertyID }}"/>
+                    <input type="hidden" name="display_address" value="{{ $property->displayAddress }}"/>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-input" name="name" placeholder="Enter your full name" required>
                             </div>
-                        </form>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-input" name="email" placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="text" class="form-input" name="phone" placeholder="Enter your phone number" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Address</label>
+                                <input type="text" class="form-input" name="address" placeholder="Enter your address" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            @if(session('flash_success'))
+                                <div class="alert-success">
+                                    <strong>Success!</strong> {!! session('flash_success') !!}
+                                </div>
+                            @endif
+                            
+                            <div class="form-group">
+                                <label class="form-label">Preferred Viewing Time</label>
+                                <input type="text" class="form-input" name="preferr_date" id="datetimepicker" placeholder="Select preferred date and time">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-input form-textarea" name="body_text" placeholder="Tell us about your requirements..." required></textarea>
+                            </div>
+                            
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="privacy" name="privacy" value="terms" required>
+                                <label for="privacy">I agree to the <a href="{{ url('privacy-policy') }}">Privacy Policy</a></label>
+                            </div>
+                            
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="marketing" name="marketing" value="marketing">
+                                <label for="marketing">I would like to receive updates and newsletters from Urban Village Homes</label>
+                            </div>
+                            
+                            <div class="form-group" style="margin-top: 24px;">
+                                <button type="submit" class="submit-btn" id="sendNewSms" disabled>
+                                    Submit Viewing Request
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
-    <style>
-        .listing_features ul li {
-            height: 40px !important;
-            line-height: 15px !important;
-            font-size: 14px !important;
-            font-weight: 600 !important;
-            color: #6c7079 !important;
-            padding-left: 30px !important;
-            padding-top: 6px !important;
-        }
-        
-        .embed-container {
-          position: relative;
-          padding-bottom: 56.25%;
-          height: 0;
-          overflow: hidden;
-          max-width: 100%;
-        }
-
-        .embed-container iframe,
-        .embed-container object,
-        .embed-container embed {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }
-        
-        @media (max-width: 576px) {
-            .property_info_mobile {
-                margin-top: -40px !important;
-            }
-        }
-    </style>
-    <script type="text/javascript">
-        var checker = document.getElementById('checkme');
-        var sendbtn = document.getElementById('sendNewSms');
-        checker.onchange = function() {
-            if(this.checked){
-                sendbtn.disabled = false;
-            }else{
-                sendbtn.disabled = true;
-            }
-        };
-    </script>
 @endif
-<iframe  id="tab_location" src="https://maps.google.com/maps?q={{ $property->latitude }},{{ $property->longitude }}&z=15&output=embed" style="margin-top:12px;max-width: 100%;border:0" width="100%" height="450" frameborder="0" allowfullscreen></iframe>
 
+<!-- Map -->
+<div class="property-container">
+    <div class="map-container" id="location">
+        <iframe src="https://maps.google.com/maps?q={{ $property->latitude }},{{ $property->longitude }}&z=15&output=embed" 
+                width="100%" height="450" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
 
-    <script>
-        $(document).on("click", ".resource-class", function () {
-            var resource_path = $(this).data('path');
-            window.open(resource_path);
-        });
-    </script>
+<script>
+// Image gallery functionality
+let slideIndex = 1;
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("gallery-dot");
     
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+    }
+    
+    if (slides[slideIndex-1]) {
+        slides[slideIndex-1].style.display = "block";
+    }
+    
+    if (dots[slideIndex-1]) {
+        dots[slideIndex-1].classList.add("active");
+    }
+}
+
+// Form validation
+document.getElementById('privacy').addEventListener('change', function() {
+    const submitBtn = document.getElementById('sendNewSms');
+    submitBtn.disabled = !this.checked;
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+</script>
+
 @include('includes.footer')
