@@ -1806,7 +1806,7 @@ class PageController extends Controller
             ->where('status', 1)
             // ->where('featuredProperty', 1)
             ->whereIn('department', $withdrawn)
-            ->whereIn('availability', array(5)) // sold
+            ->whereIn('availability', array(7,8,9,10,11,12)) // let department properties
             ->orderBy('price', 'DESC')
             ->take(6)
             ->get();
