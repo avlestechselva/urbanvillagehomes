@@ -1106,10 +1106,33 @@
                     <a href="{{ url('property/tenants') }}">Properties for rent</a>
                 </div>
                 <div class="all-properties d-flex justify-content-center align-items-center">
-                    <a
-                        href="javascript:void( window.open( 'https://form.jotform.com/243284776248064', 'blank', 'scrollbars=yes, toolbar=no, width=700, height=500' ) ) ">
-                        Book a valuation </a>
-                </div>
+    <a href="javascript:void(0)" onclick="document.getElementById('valuation_modal').style.display='flex'">
+        Book a valuation
+    </a>
+</div>
+
+<!-- Valuation Modal -->
+<div id="valuation_modal" 
+     onclick="if(event.target===this)this.style.display='none'"
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+            background:rgba(0,0,0,0.6); z-index:99999; 
+            justify-content:center; align-items:center;">
+    <div style="background:#fff; width:760px; max-width:95vw; height:85vh; 
+                border-radius:12px; overflow:hidden; position:relative;">
+        <!-- Close Button -->
+        <button onclick="document.getElementById('valuation_modal').style.display='none'"
+                style="position:absolute; top:10px; right:12px; width:32px; height:32px;
+                       background:#f1f1f1; border:none; border-radius:50%; font-size:18px;
+                       cursor:pointer; z-index:10; line-height:1; color:#333;">
+            &times;
+        </button>
+        <!-- Fillout Form via iframe -->
+        <iframe src="https://form.fillout.com/t/aQEigFYmCzus" 
+                style="width:100%; height:100%; border:none;"
+                title="Book a Valuation">
+        </iframe>
+    </div>
+</div>
             </div>
             
             <form class="w-100 d-flex flex-column pt-4" id="searchForm" method="GET" action="">

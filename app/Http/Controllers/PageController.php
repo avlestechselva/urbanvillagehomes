@@ -587,23 +587,23 @@ class PageController extends Controller
         $preselect_rent = true;
         $prices = array(500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000);
     } elseif (isset($request->residence) && $request->residence == 'Sales') {
-        $properties = $properties->where('department', 'Sales');
+        $properties = $properties->where('properties.department', 'Sales');
         $url_type = 'Sales';
         $url_type_caps = strtoupper($url_type);
         $preselect_buy = true;
     } elseif (isset($request->url_type) && $request->url_type == 'tenants') {
-        $properties = $properties->where('department', 'Lettings');
+        $properties = $properties->where('properties.department', 'Lettings');
         $url_type = 'Lettings';
         $url_type_caps = strtoupper($url_type);
         $preselect_rent = true;  // This sets rent checkbox to be checked
         $prices = array(500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000);
     } elseif (isset($request->url_type) && $request->url_type == 'buyers') {
-        $properties = $properties->where('department', 'Sales');
+        $properties = $properties->where('properties.department', 'Sales');
         $url_type = 'Sales';
         $url_type_caps = strtoupper($url_type);
         $preselect_buy = true;   // This sets buy checkbox to be checked
     } else {
-        $properties = $properties->where('department', 'Sales');
+        $properties = $properties->where('properties.department', 'Sales');
         $url_type = 'Sales';
         $url_type_caps = strtoupper($url_type);
     }
@@ -742,6 +742,7 @@ class PageController extends Controller
 
     // Process each property
     foreach ($properties_final as $k => $property) {
+        $slug_text = '';
         // Create slug and assign to the property
         if (isset($property['displayAddress'])) {
             $slug_text = $property['displayAddress'];
@@ -1800,13 +1801,13 @@ class PageController extends Controller
 
     public function show_landlords()
     {
-        $withdrawn = array('Sales');
+        $withdrawn = array('Lettings');
 
         $properties = Property::select('id', 'propertyID', 'department', 'displayAddress', 'propertyBedrooms', 'propertyBathrooms', 'propertyType', 'propertyStyle', 'price', 'rent', 'rentFrequency', 'availability', 'images', 'displayPropertyType','addressPostcode')
             ->where('status', 1)
             // ->where('featuredProperty', 1)
             ->whereIn('department', $withdrawn)
-            ->whereIn('availability', array(7,8,9,10,11,12)) // let department properties
+            ->whereIn('availability', array(11)) // let department properties
             ->orderBy('price', 'DESC')
             ->take(6)
             ->get();

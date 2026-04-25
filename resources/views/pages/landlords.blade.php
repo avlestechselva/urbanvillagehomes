@@ -332,6 +332,14 @@
     .card-carousel #customNext img{
         height: 54px !important;
     }
+
+    #news-slider .owl-stage {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+}
+#news-slider .owl-item {
+    float: none; /* Prevent float left */
+}
 </style>
 <!-- <div aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -385,10 +393,13 @@
                                     @endforeach
                                 </div>
                             </div>
+                            @if(count($properties) > 1)
                             <div id="customNav">
-                                <!-- <button id="customPrev">Previous</button> -->
-                                <button id="customNext"><img src="{{ asset('images/icons/green-chevron.png') }}"></button>
+                                <button id="customNext">
+                                    <img src="{{ asset('images/icons/green-chevron.png') }}">
+                                </button>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -586,11 +597,13 @@
         //     }
         // });
 
+        var totalItems = {{ count($properties) }};
+
         var owl = $('#news-slider').owlCarousel({
-        loop: true,
+        loop: totalItems > 1,   
         margin: 10,
         nav: false,
-        autoplay: true,
+        autoplay: totalItems > 1, 
         autoplayHoverPause: true,
         responsive: {
             0: {
@@ -604,7 +617,7 @@
             }
         }
     });
-
+@if(count($properties) > 1)
         // Custom Next Button
         $('#customNext').click(function() {
             owl.trigger('next.owl.carousel');
@@ -615,6 +628,7 @@
             owl.trigger('prev.owl.carousel');
         });
     });
+    @endif
 </script>
 
 @include('includes.footer')

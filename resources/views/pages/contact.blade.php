@@ -54,7 +54,7 @@
                     </div>
 				</div>
                 <div class="col-lg-8 contact_col">
-                    <script type="text/javascript" src="https://form.jotform.com/jsform/243284560536358"></script>
+                    <div style="width:100%;height:500px;" data-fillout-id="qeY6tcv9wJus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div><script src="https://server.fillout.com/embed/v1/"></script>
                     {{-- <div class="contact_form_container">
                         <form action="{{url('send-contact-request')}}" class="contact_form text-center" method="post" id="contact_form">
                             {{csrf_field()}}

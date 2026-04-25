@@ -113,48 +113,10 @@
 
 <!-- Contact -->
 <div class="form-container">
-    <script type="text/javascript" src="https://form.jotform.com/jsform/243285002399054"></script>
-    {{-- <form method="POST" action="{{ route('property.valuation.submit') }}" class="property-valuation-form">
-        @csrf
-        <div>
-            <label for="valuationType">Valuation Type:</label><br>
-            <input type="radio" id="sales" name="valuation_type" value="Sales" checked> Sales
-            <input type="radio" id="rental" name="valuation_type" value="Rental"> Rental
-            <input type="radio" id="rental_sales" name="valuation_type" value="Rental & Sales"> Rental & Sales
-        </div>
-
-        <div>
-            <label for="propertyAddress">Property Address:</label>
-            <input type="text" id="propertyAddress" name="property_address" required>
-        </div>
-
-        <div>
-            <label for="propertyPostcode">Property Postcode:</label>
-            <input type="text" id="propertyPostcode" name="property_postcode" required>
-        </div>
-
-        <div>
-            <label for="fullName">Full Name:</label>
-            <input type="text" id="fullName" name="full_name" required>
-        </div>
-
-        <div>
-            <label for="emailAddress">Email Address:</label>
-            <input type="email" id="emailAddress" name="email_address" required>
-        </div>
-
-        <div>
-            <label for="contactNumber">Best Contact Number:</label>
-            <input type="text" id="contactNumber" name="contact_number" required>
-        </div>
-
-        <div>
-            <label for="propertyDetails">Tell us about your property:</label>
-            <textarea id="propertyDetails" name="property_details" required></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn">Submit</button>
-    </form> --}}
+    <iframe src="https://form.fillout.com/t/aQEigFYmCzus" 
+            style="width:100%; height:1500px; border:none; border-radius:8px;"
+            title="Book a Valuation">
+    </iframe>
 </div>
 
 @include('includes.footer')

@@ -1637,10 +1637,32 @@ $("#stamp_submit").click(function(e) {
                     <a href="{{ url('property/tenants') }}">Properties for rent</a>
                 </div>
                 <div class="all-properties d-flex justify-content-center align-items-center">
-                    <a
-                        href="javascript:void( window.open( 'https://form.jotform.com/243284776248064', 'blank', 'scrollbars=yes, toolbar=no, width=700, height=500' ) ) ">
-                        Book a valuation </a>
-                </div>
+    <a href="javascript:void(0)" onclick="openFillout()">
+        Book a valuation
+    </a>
+</div>
+
+<!-- Fillout renders a button here, we hide it visually -->
+<div style="position:absolute; opacity:0; pointer-events:none; z-index:-1;">
+    <div id="fillout_wrapper"
+         data-fillout-id="aQEigFYmCzus" 
+         data-fillout-embed-type="popup" 
+         data-fillout-dynamic-resize 
+         data-fillout-inherit-parameters 
+         data-fillout-popup-size="large">
+    </div>
+</div>
+<script src="https://server.fillout.com/embed/v1/"></script>
+
+<script>
+    function openFillout() {
+        // Fillout renders a button inside the wrapper, find and click it
+        var btn = document.querySelector('#fillout_wrapper button');
+        if (btn) {
+            btn.click();
+        }
+    }
+</script>
             </div>
             <!-- <form class="w-100 d-flex flex-column flex-lg-row pt-4">
                 <div class="enter-location">

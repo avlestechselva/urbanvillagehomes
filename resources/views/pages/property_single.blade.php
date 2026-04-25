@@ -168,8 +168,10 @@ body {
 
 .gallery-main img {
     width: 100%;
-    height: 400px;
-    object-fit: cover;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain; /* This preserves aspect ratio and shows full image */
+    background: #f8f9fa; /* Light background for letterboxing if needed */
 }
 
 .gallery-controls {
